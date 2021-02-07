@@ -9,7 +9,7 @@ public class DamageUI : MonoBehaviour
 
     public TextMeshProUGUI Text { get => m_Text; set => m_Text = value; }
 
-    private void Start()
+    private void Awake()
     {
         m_Text = GetComponentInChildren<TextMeshProUGUI>();
     }
