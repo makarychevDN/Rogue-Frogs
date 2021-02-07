@@ -12,6 +12,9 @@ public class Attackable : MonoBehaviour
     private ActionPointsContainer m_ActionPointsContainer;
     private PlayerInput m_PlayerInput;
 
+    private DamageUI m_DamageUI;
+    private RangeUI m_RangeUI;
+
     public BaseWeapon Weapon { get => m_Weapon; set => m_Weapon = value; }
 
     private void Start()
@@ -21,6 +24,11 @@ public class Attackable : MonoBehaviour
         m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
         m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
         m_PlayerInput = GetComponent<PlayerInput>();
+        m_DamageUI = GetComponentInChildren<DamageUI>();
+        m_RangeUI = GetComponentInChildren<RangeUI>();
+
+        m_DamageUI.SetValue(m_Weapon.Damage);
+        m_RangeUI.SetValue(m_Weapon.Range);
     }
 
     public bool CheckAttackIsPossible(Vector2Int input)

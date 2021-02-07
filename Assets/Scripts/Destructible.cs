@@ -7,10 +7,13 @@ public class Destructible : MonoBehaviour
     [SerializeField] private int m_MaxHP;
     [SerializeField] private int m_CurrentHP;
     private ActiveObjectsQueue m_ActiveObjectsQueue;
+    private HpUI m_HpUI;
 
     private void Start()
     {
         m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
+        m_HpUI = GetComponentInChildren<HpUI>();
+        m_HpUI.SetValue(CurrentHP);
     }
 
     public int MaxHP { get => m_MaxHP; set => m_MaxHP = value; }
@@ -20,6 +23,7 @@ public class Destructible : MonoBehaviour
         set
         {
             m_CurrentHP = Mathf.Clamp(value, 0, MaxHP);
+            m_HpUI.SetValue(CurrentHP);
 
             if (m_CurrentHP == 0)
             {

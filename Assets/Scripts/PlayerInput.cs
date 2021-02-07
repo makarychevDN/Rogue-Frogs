@@ -6,7 +6,7 @@ public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private Movable m_PlayerMovement;
     [SerializeField] private Attackable m_PlayerAttackModule;
-    [SerializeField] private ActiveObjectsQueue m_ActiveObjectQueue;
+    private ActiveObjectsQueue m_ActiveObjectQueue;
     [SerializeField] private bool m_CanInput;
 
     public bool CanInput { get => m_CanInput; set => m_CanInput = value; }
