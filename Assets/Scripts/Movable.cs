@@ -24,6 +24,8 @@ public class Movable : MonoBehaviour
     private float m_Speed;
     private float m_DistanceDelta = 0.005f;
 
+    private PlayerInput m_PlayerInput;
+
 
     private void Start()
     {
@@ -32,6 +34,7 @@ public class Movable : MonoBehaviour
         m_Map = FindObjectOfType<Map>();
         m_MapObject = GetComponent<MapObject>();
         m_CharacterStack = FindObjectOfType<ActiveObjectsQueue>();
+        m_PlayerInput = GetComponent<PlayerInput>();
     }
 
     void Update()
@@ -72,6 +75,9 @@ public class Movable : MonoBehaviour
                     m_MoveNow = true;
                     m_Speed = (m_NextPos - m_MapObject.Pos).magnitude / animTime;
                     m_CurrentTimer = 0;
+
+                    if (m_PlayerInput != null)
+                        m_PlayerInput.CanInput = false;
                 }
             }
         }

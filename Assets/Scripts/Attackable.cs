@@ -10,6 +10,7 @@ public class Attackable : MonoBehaviour
     private Map m_Map;
     private ActiveObjectsQueue m_CharactersStack;
     private ActionPointsContainer m_ActionPointsContainer;
+    private PlayerInput m_PlayerInput;
 
     public BaseWeapon Weapon { get => m_Weapon; set => m_Weapon = value; }
 
@@ -19,7 +20,7 @@ public class Attackable : MonoBehaviour
         m_MabObject = GetComponent<MapObject>();
         m_CharactersStack = FindObjectOfType<ActiveObjectsQueue>();
         m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
-
+        m_PlayerInput = GetComponent<PlayerInput>();
     }
 
     public bool CheckAttackIsPossible(Vector2Int input)
@@ -75,6 +76,7 @@ public class Attackable : MonoBehaviour
                 {
                     if (temp.GetComponent<Destructible>() != null)
                     {
+                        m_PlayerInput.CanInput = false;
                         m_ActionPointsContainer.CurrentPoints -= m_Weapon.ActionCost;
                         temp.GetComponent<Destructible>().CurrentHP -= m_Weapon.Damage;
 
@@ -86,7 +88,7 @@ public class Attackable : MonoBehaviour
                         {
                             m_CharactersStack.SkipTheTurn();
                         }
-                            
+                        break;
                     }
                 }
             }

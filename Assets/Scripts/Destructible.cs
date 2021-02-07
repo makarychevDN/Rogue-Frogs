@@ -23,7 +23,9 @@ public class Destructible : MonoBehaviour
 
             if (m_CurrentHP == 0)
             {
-                //m_CharactersStack.RemoveCharacterFromStack(GetComponent<MapObject>());
+                var temp = GetComponent<MapObject>();
+                m_CharactersStack.RemoveCharacterFromStack(temp);
+                FindObjectOfType<Map>().Cells[temp.Pos.x, temp.Pos.y] = null;
                 gameObject.SetActive(false);
             }
         }
