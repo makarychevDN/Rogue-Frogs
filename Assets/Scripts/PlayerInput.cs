@@ -6,6 +6,7 @@ public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private Movable m_PlayerMovement;
     [SerializeField] private Attackable m_PlayerAttackModule;
+    [SerializeField] private ActiveObjectsQueue m_ActiveObjectQueue;
     [SerializeField] private bool m_CanInput;
 
     public bool CanInput { get => m_CanInput; set => m_CanInput = value; }
@@ -54,11 +55,17 @@ public class PlayerInput : MonoBehaviour
             {
                 m_PlayerAttackModule.Attack(Vector2Int.right);
             }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                m_ActiveObjectQueue.SkipTheTurn();
+            }
         }
     }
 
     private void Start()
     {
         m_PlayerMovement = GetComponent<Movable>();
+        m_ActiveObjectQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 }
