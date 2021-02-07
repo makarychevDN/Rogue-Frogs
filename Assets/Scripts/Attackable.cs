@@ -8,7 +8,7 @@ public class Attackable : MonoBehaviour
 
     private MapObject m_MabObject;
     private Map m_Map;
-    private ActiveObjectsQueue m_CharactersStack;
+    private ActiveObjectsQueue m_ActiveObjectsQueue;
     private ActionPointsContainer m_ActionPointsContainer;
     private PlayerInput m_PlayerInput;
 
@@ -18,7 +18,7 @@ public class Attackable : MonoBehaviour
     {
         m_Map = FindObjectOfType<Map>();
         m_MabObject = GetComponent<MapObject>();
-        m_CharactersStack = FindObjectOfType<ActiveObjectsQueue>();
+        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
         m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
         m_PlayerInput = GetComponent<PlayerInput>();
     }
@@ -82,11 +82,11 @@ public class Attackable : MonoBehaviour
 
                         if (m_ActionPointsContainer.CurrentPoints != 0)
                         {
-                            m_CharactersStack.StartNextAction();
+                            m_ActiveObjectsQueue.StartNextAction();
                         }
                         else
                         {
-                            m_CharactersStack.SkipTheTurn();
+                            m_ActiveObjectsQueue.SkipTheTurn();
                         }
                         break;
                     }

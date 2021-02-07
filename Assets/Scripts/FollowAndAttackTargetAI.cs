@@ -9,7 +9,7 @@ public class FollowAndAttackTargetAI : BaseAI
 
     private Movable m_Movement;
     private Map m_Map;
-    private ActiveObjectsQueue m_charactersStack;
+    private ActiveObjectsQueue m_ActiveObjectsQueue;
     private List<Vector2Int> m_VerAndHorVectors;
 
     protected override void Start()
@@ -19,7 +19,7 @@ public class FollowAndAttackTargetAI : BaseAI
         m_MapObject = GetComponent<MapObject>();
 
         m_Map = FindObjectOfType<Map>();
-        m_charactersStack = FindObjectOfType<ActiveObjectsQueue>();
+        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
 
         m_VerAndHorVectors = new List<Vector2Int>();
         m_VerAndHorVectors.Add(Vector2Int.up);
@@ -42,7 +42,7 @@ public class FollowAndAttackTargetAI : BaseAI
             else
             {
                 print(transform.name + "Not enough action points to hit player");
-                m_charactersStack.SkipTheTurn();
+                m_ActiveObjectsQueue.SkipTheTurn();
             }
         }
         else

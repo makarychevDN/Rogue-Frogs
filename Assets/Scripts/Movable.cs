@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movable : MonoBehaviour
@@ -13,7 +11,7 @@ public class Movable : MonoBehaviour
     private ActionPointsContainer m_ActionPointsContainer;
     private MapObject m_MapObject;
     private Map m_Map;
-    private ActiveObjectsQueue m_CharacterStack;
+    private ActiveObjectsQueue m_ActiveObjectsQueue;
 
     private Vector2Int m_NextPos;
     private Vector2Int m_CurrentPos;
@@ -33,7 +31,7 @@ public class Movable : MonoBehaviour
         m_CurrentAnimType = m_DefaultAnimType;
         m_Map = FindObjectOfType<Map>();
         m_MapObject = GetComponent<MapObject>();
-        m_CharacterStack = FindObjectOfType<ActiveObjectsQueue>();
+        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
         m_PlayerInput = GetComponent<PlayerInput>();
     }
 
@@ -99,11 +97,11 @@ public class Movable : MonoBehaviour
 
         if (m_ActionPointsContainer.CurrentPoints != 0)
         {
-            m_CharacterStack.StartNextAction();
+            m_ActiveObjectsQueue.StartNextAction();
         }
         else
         {
-            m_CharacterStack.SkipTheTurn();
+            m_ActiveObjectsQueue.SkipTheTurn();
         }
     }
 

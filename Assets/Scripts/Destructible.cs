@@ -6,11 +6,11 @@ public class Destructible : MonoBehaviour
 {
     [SerializeField] private int m_MaxHP;
     [SerializeField] private int m_CurrentHP;
-    private ActiveObjectsQueue m_CharactersStack;
+    private ActiveObjectsQueue m_ActiveObjectsQueue;
 
     private void Start()
     {
-        m_CharactersStack = FindObjectOfType<ActiveObjectsQueue>();
+        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 
     public int MaxHP { get => m_MaxHP; set => m_MaxHP = value; }
@@ -24,7 +24,7 @@ public class Destructible : MonoBehaviour
             if (m_CurrentHP == 0)
             {
                 var temp = GetComponent<MapObject>();
-                m_CharactersStack.RemoveCharacterFromStack(temp);
+                m_ActiveObjectsQueue.RemoveCharacterFromStack(temp);
                 FindObjectOfType<Map>().Cells[temp.Pos.x, temp.Pos.y] = null;
                 gameObject.SetActive(false);
             }
