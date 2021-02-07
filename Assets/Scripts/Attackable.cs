@@ -5,12 +5,22 @@ using UnityEngine;
 public class Attackable : MonoBehaviour
 {
     [SerializeField] private BaseWeapon m_Weapon;
-    [SerializeField] private MapObject m_MabObject;
-    [SerializeField] private Map m_Map;
-    [SerializeField] private ActiveObjectsQueue m_CharactersStack;
-    [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
+
+    private MapObject m_MabObject;
+    private Map m_Map;
+    private ActiveObjectsQueue m_CharactersStack;
+    private ActionPointsContainer m_ActionPointsContainer;
 
     public BaseWeapon Weapon { get => m_Weapon; set => m_Weapon = value; }
+
+    private void Start()
+    {
+        m_Map = FindObjectOfType<Map>();
+        m_MabObject = GetComponent<MapObject>();
+        m_CharactersStack = FindObjectOfType<ActiveObjectsQueue>();
+        m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
+
+    }
 
     public bool CheckAttackIsPossible(Vector2Int input)
     {
@@ -56,7 +66,6 @@ public class Attackable : MonoBehaviour
         if (m_ActionPointsContainer.CurrentPoints >= m_Weapon.ActionCost)
         {
             MapObject temp;
-            m_ActionPointsContainer.CurrentPoints -= m_Weapon.ActionCost;
 
             for (int i = 0; i < m_Weapon.Range; i++)
             {
@@ -66,6 +75,7 @@ public class Attackable : MonoBehaviour
                 {
                     if (temp.GetComponent<Destructible>() != null)
                     {
+                        m_ActionPointsContainer.CurrentPoints -= m_Weapon.ActionCost;
                         temp.GetComponent<Destructible>().CurrentHP -= m_Weapon.Damage;
 
                         if (m_ActionPointsContainer.CurrentPoints != 0)

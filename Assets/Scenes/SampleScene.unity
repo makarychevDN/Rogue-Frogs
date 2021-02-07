@@ -2643,8 +2643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHP: 5
-  m_CurrentHP: 0
+  m_MaxHP: 10
+  m_CurrentHP: 10
 --- !u!114 &1116692657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2673,10 +2673,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Weapon: {fileID: 1116692657}
-  m_MabObject: {fileID: 1116692653}
-  m_Map: {fileID: 1827536816}
-  m_CharactersStack: {fileID: 2039386791}
-  m_ActionPointsContainer: {fileID: 1116692655}
 --- !u!1 &1116982386
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,6 +3479,8 @@ GameObject:
   - component: {fileID: 1544690809}
   - component: {fileID: 1544690810}
   - component: {fileID: 1544690811}
+  - component: {fileID: 1544690813}
+  - component: {fileID: 1544690812}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3547,6 +3545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerMovement: {fileID: 1544690806}
+  m_PlayerAttackModule: {fileID: 1544690813}
   m_CanInput: 1
 --- !u!114 &1544690810
 MonoBehaviour:
@@ -3560,9 +3559,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0570aaac9d2d25246ba5bf1b289e8000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxPoints: 3
-  m_CurrentPoints: 3
-  m_PointsRegenerationInTurn: 2
+  m_MaxPoints: 5
+  m_CurrentPoints: 5
+  m_PointsRegenerationInTurn: 5
 --- !u!114 &1544690811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3577,6 +3576,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHP: 10
   m_CurrentHP: 10
+--- !u!114 &1544690812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544690805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ff57c4fc3254246890578b6df4334e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 1
+  m_Range: 2
+  m_ActionCost: 1
+--- !u!114 &1544690813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544690805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Weapon: {fileID: 1544690812}
 --- !u!1 &1613256855
 GameObject:
   m_ObjectHideFlags: 0
@@ -4559,7 +4586,7 @@ GameObject:
   - component: {fileID: 2039386792}
   - component: {fileID: 2039386791}
   m_Layer: 0
-  m_Name: Characters Stack
+  m_Name: Active Objects Queue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
