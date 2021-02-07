@@ -57,8 +57,8 @@ public class ActiveObjectsQueue : MonoBehaviour
             m_QueueCount = 0;
         }
 
-        m_CurrentCharacter.GetComponent<ActionPointsContainer>().ResetPoints();
         m_CurrentCharacter = m_Characters[m_QueueCount];
+        m_CurrentCharacter.GetComponent<ActionPointsContainer>().ResetPoints();
 
         StartNextAction();
     }

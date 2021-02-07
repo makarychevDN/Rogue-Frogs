@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MapObject : MonoBehaviour
 {
-    [SerializeField] private Vector2Int pos;
+    private Vector2Int pos;
 
     public Vector2Int Pos { get => pos; set => pos = value; }
 

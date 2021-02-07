@@ -76,7 +76,11 @@ public class Attackable : MonoBehaviour
                 {
                     if (temp.GetComponent<Destructible>() != null)
                     {
-                        m_PlayerInput.CanInput = false;
+                        if(m_PlayerInput != null)
+                        {
+                            m_PlayerInput.CanInput = false;
+                        }
+
                         m_ActionPointsContainer.CurrentPoints -= m_Weapon.ActionCost;
                         temp.GetComponent<Destructible>().CurrentHP -= m_Weapon.Damage;
 
