@@ -36,22 +36,22 @@ public class PlayerInput : MonoBehaviour
             }
 
 
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) && m_PlayerAttackModule.CheckAttackIsPossible(Vector2Int.down))
             {
                 m_PlayerAttackModule.Attack(Vector2Int.down);
             }
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) && m_PlayerAttackModule.CheckAttackIsPossible(Vector2Int.up))
             {
                 m_PlayerAttackModule.Attack(Vector2Int.up);
             }
 
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) && m_PlayerAttackModule.CheckAttackIsPossible(Vector2Int.left))
             {
                 m_PlayerAttackModule.Attack(Vector2Int.left);
             }
 
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D) && m_PlayerAttackModule.CheckAttackIsPossible(Vector2Int.right))
             {
                 m_PlayerAttackModule.Attack(Vector2Int.right);
             }
