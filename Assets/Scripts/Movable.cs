@@ -6,14 +6,14 @@ using UnityEngine;
 public class Movable : MonoBehaviour
 {
     [SerializeField] private bool m_Pushable;
-    [SerializeField] private int m_StepCost;
+    [SerializeField] private int m_DefaultStepCost;
     [SerializeField] private float m_DefaultAnimTime;
     [SerializeField] private AnimType m_DefaultAnimType;
 
     private ActionPointsContainer m_ActionPointsContainer;
     private MapObject m_MapObject;
     private Map m_Map;
-    private CharactersStack m_CharacterStack;
+    private ActiveObjectsQueue m_CharacterStack;
 
     private Vector2Int m_NextPos;
     private Vector2Int m_CurrentPos;
@@ -31,7 +31,7 @@ public class Movable : MonoBehaviour
         m_CurrentAnimType = m_DefaultAnimType;
         m_Map = FindObjectOfType<Map>();
         m_MapObject = GetComponent<MapObject>();
-        m_CharacterStack = FindObjectOfType<CharactersStack>();
+        m_CharacterStack = FindObjectOfType<ActiveObjectsQueue>();
     }
 
     void Update()
@@ -57,15 +57,15 @@ public class Movable : MonoBehaviour
         }
     }
 
-    public void Move(Vector2Int input, AnimType animType, float animTime)
+    public void Move(Vector2Int input, AnimType animType, float animTime, int stepCost)
     {
         if (!m_MoveNow)
         {
-            if(m_ActionPointsContainer.CurrentPoints >= m_StepCost)
+            if(m_ActionPointsContainer.CurrentPoints >= stepCost)
             {
                 if (m_Map.GetMapObjectByVector(m_MapObject.Pos + input) == null)
                 {
-                    m_ActionPointsContainer.CurrentPoints -= m_StepCost;
+                    m_ActionPointsContainer.CurrentPoints -= stepCost;
                     m_CurrentAnimType = animType;
                     m_CurrentPos = m_MapObject.Pos;
                     m_NextPos = m_CurrentPos + input;
@@ -79,7 +79,7 @@ public class Movable : MonoBehaviour
 
     public void Move(Vector2Int input)
     {
-        Move(input, m_DefaultAnimType, m_DefaultAnimTime);
+        Move(input, m_DefaultAnimType, m_DefaultAnimTime, m_DefaultStepCost);
     }
 
     public void StopMovement()
@@ -90,7 +90,15 @@ public class Movable : MonoBehaviour
         m_Map.Cells[m_MapObject.Pos.x, m_MapObject.Pos.y] = null;
         m_MapObject.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
         m_Map.Cells[m_MapObject.Pos.x, m_MapObject.Pos.y] = m_MapObject;
-        m_CharacterStack.GiveTurnToNext(m_ActionPointsContainer.CurrentPoints);
+
+        if (m_ActionPointsContainer.CurrentPoints != 0)
+        {
+            m_CharacterStack.StartNextAction();
+        }
+        else
+        {
+            m_CharacterStack.SkipTheTurn();
+        }
     }
 
     public float CosLerpFunc(float timer, float speed)

@@ -6,11 +6,11 @@ public class Destructible : MonoBehaviour
 {
     [SerializeField] private int m_MaxHP;
     [SerializeField] private int m_CurrentHP;
-    private CharactersStack m_CharactersStack;
+    private ActiveObjectsQueue m_CharactersStack;
 
     private void Start()
     {
-        m_CharactersStack = FindObjectOfType<CharactersStack>();
+        m_CharactersStack = FindObjectOfType<ActiveObjectsQueue>();
     }
 
     public int MaxHP { get => m_MaxHP; set => m_MaxHP = value; }

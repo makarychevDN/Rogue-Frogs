@@ -8,7 +8,7 @@ public class FollowTargetAI : BaseAI
 
     private Movable m_Movement;
     private Map m_Map;
-    private CharactersStack m_charactersStack;
+    private ActiveObjectsQueue m_charactersStack;
     private List<Vector2Int> m_VerAndHorVectors;
 
     private void Start()
@@ -17,7 +17,7 @@ public class FollowTargetAI : BaseAI
         m_MapObject = GetComponent<MapObject>();
 
         m_Map = FindObjectOfType<Map>();
-        m_charactersStack = FindObjectOfType<CharactersStack>();
+        m_charactersStack = FindObjectOfType<ActiveObjectsQueue>();
 
         m_VerAndHorVectors = new List<Vector2Int>();
         m_VerAndHorVectors.Add(Vector2Int.up);
@@ -33,7 +33,7 @@ public class FollowTargetAI : BaseAI
 
         if(m_Map.GetMapObjectByVector(m_MapObject.Pos + closestPointToPlayer) == m_Target)
         {
-            m_charactersStack.GiveTurnToNext(1);
+            m_charactersStack.SkipTheTurn();
         }
         else
         {

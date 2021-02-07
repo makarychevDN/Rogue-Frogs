@@ -6,7 +6,7 @@ public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private Movable m_PlayerMovement;
     [SerializeField] private bool m_CanInput;
-    private CharactersStack m_CharactersStack;
+    private ActiveObjectsQueue m_CharactersStack;
 
     public bool CanInput { get => m_CanInput; set => m_CanInput = value; }
 
@@ -39,6 +39,6 @@ public class PlayerInput : MonoBehaviour
     private void Start()
     {
         m_PlayerMovement = GetComponent<Movable>();
-        m_CharactersStack = FindObjectOfType<CharactersStack>();
+        m_CharactersStack = FindObjectOfType<ActiveObjectsQueue>();
     }
 }

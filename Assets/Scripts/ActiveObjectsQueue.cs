@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharactersStack : MonoBehaviour
+public class ActiveObjectsQueue : MonoBehaviour
 {
     [SerializeField] private List<MapObject> m_Characters;
     [SerializeField] private MapObject m_CurrentCharacter;
@@ -26,26 +26,8 @@ public class CharactersStack : MonoBehaviour
         }
     }
 
-    public void GiveTurnToNext(int count)
+    public void StartNextAction()
     {
-        if(count == 0)
-        {
-            if (m_CurrentCharacter.GetComponent<PlayerInput>() != null)
-            {
-                m_CurrentCharacter.GetComponent<PlayerInput>().CanInput = false;
-            }
-
-            m_QueueCount++;
-
-            if (m_QueueCount >= m_Characters.Count)
-            {
-                m_QueueCount = 0;
-            }
-
-            m_CurrentCharacter.GetComponent<ActionPointsContainer>().ResetPoints();
-            m_CurrentCharacter = m_Characters[m_QueueCount];
-        }
-
         if (m_CurrentCharacter.GetComponent<PlayerInput>() != null)
         {
             m_CurrentCharacter.GetComponent<PlayerInput>().CanInput = true;
@@ -63,6 +45,21 @@ public class CharactersStack : MonoBehaviour
 
     public void SkipTheTurn()
     {
-        GiveTurnToNext(0);
+        if (m_CurrentCharacter.GetComponent<PlayerInput>() != null)
+        {
+            m_CurrentCharacter.GetComponent<PlayerInput>().CanInput = false;
+        }
+
+        m_QueueCount++;
+
+        if (m_QueueCount >= m_Characters.Count)
+        {
+            m_QueueCount = 0;
+        }
+
+        m_CurrentCharacter.GetComponent<ActionPointsContainer>().ResetPoints();
+        m_CurrentCharacter = m_Characters[m_QueueCount];
+
+        StartNextAction();
     }
 }

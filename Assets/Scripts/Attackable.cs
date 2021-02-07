@@ -7,7 +7,7 @@ public class Attackable : MonoBehaviour
     [SerializeField] private BaseWeapon m_Weapon;
     [SerializeField] private MapObject m_MabObject;
     [SerializeField] private Map m_Map;
-    [SerializeField] private CharactersStack m_CharactersStack;
+    [SerializeField] private ActiveObjectsQueue m_CharactersStack;
     [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
 
     public BaseWeapon Weapon { get => m_Weapon; set => m_Weapon = value; }
@@ -67,7 +67,16 @@ public class Attackable : MonoBehaviour
                     if (temp.GetComponent<Destructible>() != null)
                     {
                         temp.GetComponent<Destructible>().CurrentHP -= m_Weapon.Damage;
-                        m_CharactersStack.GiveTurnToNext(m_ActionPointsContainer.CurrentPoints);
+
+                        if (m_ActionPointsContainer.CurrentPoints != 0)
+                        {
+                            m_CharactersStack.StartNextAction();
+                        }
+                        else
+                        {
+                            m_CharactersStack.SkipTheTurn();
+                        }
+                            
                     }
                 }
             }

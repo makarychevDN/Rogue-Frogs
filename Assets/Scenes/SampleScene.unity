@@ -2585,7 +2585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Pushable: 0
-  m_StepCost: 1
+  m_DefaultStepCost: 1
   m_DefaultAnimTime: 0.35
   m_DefaultAnimType: 1
 --- !u!114 &1116692653
@@ -3185,7 +3185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Pushable: 0
-  m_StepCost: 1
+  m_DefaultStepCost: 0
   m_DefaultAnimTime: 0.35
   m_DefaultAnimType: 1
 --- !u!114 &1485250375
@@ -3503,7 +3503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Pushable: 0
-  m_StepCost: 1
+  m_DefaultStepCost: 1
   m_DefaultAnimTime: 0.35
   m_DefaultAnimType: 1
 --- !u!114 &1544690807
