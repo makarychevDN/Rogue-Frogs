@@ -7,7 +7,9 @@ public class ActionPointsContainer : MonoBehaviour
     [SerializeField] private int m_MaxPoints;
     [SerializeField] private int m_CurrentPoints;
     [SerializeField] private int m_PointsRegenerationInTurn;
-    private ActionPointsUI m_PointsVisualisation;
+
+    [Header("Setup")]
+    [SerializeField] private ActionPointsUI m_PointsVisualisation;
 
     public int MaxPoints { get => m_MaxPoints; set => m_MaxPoints = value; }
     public int CurrentPoints 
@@ -20,7 +22,7 @@ public class ActionPointsContainer : MonoBehaviour
         } 
     }
 
-    private void Start()
+    private void Reset()
     {
         m_PointsVisualisation = GetComponentInChildren<ActionPointsUI>();
     }

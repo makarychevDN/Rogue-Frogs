@@ -13,9 +13,4 @@ public class MapObject : MonoBehaviour
     {
         pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
     }
-
-    private void Reset()
-    {
-        pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
-    }
 }

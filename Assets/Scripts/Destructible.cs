@@ -6,13 +6,18 @@ public class Destructible : MonoBehaviour
 {
     [SerializeField] private int m_MaxHP;
     [SerializeField] private int m_CurrentHP;
-    private ActiveObjectsQueue m_ActiveObjectsQueue;
-    private HpUI m_HpUI;
+    [Header("Setup")]
+    [SerializeField] ActiveObjectsQueue m_ActiveObjectsQueue;
+    [SerializeField] HpUI m_HpUI;
 
-    private void Start()
+    private void Reset()
     {
         m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
         m_HpUI = GetComponentInChildren<HpUI>();
+    }
+
+    private void Start()
+    {
         m_HpUI.SetValue(CurrentHP);
     }
 

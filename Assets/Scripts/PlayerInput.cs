@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [Header("Setup")]
     [SerializeField] private Movable m_PlayerMovement;
     [SerializeField] private Attackable m_PlayerAttackModule;
-    private ActiveObjectsQueue m_ActiveObjectQueue;
-    [SerializeField] private bool m_CanInput;
+    [SerializeField] private ActiveObjectsQueue m_ActiveObjectQueue;
+    private bool m_CanInput;
 
     public bool CanInput { get => m_CanInput; set => m_CanInput = value; }
 
@@ -63,9 +64,10 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Reset()
     {
         m_PlayerMovement = GetComponent<Movable>();
+        m_PlayerAttackModule = GetComponent<Attackable>();
         m_ActiveObjectQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 }

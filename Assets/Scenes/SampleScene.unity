@@ -1808,8 +1808,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHP: 8
-  m_CurrentHP: 8
+  m_MaxHP: 6
+  m_CurrentHP: 6
+  m_ActiveObjectsQueue: {fileID: 2039386791}
+  m_HpUI: {fileID: 228589239}
 --- !u!114 &560888909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1824,7 +1826,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxPoints: 3
   m_CurrentPoints: 3
-  m_PointsRegenerationInTurn: 3
+  m_PointsRegenerationInTurn: 2
+  m_PointsVisualisation: {fileID: 1962855550}
 --- !u!114 &560888910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3766,6 +3769,7 @@ MonoBehaviour:
   m_MaxPoints: 2
   m_CurrentPoints: 2
   m_PointsRegenerationInTurn: 2
+  m_PointsVisualisation: {fileID: 1853607292}
 --- !u!114 &1116692656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3778,8 +3782,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHP: 6
-  m_CurrentHP: 6
+  m_MaxHP: 5
+  m_CurrentHP: 5
+  m_ActiveObjectsQueue: {fileID: 2039386791}
+  m_HpUI: {fileID: 1178346647}
 --- !u!114 &1116692657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5268,7 +5274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerMovement: {fileID: 1544690806}
   m_PlayerAttackModule: {fileID: 1544690813}
-  m_CanInput: 1
+  m_ActiveObjectQueue: {fileID: 2039386791}
 --- !u!114 &1544690810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5284,6 +5290,7 @@ MonoBehaviour:
   m_MaxPoints: 3
   m_CurrentPoints: 3
   m_PointsRegenerationInTurn: 2
+  m_PointsVisualisation: {fileID: 1115874571}
 --- !u!114 &1544690811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5298,6 +5305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHP: 10
   m_CurrentHP: 10
+  m_ActiveObjectsQueue: {fileID: 2039386791}
+  m_HpUI: {fileID: 793618861}
 --- !u!114 &1544690812
 MonoBehaviour:
   m_ObjectHideFlags: 0
