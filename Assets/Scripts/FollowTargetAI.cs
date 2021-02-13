@@ -16,6 +16,7 @@ public class FollowTargetAI : BaseAI
 
     private void Reset()
     {
+        m_Target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
         m_ThisMapObject = GetComponent<MapObject>();
         m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
         m_Movement = GetComponent<Movable>();

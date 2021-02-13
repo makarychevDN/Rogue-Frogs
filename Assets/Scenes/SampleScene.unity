@@ -1802,8 +1802,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9b84fd0373d924cacaf3398311af8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ThisMapObject: {fileID: 560888911}
   m_Target: {fileID: 1544690807}
   m_Attackable: {fileID: 560888906}
+  m_ActionPointsContainer: {fileID: 560888909}
+  m_Movement: {fileID: 560888910}
+  m_Map: {fileID: 1827536816}
+  m_ActiveObjectsQueue: {fileID: 2039386791}
 --- !u!114 &560888908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3726,8 +3731,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9b84fd0373d924cacaf3398311af8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ThisMapObject: {fileID: 1116692653}
   m_Target: {fileID: 1544690807}
   m_Attackable: {fileID: 1116692658}
+  m_ActionPointsContainer: {fileID: 1116692655}
+  m_Movement: {fileID: 1116692652}
+  m_Map: {fileID: 1827536816}
+  m_ActiveObjectsQueue: {fileID: 2039386791}
 --- !u!114 &1116692652
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class FollowAndAttackTargetAI : BaseAI
 
     private void Reset()
     {
+        m_Target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
         m_ThisMapObject = GetComponent<MapObject>();
         m_Attackable = GetComponent<Attackable>();
         m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
