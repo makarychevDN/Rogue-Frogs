@@ -17,6 +17,7 @@ public class ActiveObjectsQueue : MonoBehaviour
             if (item.GetComponent<PlayerInput>() != null)
             {
                 m_Characters.Insert(0, item.GetComponent<MapObject>());
+                item.GetComponent<PlayerInput>().CanInput = true;
             }
 
             else

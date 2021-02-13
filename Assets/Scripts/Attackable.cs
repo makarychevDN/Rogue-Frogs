@@ -6,18 +6,18 @@ public class Attackable : MonoBehaviour
 {
     [SerializeField] private BaseWeapon m_Weapon;
 
-    private MapObject m_MabObject;
-    private Map m_Map;
-    private ActiveObjectsQueue m_ActiveObjectsQueue;
-    private ActionPointsContainer m_ActionPointsContainer;
-    private PlayerInput m_PlayerInput;
-
-    private DamageUI m_DamageUI;
-    private RangeUI m_RangeUI;
+    [Header("Setup")]
+    [SerializeField] private MapObject m_MabObject;
+    [SerializeField] private Map m_Map;
+    [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
+    [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
+    [SerializeField] private PlayerInput m_PlayerInput;
+    [SerializeField] private DamageUI m_DamageUI;
+    [SerializeField] private RangeUI m_RangeUI;
 
     public BaseWeapon Weapon { get => m_Weapon; set => m_Weapon = value; }
 
-    private void Start()
+    private void Reset()
     {
         m_Map = FindObjectOfType<Map>();
         m_MabObject = GetComponent<MapObject>();
@@ -26,7 +26,10 @@ public class Attackable : MonoBehaviour
         m_PlayerInput = GetComponent<PlayerInput>();
         m_DamageUI = GetComponentInChildren<DamageUI>();
         m_RangeUI = GetComponentInChildren<RangeUI>();
+    }
 
+    private void Start()
+    {
         m_DamageUI.SetValue(m_Weapon.Damage);
         m_RangeUI.SetValue(m_Weapon.Range);
     }

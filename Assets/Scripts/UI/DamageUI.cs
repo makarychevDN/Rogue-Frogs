@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class DamageUI : MonoBehaviour
 {
-    private TextMeshProUGUI m_Text;
+    [SerializeField] private TextMeshProUGUI m_Text;
 
     public TextMeshProUGUI Text { get => m_Text; set => m_Text = value; }
 
-    private void Awake()
+    private void Reset()
     {
         m_Text = GetComponentInChildren<TextMeshProUGUI>();
     }

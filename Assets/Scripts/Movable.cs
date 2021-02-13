@@ -8,10 +8,14 @@ public class Movable : MonoBehaviour
     [SerializeField] private float m_DefaultAnimTime;
     [SerializeField] private AnimType m_DefaultAnimType;
 
-    private ActionPointsContainer m_ActionPointsContainer;
-    private MapObject m_MapObject;
-    private Map m_Map;
-    private ActiveObjectsQueue m_ActiveObjectsQueue;
+    [Header("Setup")]
+    [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
+    [SerializeField] private MapObject m_MapObject;
+    [SerializeField] private Map m_Map;
+    [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
+
+    [Header("Player Setup")]
+    [SerializeField] private PlayerInput m_PlayerInput;
 
     private Vector2Int m_NextPos;
     private Vector2Int m_CurrentPos;
@@ -22,17 +26,19 @@ public class Movable : MonoBehaviour
     private float m_Speed;
     private float m_DistanceDelta = 0.005f;
 
-    private PlayerInput m_PlayerInput;
 
-
-    private void Start()
+    private void Reset()
     {
         m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
-        m_CurrentAnimType = m_DefaultAnimType;
         m_Map = FindObjectOfType<Map>();
         m_MapObject = GetComponent<MapObject>();
         m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
         m_PlayerInput = GetComponent<PlayerInput>();
+    }
+
+    private void Start()
+    {
+        m_CurrentAnimType = m_DefaultAnimType;
     }
 
     void Update()
