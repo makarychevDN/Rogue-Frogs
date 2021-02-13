@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class FollowAndAttackTargetAI : BaseAI
 {
+    [Header("Setup")]
+    [SerializeField] private MapObject m_ThisMapObject;
     [SerializeField] private MapObject m_Target;
     [SerializeField] private Attackable m_Attackable;
+    [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
+    [SerializeField] private Movable m_Movement;
+    [SerializeField] private Map m_Map;
+    [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
 
-    private Movable m_Movement;
-    private Map m_Map;
-    private ActiveObjectsQueue m_ActiveObjectsQueue;
     private List<Vector2Int> m_VerAndHorVectors;
 
-    protected override void Start()
+    private void Reset()
     {
-        base.Start();
+        m_ThisMapObject = GetComponent<MapObject>();
+        m_Attackable = GetComponent<Attackable>();
+        m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
         m_Movement = GetComponent<Movable>();
-        m_MapObject = GetComponent<MapObject>();
-
         m_Map = FindObjectOfType<Map>();
         m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
+    }
 
+    private void Start()
+    {
         m_VerAndHorVectors = new List<Vector2Int>();
         m_VerAndHorVectors.Add(Vector2Int.up);
         m_VerAndHorVectors.Add(Vector2Int.left);
@@ -30,10 +36,9 @@ public class FollowAndAttackTargetAI : BaseAI
 
     public override void DoSomething()
     {
-        base.DoSomething();
         Vector2Int closestPointToPlayer = FindClosestPointToPlayer();
 
-        if (m_Map.GetMapObjectByVector(m_MapObject.Pos + closestPointToPlayer) == m_Target)
+        if (m_Map.GetMapObjectByVector(m_ThisMapObject.Pos + closestPointToPlayer) == m_Target)
         {
             if(m_ActionPointsContainer.CurrentPoints >= m_Attackable.Weapon.ActionCost)
             {
@@ -58,11 +63,11 @@ public class FollowAndAttackTargetAI : BaseAI
 
         foreach (var item in m_VerAndHorVectors)
         {
-            temp = m_Map.Cells[(m_MapObject.Pos + item).x, (m_MapObject.Pos + item).y];
+            temp = m_Map.Cells[(m_ThisMapObject.Pos + item).x, (m_ThisMapObject.Pos + item).y];
 
             if (temp == null || temp == m_Target)
             {
-                if ((m_Target.Pos - (m_MapObject.Pos + item)).magnitude < (m_Target.Pos - (m_MapObject.Pos + closestPoint)).magnitude)
+                if ((m_Target.Pos - (m_ThisMapObject.Pos + item)).magnitude < (m_Target.Pos - (m_ThisMapObject.Pos + closestPoint)).magnitude)
                 {
                     closestPoint = item;
                 }
