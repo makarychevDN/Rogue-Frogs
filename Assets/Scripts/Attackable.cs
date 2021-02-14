@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Attackable : MonoBehaviour
 {
-    [SerializeField] private BaseWeapon m_Weapon;
+    [Header("Characteristics")]
+    [SerializeField] private int m_Damage;
+    [SerializeField] private int m_Range;
+    [SerializeField] private int m_ActionCost;
 
     [Header("Setup")]
     [SerializeField] private MapObject m_MabObject;
@@ -15,7 +18,7 @@ public class Attackable : MonoBehaviour
     [SerializeField] private DamageUI m_DamageUI;
     [SerializeField] private RangeUI m_RangeUI;
 
-    public BaseWeapon Weapon { get => m_Weapon; set => m_Weapon = value; }
+    public int ActionCost { get => m_ActionCost; set => m_ActionCost = value; }
 
     private void Reset()
     {
@@ -30,17 +33,17 @@ public class Attackable : MonoBehaviour
 
     private void Start()
     {
-        m_DamageUI.SetValue(m_Weapon.Damage);
-        m_RangeUI.SetValue(m_Weapon.Range);
+        m_DamageUI.SetValue(m_Damage);
+        m_RangeUI.SetValue(m_Range);
     }
 
     public bool CheckAttackIsPossible(Vector2Int input)
     {
-        if (m_ActionPointsContainer.CurrentPoints >= m_Weapon.ActionCost)
+        if (m_ActionPointsContainer.CurrentPoints >= m_ActionCost)
         {
             MapObject temp;
 
-            for(int i = 0; i < m_Weapon.Range; i++)
+            for(int i = 0; i < m_Range; i++)
             {
                 temp = m_Map.GetMapObjectByVector(m_MabObject.Pos + input * (i + 1));
 
@@ -56,11 +59,11 @@ public class Attackable : MonoBehaviour
 
     public bool CheckAttackTargetIsPossible(Vector2Int input, Destructible target)
     {
-        if (m_ActionPointsContainer.CurrentPoints >= m_Weapon.ActionCost)
+        if (m_ActionPointsContainer.CurrentPoints >= m_ActionCost)
         {
             MapObject temp;
 
-            for (int i = 0; i < m_Weapon.Range; i++)
+            for (int i = 0; i < m_Range; i++)
             {
                 temp = m_Map.GetMapObjectByVector(m_MabObject.Pos + input * (i + 1));
 
@@ -75,11 +78,11 @@ public class Attackable : MonoBehaviour
 
     public void Attack(Vector2Int input)
     {
-        if (m_ActionPointsContainer.CurrentPoints >= m_Weapon.ActionCost)
+        if (m_ActionPointsContainer.CurrentPoints >= m_ActionCost)
         {
             MapObject temp;
 
-            for (int i = 0; i < m_Weapon.Range; i++)
+            for (int i = 0; i < m_Range; i++)
             {
                 temp = m_Map.GetMapObjectByVector(m_MabObject.Pos + input * (i + 1));
 
@@ -92,8 +95,8 @@ public class Attackable : MonoBehaviour
                             m_PlayerInput.CanInput = false;
                         }
 
-                        m_ActionPointsContainer.CurrentPoints -= m_Weapon.ActionCost;
-                        temp.GetComponent<Destructible>().CurrentHP -= m_Weapon.Damage;
+                        m_ActionPointsContainer.CurrentPoints -= m_ActionCost;
+                        temp.GetComponent<Destructible>().CurrentHP -= m_Damage;
 
                         if (m_ActionPointsContainer.CurrentPoints != 0)
                         {

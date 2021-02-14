@@ -1747,7 +1747,6 @@ GameObject:
   - component: {fileID: 560888908}
   - component: {fileID: 560888907}
   - component: {fileID: 560888906}
-  - component: {fileID: 560888905}
   m_Layer: 0
   m_Name: Toad Enemy
   m_TagString: Untagged
@@ -1755,21 +1754,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &560888905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560888904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff57c4fc3254246890578b6df4334e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Damage: 3
-  m_Range: 1
-  m_ActionCost: 2
 --- !u!114 &560888906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1782,7 +1766,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weapon: {fileID: 560888905}
+  m_Damage: 3
+  m_Range: 1
+  m_ActionCost: 2
   m_MabObject: {fileID: 560888911}
   m_Map: {fileID: 1827536816}
   m_ActiveObjectsQueue: {fileID: 2039386791}
@@ -3711,7 +3697,6 @@ GameObject:
   - component: {fileID: 1116692656}
   - component: {fileID: 1116692651}
   - component: {fileID: 1116692658}
-  - component: {fileID: 1116692657}
   m_Layer: 0
   m_Name: Snake Enemy
   m_TagString: Untagged
@@ -3818,21 +3803,6 @@ MonoBehaviour:
   m_CurrentHP: 5
   m_ActiveObjectsQueue: {fileID: 2039386791}
   m_HpUI: {fileID: 1178346647}
---- !u!114 &1116692657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116692650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff57c4fc3254246890578b6df4334e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Damage: 1
-  m_Range: 2
-  m_ActionCost: 2
 --- !u!114 &1116692658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3845,7 +3815,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weapon: {fileID: 1116692657}
+  m_Damage: 1
+  m_Range: 2
+  m_ActionCost: 2
   m_MabObject: {fileID: 1116692653}
   m_Map: {fileID: 1827536816}
   m_ActiveObjectsQueue: {fileID: 2039386791}
@@ -5250,7 +5222,6 @@ GameObject:
   - component: {fileID: 1544690810}
   - component: {fileID: 1544690811}
   - component: {fileID: 1544690813}
-  - component: {fileID: 1544690812}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5353,21 +5324,6 @@ MonoBehaviour:
   m_CurrentHP: 10
   m_ActiveObjectsQueue: {fileID: 2039386791}
   m_HpUI: {fileID: 793618861}
---- !u!114 &1544690812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544690805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ff57c4fc3254246890578b6df4334e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Damage: 2
-  m_Range: 3
-  m_ActionCost: 1
 --- !u!114 &1544690813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5380,7 +5336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weapon: {fileID: 1544690812}
+  m_Damage: 2
+  m_Range: 3
+  m_ActionCost: 1
   m_MabObject: {fileID: 1544690807}
   m_Map: {fileID: 1827536816}
   m_ActiveObjectsQueue: {fileID: 2039386791}

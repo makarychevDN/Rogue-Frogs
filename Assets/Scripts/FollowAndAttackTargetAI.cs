@@ -41,7 +41,7 @@ public class FollowAndAttackTargetAI : BaseAI
 
         if (m_Map.GetMapObjectByVector(m_ThisMapObject.Pos + closestPointToPlayer) == m_Target)
         {
-            if(m_ActionPointsContainer.CurrentPoints >= m_Attackable.Weapon.ActionCost)
+            if(m_ActionPointsContainer.CurrentPoints >= m_Attackable.ActionCost)
             {
                 m_Attackable.Attack(closestPointToPlayer);
             }

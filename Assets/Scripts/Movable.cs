@@ -22,7 +22,7 @@ public class Movable : MonoBehaviour
 
     private AnimType m_CurrentAnimType;
     private bool m_MoveNow;
-    private float m_CurrentTimer;
+    private float m_AnimationTimer;
     private float m_Speed;
     private float m_DistanceDelta = 0.005f;
 
@@ -47,11 +47,11 @@ public class Movable : MonoBehaviour
         {
             if (m_CurrentAnimType == AnimType.linear)
             {
-                transform.position = Vector2.Lerp(m_CurrentPos, m_NextPos, m_Speed * m_CurrentTimer);
+                transform.position = Vector2.Lerp(m_CurrentPos, m_NextPos, m_Speed * m_AnimationTimer);
             }
             else
             {
-                transform.position = Vector2.Lerp(m_CurrentPos, m_NextPos, CosLerpFunc(m_CurrentTimer, m_Speed));
+                transform.position = Vector2.Lerp(m_CurrentPos, m_NextPos, CosLerpFunc(m_AnimationTimer, m_Speed));
             }
 
             if ((transform.position - new Vector3(m_NextPos.x, m_NextPos.y)).magnitude < m_DistanceDelta)
@@ -59,7 +59,7 @@ public class Movable : MonoBehaviour
                 StopMovement();
             }
 
-            m_CurrentTimer += Time.deltaTime;
+            m_AnimationTimer += Time.deltaTime;
 
         }
     }
@@ -78,7 +78,7 @@ public class Movable : MonoBehaviour
                     m_NextPos = m_CurrentPos + input;
                     m_MoveNow = true;
                     m_Speed = (m_NextPos - m_MapObject.Pos).magnitude / animTime;
-                    m_CurrentTimer = 0;
+                    m_AnimationTimer = 0;
 
                     if (m_PlayerInput != null)
                         m_PlayerInput.CanInput = false;
