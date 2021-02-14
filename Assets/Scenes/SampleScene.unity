@@ -5612,7 +5612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damage: 2
-  m_Range: 3
+  m_Range: 1
   m_ActionCost: 1
   m_AttackAnimationObjects:
   - {fileID: 691814663}
