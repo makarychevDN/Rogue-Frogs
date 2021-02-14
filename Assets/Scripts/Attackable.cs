@@ -9,6 +9,10 @@ public class Attackable : MonoBehaviour
     [SerializeField] private int m_Range;
     [SerializeField] private int m_ActionCost;
 
+    [Header("Animation")]
+    [SerializeField] private List<GameObject> m_AttackAnimationObjects;
+    [SerializeField] private float m_AnimationTime;
+
     [Header("Setup")]
     [SerializeField] private MapObject m_MabObject;
     [SerializeField] private Map m_Map;
@@ -18,6 +22,7 @@ public class Attackable : MonoBehaviour
     [SerializeField] private DamageUI m_DamageUI;
     [SerializeField] private RangeUI m_RangeUI;
 
+    private Destructible m_CurrentDestructible;
     public int ActionCost { get => m_ActionCost; set => m_ActionCost = value; }
 
     private void Reset()
@@ -90,26 +95,47 @@ public class Attackable : MonoBehaviour
                 {
                     if (temp.GetComponent<Destructible>() != null)
                     {
-                        if(m_PlayerInput != null)
+                        if (m_PlayerInput != null)
                         {
                             m_PlayerInput.CanInput = false;
                         }
 
+                        m_CurrentDestructible = temp.GetComponent<Destructible>();
                         m_ActionPointsContainer.CurrentPoints -= m_ActionCost;
-                        temp.GetComponent<Destructible>().CurrentHP -= m_Damage;
 
-                        if (m_ActionPointsContainer.CurrentPoints != 0)
+                        StartCoroutine(DealDamage(m_AnimationTime));
+
+                        foreach (var item in m_AttackAnimationObjects)
                         {
-                            m_ActiveObjectsQueue.StartNextAction();
+                            item.SetActive(true);
                         }
-                        else
-                        {
-                            m_ActiveObjectsQueue.SkipTheTurn();
-                        }
+
                         break;
                     }
                 }
             }
         }
+    }
+
+    private IEnumerator DealDamage(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        m_CurrentDestructible.GetComponent<Destructible>().CurrentHP -= m_Damage;
+
+        foreach (var item in m_AttackAnimationObjects)
+        {
+            item.SetActive(false);
+        }
+
+        if (m_ActionPointsContainer.CurrentPoints != 0)
+        {
+            m_ActiveObjectsQueue.StartNextAction();
+        }
+        else
+        {
+            m_ActiveObjectsQueue.SkipTheTurn();
+        }
+
     }
 }
