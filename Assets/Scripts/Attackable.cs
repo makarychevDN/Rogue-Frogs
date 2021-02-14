@@ -108,6 +108,7 @@ public class Attackable : MonoBehaviour
                         foreach (var item in m_AttackAnimationObjects)
                         {
                             item.SetActive(true);
+                            item.transform.LookAt2D(Vector2.right, temp.Pos);
                         }
 
                         break;
