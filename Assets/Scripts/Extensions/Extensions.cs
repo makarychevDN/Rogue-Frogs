@@ -21,6 +21,11 @@ static class Extensions
             dir = -1;
         }
 
+        if(angle == 180)
+        {
+            me.rotation *= Quaternion.AngleAxis(180, Vector3.right);
+        }
+
         me.rotation *= Quaternion.AngleAxis(angle * dir, Vector3.forward);
     }
 
