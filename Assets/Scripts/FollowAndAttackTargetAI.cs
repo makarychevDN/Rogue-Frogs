@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowAndAttackTargetAI : BaseAI
 {
     [Header("Setup")]
+    [Range(0,1)] [SerializeField] private float m_ActionDelay;
     [SerializeField] private MapObject m_ThisMapObject;
     [SerializeField] private MapObject m_Target;
     [SerializeField] private Attackable m_Attackable;
@@ -37,11 +38,18 @@ public class FollowAndAttackTargetAI : BaseAI
 
     public override void DoSomething()
     {
+        StartCoroutine(DoSomethingCorutine());
+    }
+
+    public IEnumerator DoSomethingCorutine()
+    {
+        yield return new WaitForSeconds(m_ActionDelay);
+
         Vector2Int closestPointToPlayer = FindClosestPointToPlayer();
 
         if (m_Map.GetMapObjectByVector(m_ThisMapObject.Pos + closestPointToPlayer) == m_Target)
         {
-            if(m_ActionPointsContainer.CurrentPoints >= m_Attackable.ActionCost)
+            if (m_ActionPointsContainer.CurrentPoints >= m_Attackable.ActionCost)
             {
                 m_Attackable.Attack(closestPointToPlayer);
             }
