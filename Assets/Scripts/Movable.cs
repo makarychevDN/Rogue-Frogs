@@ -23,7 +23,7 @@ public class Movable : MonoBehaviour
 
     private AnimType m_CurrentAnimType;
     private bool m_MoveNow;
-    [SerializeField] private bool m_PushingNow;
+    private bool m_PushingNow;
     
     public bool PushingNow
     {
@@ -98,7 +98,8 @@ public class Movable : MonoBehaviour
                         m_PlayerInput.CanInput = false;
                 }
             }
-            else if (m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>().Pushable)
+            else if (m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>() != null &&
+                     m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>().Pushable)
             {
                 if (CheckPushIsPossible(input, m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>()))
                 {
