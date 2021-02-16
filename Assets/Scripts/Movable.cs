@@ -4,6 +4,7 @@ using UnityEngine;
 public class Movable : MonoBehaviour
 {
     [SerializeField] private bool m_Pushable;
+    [SerializeField] private int m_DefaultPushCost;
     [SerializeField] private int m_DefaultStepCost;
     [SerializeField] private float m_DefaultAnimTime;
     [SerializeField] private AnimType m_DefaultAnimType;
@@ -22,6 +23,19 @@ public class Movable : MonoBehaviour
 
     private AnimType m_CurrentAnimType;
     private bool m_MoveNow;
+    [SerializeField] private bool m_PushingNow;
+    
+    public bool PushingNow
+    {
+        get => m_PushingNow;
+        set => m_PushingNow = value;
+    }
+    public bool Pushable
+    {
+        get => m_Pushable;
+        set => m_Pushable = value;
+    }
+
     private float m_AnimationTimer;
     private float m_Speed;
     private float m_DistanceDelta = 0.005f;
@@ -68,9 +82,9 @@ public class Movable : MonoBehaviour
     {
         if (!m_MoveNow)
         {
-            if(m_ActionPointsContainer.CurrentPoints >= stepCost)
+            if (m_Map.GetMapObjectByVector(m_MapObject.Pos + input) == null)
             {
-                if (m_Map.GetMapObjectByVector(m_MapObject.Pos + input) == null)
+                if (m_ActionPointsContainer.CurrentPoints >= stepCost)
                 {
                     m_ActionPointsContainer.CurrentPoints -= stepCost;
                     m_CurrentAnimType = animType;
@@ -84,6 +98,41 @@ public class Movable : MonoBehaviour
                         m_PlayerInput.CanInput = false;
                 }
             }
+            else if (m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>().Pushable)
+            {
+                if (CheckPushIsPossible(input, m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>()))
+                {
+                    if (m_ActionPointsContainer.CurrentPoints >= m_DefaultPushCost)
+                    {
+                        m_ActionPointsContainer.CurrentPoints -= m_DefaultPushCost;
+                        m_CurrentAnimType = animType;
+                        m_CurrentPos = m_MapObject.Pos;
+                        m_NextPos = m_CurrentPos + input;
+                        m_MoveNow = true;
+                        m_Speed = (m_NextPos - m_MapObject.Pos).magnitude / animTime;
+                        m_AnimationTimer = 0;
+
+                        Push(input, m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>());
+
+                        if (m_PlayerInput != null)
+                            m_PlayerInput.CanInput = false;
+                    }
+                }
+            }
+        }
+    }
+
+    private bool CheckPushIsPossible(Vector2Int input ,Movable pushTarget)
+    {
+        return m_Map.GetMapObjectByVector(pushTarget.GetComponent<MapObject>().Pos + input) == null;
+    }
+
+    public void Push(Vector2Int input ,Movable pushTarget)
+    {
+        if (m_Map.GetMapObjectByVector( pushTarget.GetComponent<MapObject>().Pos + input) == null)
+        {
+            pushTarget.PushingNow = true;
+            pushTarget.Move(input,m_DefaultAnimType, m_DefaultAnimTime,0);
         }
     }
 
@@ -100,15 +149,23 @@ public class Movable : MonoBehaviour
         m_Map.Cells[m_MapObject.Pos.x, m_MapObject.Pos.y] = null;
         m_MapObject.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
         m_Map.Cells[m_MapObject.Pos.x, m_MapObject.Pos.y] = m_MapObject;
-
-        if (m_ActionPointsContainer.CurrentPoints != 0)
+        
+        if (!m_PushingNow)
         {
-            m_ActiveObjectsQueue.StartNextAction();
+            if (m_ActionPointsContainer.CurrentPoints != 0)
+            {
+                m_ActiveObjectsQueue.StartNextAction();
+            }
+            else
+            {
+                m_ActiveObjectsQueue.SkipTheTurn();
+            }
         }
         else
         {
-            m_ActiveObjectsQueue.SkipTheTurn();
+            m_PushingNow = false;
         }
+
     }
 
     public float CosLerpFunc(float timer, float speed)
