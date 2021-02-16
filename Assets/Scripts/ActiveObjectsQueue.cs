@@ -25,6 +25,11 @@ public class ActiveObjectsQueue : MonoBehaviour
                 m_Characters.Add(item.GetComponent<MapObject>());
             }
         }
+
+        foreach (var item in temp)
+        {
+            //Generate a queue panels
+        }
     }
 
     public void StartNextAction()
