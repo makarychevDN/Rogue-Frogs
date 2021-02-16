@@ -102,8 +102,8 @@ public class Attackable : MonoBehaviour
 
                         m_CurrentDestructible = temp.GetComponent<Destructible>();
                         m_ActionPointsContainer.CurrentPoints -= m_ActionCost;
-
-                        StartCoroutine(DealDamage(m_AnimationTime));
+                        
+                        Invoke("DealDamage", m_AnimationTime);
 
                         foreach (var item in m_AttackAnimationObjects)
                         {
@@ -118,10 +118,8 @@ public class Attackable : MonoBehaviour
         }
     }
 
-    private IEnumerator DealDamage(float waitTime)
+    private void DealDamage()
     {
-        yield return new WaitForSeconds(waitTime);
-
         m_CurrentDestructible.GetComponent<Destructible>().CurrentHP -= m_Damage;
 
         foreach (var item in m_AttackAnimationObjects)

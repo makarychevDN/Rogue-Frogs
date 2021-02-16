@@ -38,13 +38,12 @@ public class FollowAndAttackTargetAI : BaseAI
 
     public override void DoSomething()
     {
-        StartCoroutine(DoSomethingCorutine());
+        Invoke("DoSomethingWithDelay", m_ActionDelay);
+        
     }
 
-    public IEnumerator DoSomethingCorutine()
+    public void DoSomethingWithDelay()
     {
-        yield return new WaitForSeconds(m_ActionDelay);
-
         Vector2Int closestPointToPlayer = FindClosestPointToPlayer();
 
         if (m_Map.GetMapObjectByVector(m_ThisMapObject.Pos + closestPointToPlayer) == m_Target)
