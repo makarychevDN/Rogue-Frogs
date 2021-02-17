@@ -9,6 +9,10 @@ public class Attackable : MonoBehaviour
     [SerializeField] private int m_Range;
     [SerializeField] private int m_ActionCost;
 
+    [Header("Sprite Visualisation")]
+    [SerializeField] private SpriteRenderer m_SpriteRenderer;
+    [SerializeField] private Sprite m_Sprite;
+    
     [Header("Animation")]
     [SerializeField] private List<GameObject> m_AttackAnimationObjects;
     [SerializeField] private float m_AnimationTime;

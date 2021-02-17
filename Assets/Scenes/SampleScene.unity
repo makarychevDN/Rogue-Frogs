@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: 227207156}
   - component: {fileID: 227207155}
   m_Layer: 0
-  m_Name: sword hit animation_0
+  m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1855,7 +1855,6 @@ GameObject:
   - component: {fileID: 560888909}
   - component: {fileID: 560888908}
   - component: {fileID: 560888907}
-  - component: {fileID: 560888906}
   m_Layer: 0
   m_Name: Toad Enemy
   m_TagString: Untagged
@@ -1863,31 +1862,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &560888906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560888904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Damage: 3
-  m_Range: 1
-  m_ActionCost: 2
-  m_AttackAnimationObjects:
-  - {fileID: 1360479613}
-  m_AnimationTime: 0.2
-  m_MabObject: {fileID: 560888911}
-  m_Map: {fileID: 1827536816}
-  m_ActiveObjectsQueue: {fileID: 2039386791}
-  m_ActionPointsContainer: {fileID: 560888909}
-  m_PlayerInput: {fileID: 0}
-  m_DamageUI: {fileID: 638391477}
-  m_RangeUI: {fileID: 953411296}
 --- !u!114 &560888907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1903,7 +1877,7 @@ MonoBehaviour:
   m_ActionDelay: 0.15
   m_ThisMapObject: {fileID: 560888911}
   m_Target: {fileID: 1544690807}
-  m_Attackable: {fileID: 560888906}
+  m_Attackable: {fileID: 1426459913}
   m_ActionPointsContainer: {fileID: 560888909}
   m_Movement: {fileID: 560888910}
   m_Map: {fileID: 1827536816}
@@ -1986,7 +1960,7 @@ Transform:
   m_LocalPosition: {x: 5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1360479614}
+  - {fileID: 1426459914}
   - {fileID: 1429941794}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -2361,6 +2335,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &691117485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 691117487}
+  - component: {fileID: 691117486}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &691117486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691117485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 2
+  m_Range: 1
+  m_ActionCost: 1
+  m_SpriteRenderer: {fileID: 0}
+  m_Sprite: {fileID: 0}
+  m_AttackAnimationObjects:
+  - {fileID: 691814663}
+  m_AnimationTime: 0.2
+  m_MabObject: {fileID: 1544690807}
+  m_Map: {fileID: 1827536816}
+  m_ActiveObjectsQueue: {fileID: 2039386791}
+  m_ActionPointsContainer: {fileID: 1544690810}
+  m_PlayerInput: {fileID: 1544690809}
+  m_DamageUI: {fileID: 2068989701}
+  m_RangeUI: {fileID: 1984991088}
+--- !u!4 &691117487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691117485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 691814664}
+  m_Father: {fileID: 1544690808}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &691814663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,7 +2404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691814664}
   m_Layer: 0
-  m_Name: Weapon animation
+  m_Name: Animation Rotation Axis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2384,12 +2417,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691814663}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 227207154}
-  m_Father: {fileID: 1544690808}
+  m_Father: {fileID: 691117487}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &735862752
@@ -3851,7 +3884,6 @@ GameObject:
   - component: {fileID: 1116692655}
   - component: {fileID: 1116692656}
   - component: {fileID: 1116692651}
-  - component: {fileID: 1116692658}
   m_Layer: 0
   m_Name: Snake Enemy
   m_TagString: Untagged
@@ -3874,7 +3906,7 @@ MonoBehaviour:
   m_ActionDelay: 0.15
   m_ThisMapObject: {fileID: 1116692653}
   m_Target: {fileID: 1544690807}
-  m_Attackable: {fileID: 1116692658}
+  m_Attackable: {fileID: 1404714187}
   m_ActionPointsContainer: {fileID: 1116692655}
   m_Movement: {fileID: 1116692652}
   m_Map: {fileID: 1827536816}
@@ -3925,7 +3957,7 @@ Transform:
   m_LocalPosition: {x: 3, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2042677253}
+  - {fileID: 1404714188}
   - {fileID: 1656071467}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -3962,31 +3994,6 @@ MonoBehaviour:
   m_CurrentHP: 5
   m_ActiveObjectsQueue: {fileID: 2039386791}
   m_HpUI: {fileID: 1178346647}
---- !u!114 &1116692658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116692650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Damage: 1
-  m_Range: 2
-  m_ActionCost: 2
-  m_AttackAnimationObjects:
-  - {fileID: 2042677252}
-  m_AnimationTime: 0.2
-  m_MabObject: {fileID: 1116692653}
-  m_Map: {fileID: 1827536816}
-  m_ActiveObjectsQueue: {fileID: 2039386791}
-  m_ActionPointsContainer: {fileID: 1116692655}
-  m_PlayerInput: {fileID: 0}
-  m_DamageUI: {fileID: 1273788823}
-  m_RangeUI: {fileID: 811040705}
 --- !u!1 &1116982386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4526,7 +4533,7 @@ GameObject:
   - component: {fileID: 1257405053}
   - component: {fileID: 1257405052}
   m_Layer: 0
-  m_Name: sword hit animation_0
+  m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4763,7 +4770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1360479614}
   m_Layer: 0
-  m_Name: Weapon animation
+  m_Name: Animation Rotation Axis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4781,7 +4788,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1257405051}
-  m_Father: {fileID: 560888912}
+  m_Father: {fileID: 1426459914}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1387854381
@@ -4915,6 +4922,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+--- !u!1 &1404714186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1404714188}
+  - component: {fileID: 1404714187}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1404714187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404714186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 1
+  m_Range: 2
+  m_ActionCost: 2
+  m_SpriteRenderer: {fileID: 0}
+  m_Sprite: {fileID: 0}
+  m_AttackAnimationObjects:
+  - {fileID: 2042677252}
+  m_AnimationTime: 0.2
+  m_MabObject: {fileID: 1116692653}
+  m_Map: {fileID: 1827536816}
+  m_ActiveObjectsQueue: {fileID: 2039386791}
+  m_ActionPointsContainer: {fileID: 1116692655}
+  m_PlayerInput: {fileID: 0}
+  m_DamageUI: {fileID: 1273788823}
+  m_RangeUI: {fileID: 811040705}
+--- !u!4 &1404714188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404714186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2042677253}
+  m_Father: {fileID: 1116692654}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1408763085
 GameObject:
   m_ObjectHideFlags: 0
@@ -5078,6 +5144,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1426459912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1426459914}
+  - component: {fileID: 1426459913}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1426459913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426459912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 3
+  m_Range: 1
+  m_ActionCost: 2
+  m_SpriteRenderer: {fileID: 0}
+  m_Sprite: {fileID: 0}
+  m_AttackAnimationObjects:
+  - {fileID: 1360479613}
+  m_AnimationTime: 0.2
+  m_MabObject: {fileID: 560888911}
+  m_Map: {fileID: 1827536816}
+  m_ActiveObjectsQueue: {fileID: 2039386791}
+  m_ActionPointsContainer: {fileID: 560888909}
+  m_PlayerInput: {fileID: 0}
+  m_DamageUI: {fileID: 638391477}
+  m_RangeUI: {fileID: 953411296}
+--- !u!4 &1426459914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426459912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1360479614}
+  m_Father: {fileID: 560888912}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1429941793
 GameObject:
   m_ObjectHideFlags: 0
@@ -5520,7 +5645,6 @@ GameObject:
   - component: {fileID: 1544690809}
   - component: {fileID: 1544690810}
   - component: {fileID: 1544690811}
-  - component: {fileID: 1544690813}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5574,7 +5698,7 @@ Transform:
   m_LocalPosition: {x: 5, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 691814664}
+  - {fileID: 691117487}
   - {fileID: 1113997375}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -5592,7 +5716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerMovement: {fileID: 1544690806}
-  m_PlayerAttackModule: {fileID: 1544690813}
+  m_PlayerAttackModule: {fileID: 691117486}
   m_ActiveObjectQueue: {fileID: 2039386791}
 --- !u!114 &1544690810
 MonoBehaviour:
@@ -5626,31 +5750,6 @@ MonoBehaviour:
   m_CurrentHP: 10
   m_ActiveObjectsQueue: {fileID: 2039386791}
   m_HpUI: {fileID: 793618861}
---- !u!114 &1544690813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544690805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Damage: 2
-  m_Range: 1
-  m_ActionCost: 1
-  m_AttackAnimationObjects:
-  - {fileID: 691814663}
-  m_AnimationTime: 0.2
-  m_MabObject: {fileID: 1544690807}
-  m_Map: {fileID: 1827536816}
-  m_ActiveObjectsQueue: {fileID: 2039386791}
-  m_ActionPointsContainer: {fileID: 1544690810}
-  m_PlayerInput: {fileID: 1544690809}
-  m_DamageUI: {fileID: 2068989701}
-  m_RangeUI: {fileID: 1984991088}
 --- !u!1 &1610411337
 GameObject:
   m_ObjectHideFlags: 0
@@ -6345,7 +6444,7 @@ GameObject:
   - component: {fileID: 1656293185}
   - component: {fileID: 1656293184}
   m_Layer: 0
-  m_Name: sword hit animation_0
+  m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8131,7 +8230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2042677253}
   m_Layer: 0
-  m_Name: Weapon animation (1)
+  m_Name: Animation Rotation Axis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8149,7 +8248,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1656293183}
-  m_Father: {fileID: 1116692654}
+  m_Father: {fileID: 1404714188}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2068099448
