@@ -34,9 +34,10 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     public void StartNextAction()
     {
-        if (m_CurrentCharacter.GetComponent<PlayerInput>() != null)
+        var temp = m_CurrentCharacter.GetComponent<PlayerInput>();
+        if (temp != null)
         {
-            m_CurrentCharacter.GetComponent<PlayerInput>().CanInput = true;
+            temp.CanInput = true;
         }
         else
         {
@@ -51,9 +52,10 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     public void SkipTheTurn()
     {
-        if (m_CurrentCharacter.GetComponent<PlayerInput>() != null)
+        var temp = m_CurrentCharacter.GetComponent<PlayerInput>();
+        if (temp != null)
         {
-            m_CurrentCharacter.GetComponent<PlayerInput>().CanInput = false;
+            temp.CanInput = false;
         }
 
         m_QueueCount++;

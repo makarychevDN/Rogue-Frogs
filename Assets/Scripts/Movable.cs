@@ -86,41 +86,38 @@ public class Movable : MonoBehaviour
             {
                 if (m_ActionPointsContainer.CurrentPoints >= stepCost)
                 {
-                    m_ActionPointsContainer.CurrentPoints -= stepCost;
-                    m_CurrentAnimType = animType;
-                    m_CurrentPos = m_MapObject.Pos;
-                    m_NextPos = m_CurrentPos + input;
-                    m_MoveNow = true;
-                    m_Speed = (m_NextPos - m_MapObject.Pos).magnitude / animTime;
-                    m_AnimationTimer = 0;
-
-                    if (m_PlayerInput != null)
-                        m_PlayerInput.CanInput = false;
+                    StartMovementSetup(input, animType, animTime, stepCost);
                 }
             }
-            else if (m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>() != null &&
-                     m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>().Pushable)
+            
+            else
             {
-                if (CheckPushIsPossible(input, m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>()))
+                var tempMovable = m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>();
+
+                if (tempMovable != null && tempMovable.Pushable && CheckPushIsPossible(input, tempMovable))
                 {
                     if (m_ActionPointsContainer.CurrentPoints >= m_DefaultPushCost)
                     {
-                        m_ActionPointsContainer.CurrentPoints -= m_DefaultPushCost;
-                        m_CurrentAnimType = animType;
-                        m_CurrentPos = m_MapObject.Pos;
-                        m_NextPos = m_CurrentPos + input;
-                        m_MoveNow = true;
-                        m_Speed = (m_NextPos - m_MapObject.Pos).magnitude / animTime;
-                        m_AnimationTimer = 0;
-
-                        Push(input, m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>());
-
-                        if (m_PlayerInput != null)
-                            m_PlayerInput.CanInput = false;
+                        StartMovementSetup(input, animType, animTime, m_DefaultPushCost);
+                        Push(input, tempMovable);
                     }
                 }
             }
         }
+    }
+
+    private void StartMovementSetup(Vector2Int input, AnimType animType, float animTime, int stepCost)
+    {
+        m_ActionPointsContainer.CurrentPoints -= stepCost;
+        m_CurrentAnimType = animType;
+        m_CurrentPos = m_MapObject.Pos;
+        m_NextPos = m_CurrentPos + input;
+        m_MoveNow = true;
+        m_Speed = (m_NextPos - m_MapObject.Pos).magnitude / animTime;
+        m_AnimationTimer = 0;
+
+        if (m_PlayerInput != null)
+            m_PlayerInput.CanInput = false;
     }
 
     private bool CheckPushIsPossible(Vector2Int input ,Movable pushTarget)

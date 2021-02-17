@@ -39,7 +39,6 @@ public class FollowAndAttackTargetAI : BaseAI
     public override void DoSomething()
     {
         Invoke("DoSomethingWithDelay", m_ActionDelay);
-        
     }
 
     public void DoSomethingWithDelay()

@@ -51,7 +51,6 @@ public class Attackable : MonoBehaviour
             for(int i = 0; i < m_Range; i++)
             {
                 temp = m_Map.GetMapObjectByVector(m_MabObject.Pos + input * (i + 1));
-
                 if(temp != null)
                 {
                     return temp.GetComponent<Destructible>() != null;
@@ -71,7 +70,6 @@ public class Attackable : MonoBehaviour
             for (int i = 0; i < m_Range; i++)
             {
                 temp = m_Map.GetMapObjectByVector(m_MabObject.Pos + input * (i + 1));
-
                 if (temp != null)
                 {
                     return temp == target;
@@ -85,22 +83,23 @@ public class Attackable : MonoBehaviour
     {
         if (m_ActionPointsContainer.CurrentPoints >= m_ActionCost)
         {
-            MapObject temp;
+            MapObject tempMapObject;
 
             for (int i = 0; i < m_Range; i++)
             {
-                temp = m_Map.GetMapObjectByVector(m_MabObject.Pos + input * (i + 1));
+                tempMapObject = m_Map.GetMapObjectByVector(m_MabObject.Pos + input * (i + 1));
 
-                if (temp != null)
+                if (tempMapObject != null)
                 {
-                    if (temp.GetComponent<Destructible>() != null)
+                    var tempDestructible = tempMapObject.GetComponent<Destructible>();
+                    if (tempDestructible != null)
                     {
                         if (m_PlayerInput != null)
                         {
                             m_PlayerInput.CanInput = false;
                         }
 
-                        m_CurrentDestructible = temp.GetComponent<Destructible>();
+                        m_CurrentDestructible = tempDestructible;
                         m_ActionPointsContainer.CurrentPoints -= m_ActionCost;
                         
                         Invoke("DealDamage", m_AnimationTime);
@@ -108,7 +107,7 @@ public class Attackable : MonoBehaviour
                         foreach (var item in m_AttackAnimationObjects)
                         {
                             item.SetActive(true);
-                            item.transform.LookAt2D(Vector2.right, temp.Pos);
+                            item.transform.LookAt2D(Vector2.right, tempMapObject.Pos);
                         }
 
                         break;
@@ -120,7 +119,7 @@ public class Attackable : MonoBehaviour
 
     private void DealDamage()
     {
-        m_CurrentDestructible.GetComponent<Destructible>().CurrentHP -= m_Damage;
+        m_CurrentDestructible.CurrentHP -= m_Damage;
 
         foreach (var item in m_AttackAnimationObjects)
         {
