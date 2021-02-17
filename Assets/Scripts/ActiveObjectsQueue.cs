@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ActiveObjectsQueue : MonoBehaviour
 {
+    [SerializeField] private GameObject m_QueuePanelPrefab;
+    [SerializeField] private float m_IndentMultiplier;
     [SerializeField] private List<MapObject> m_Characters;
     [SerializeField] private MapObject m_CurrentCharacter;
     [SerializeField] private int m_QueueCount;
@@ -26,9 +28,10 @@ public class ActiveObjectsQueue : MonoBehaviour
             }
         }
 
-        foreach (var item in temp)
+        for (int i = 0; i < m_Characters.Count; i++)
         {
-            //Generate a queue panels
+            var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
+            spawnedPanel.transform.localPosition += Vector3.right * i * m_IndentMultiplier;
         }
     }
 
