@@ -1928,6 +1928,12 @@ MonoBehaviour:
   m_CurrentHP: 6
   m_ActiveObjectsQueue: {fileID: 2039386791}
   m_HpUI: {fileID: 228589239}
+  OnApplyDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &560888909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1944,6 +1950,12 @@ MonoBehaviour:
   m_CurrentPoints: 3
   m_PointsRegenerationInTurn: 2
   m_PointsVisualisation: {fileID: 1962855550}
+  OnDidSomething:
+    m_PersistentCalls:
+      m_Calls: []
+  OnActionPointsRegeneration:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &560888910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1966,6 +1978,27 @@ MonoBehaviour:
   m_Map: {fileID: 1827536816}
   m_ActiveObjectsQueue: {fileID: 2039386791}
   m_PlayerInput: {fileID: 0}
+  OnOwnMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOwnMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBePushedMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBePushedMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAnyMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAnyMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPush:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &560888911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2409,6 +2442,9 @@ MonoBehaviour:
   m_PlayerInput: {fileID: 1544690809}
   m_DamageUI: {fileID: 2068989701}
   m_RangeUI: {fileID: 1984991088}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &691117487
 Transform:
   m_ObjectHideFlags: 0
@@ -3963,6 +3999,27 @@ MonoBehaviour:
   m_Map: {fileID: 1827536816}
   m_ActiveObjectsQueue: {fileID: 2039386791}
   m_PlayerInput: {fileID: 0}
+  OnOwnMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOwnMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBePushedMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBePushedMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAnyMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAnyMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPush:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1116692653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4008,6 +4065,12 @@ MonoBehaviour:
   m_CurrentPoints: 2
   m_PointsRegenerationInTurn: 2
   m_PointsVisualisation: {fileID: 1853607292}
+  OnDidSomething:
+    m_PersistentCalls:
+      m_Calls: []
+  OnActionPointsRegeneration:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1116692656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4024,6 +4087,12 @@ MonoBehaviour:
   m_CurrentHP: 5
   m_ActiveObjectsQueue: {fileID: 2039386791}
   m_HpUI: {fileID: 1178346647}
+  OnApplyDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1116982386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,6 +5065,9 @@ MonoBehaviour:
   m_PlayerInput: {fileID: 0}
   m_DamageUI: {fileID: 1273788823}
   m_RangeUI: {fileID: 811040705}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1404714188
 Transform:
   m_ObjectHideFlags: 0
@@ -5218,6 +5290,9 @@ MonoBehaviour:
   m_PlayerInput: {fileID: 0}
   m_DamageUI: {fileID: 638391477}
   m_RangeUI: {fileID: 953411296}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1426459914
 Transform:
   m_ObjectHideFlags: 0
@@ -5704,6 +5779,27 @@ MonoBehaviour:
   m_Map: {fileID: 1827536816}
   m_ActiveObjectsQueue: {fileID: 2039386791}
   m_PlayerInput: {fileID: 1544690809}
+  OnOwnMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOwnMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBePushedMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBePushedMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAnyMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAnyMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPush:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1544690807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5764,6 +5860,12 @@ MonoBehaviour:
   m_CurrentPoints: 3
   m_PointsRegenerationInTurn: 2
   m_PointsVisualisation: {fileID: 1115874571}
+  OnDidSomething:
+    m_PersistentCalls:
+      m_Calls: []
+  OnActionPointsRegeneration:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1544690811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5780,6 +5882,12 @@ MonoBehaviour:
   m_CurrentHP: 10
   m_ActiveObjectsQueue: {fileID: 2039386791}
   m_HpUI: {fileID: 793618861}
+  OnApplyDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1610411337
 GameObject:
   m_ObjectHideFlags: 0
@@ -8151,12 +8259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc3b188844f39743830bd4af752c94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_QueuePanelPrefab: {fileID: 2781172160739718420, guid: 8593149880e7cc8408e51efba51ccc2a,
+  m_QueuePanelPrefab: {fileID: 4328408660088390669, guid: 8593149880e7cc8408e51efba51ccc2a,
     type: 3}
-  m_IndentMultiplier: 0.75
-  m_Characters: []
-  m_CurrentCharacter: {fileID: 1544690807}
-  m_QueueCount: 0
+  m_IndentMultiplier: 1
 --- !u!4 &2039386792
 Transform:
   m_ObjectHideFlags: 0

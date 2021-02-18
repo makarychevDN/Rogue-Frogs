@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class ActiveObjectsQueue : MonoBehaviour
 {
-    [SerializeField] private GameObject m_QueuePanelPrefab;
+    [SerializeField] private QueueCell m_QueuePanelPrefab;
     [SerializeField] private float m_IndentMultiplier;
-    [SerializeField] private List<MapObject> m_Characters;
-    [SerializeField] private MapObject m_CurrentCharacter;
-    [SerializeField] private int m_QueueCount;
+    private List<MapObject> m_Characters;
+    private List<QueueCell> m_Cells;
+    private MapObject m_CurrentCharacter;
+    private int m_QueueCount;
 
     private void Start()
     {
         var temp = FindObjectsOfType<ActionPointsContainer>();
-
+        m_Characters = new List<MapObject>();
+        
         foreach (var item in temp)
         {
             if (item.GetComponent<PlayerInput>() != null)
@@ -28,11 +30,16 @@ public class ActiveObjectsQueue : MonoBehaviour
             }
         }
 
+        m_Cells = new List<QueueCell>();
         for (int i = 0; i < m_Characters.Count; i++)
         {
             var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
             spawnedPanel.transform.localPosition += Vector3.right * i * m_IndentMultiplier;
+            spawnedPanel.SetSprite(m_Characters[i].Sprite);
+            m_Cells.Add(spawnedPanel);
         }
+
+        m_CurrentCharacter = m_Characters[0];
     }
 
     public void StartNextAction()
