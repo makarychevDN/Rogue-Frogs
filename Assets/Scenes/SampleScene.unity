@@ -8261,7 +8261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_QueuePanelPrefab: {fileID: 4328408660088390669, guid: 8593149880e7cc8408e51efba51ccc2a,
     type: 3}
-  m_IndentMultiplier: 1
+  m_IndentMultiplier: 0.85
 --- !u!4 &2039386792
 Transform:
   m_ObjectHideFlags: 0

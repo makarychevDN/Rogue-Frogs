@@ -34,7 +34,7 @@ public class ActiveObjectsQueue : MonoBehaviour
         for (int i = 0; i < m_Characters.Count; i++)
         {
             var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
-            spawnedPanel.transform.localPosition += Vector3.right * i * m_IndentMultiplier;
+            spawnedPanel.transform.localPosition += Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Characters.Count-1) * 0.5f * m_IndentMultiplier;
             spawnedPanel.SetSprite(m_Characters[i].Sprite);
             m_Cells.Add(spawnedPanel);
         }
