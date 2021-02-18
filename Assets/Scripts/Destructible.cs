@@ -13,6 +13,7 @@ public class Destructible : MonoBehaviour
 
     [Header("Events")] 
     [SerializeField] private UnityEvent OnApplyDamage;
+    [SerializeField] private UnityEvent OnDied;
 
     private void Reset()
     {
@@ -41,6 +42,7 @@ public class Destructible : MonoBehaviour
                 m_ActiveObjectsQueue.RemoveCharacterFromStack(temp);
                 FindObjectOfType<Map>().Cells[temp.Pos.x, temp.Pos.y] = null;
                 gameObject.SetActive(false);
+                OnDied?.Invoke();
             }
         }
     }
