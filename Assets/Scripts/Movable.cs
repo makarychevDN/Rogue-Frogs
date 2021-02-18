@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Movable : MonoBehaviour
 {
@@ -17,6 +18,16 @@ public class Movable : MonoBehaviour
 
     [Header("Player Setup")]
     [SerializeField] private PlayerInput m_PlayerInput;
+
+    [Header("Events")] 
+    [SerializeField] private UnityEvent OnOwnMovementStart;
+    [SerializeField] private UnityEvent OnOwnMovementEnd;
+    [SerializeField] private UnityEvent OnBePushedMovementStart;
+    [SerializeField] private UnityEvent OnBePushedMovementEnd;
+    [SerializeField] private UnityEvent OnAnyMovementStart;
+    [SerializeField] private UnityEvent OnAnyMovementEnd;
+    [SerializeField] private UnityEvent OnPush;
+
 
     private Vector2Int m_NextPos;
     private Vector2Int m_CurrentPos;
@@ -115,6 +126,17 @@ public class Movable : MonoBehaviour
         m_MoveNow = true;
         m_Speed = (m_NextPos - m_MapObject.Pos).magnitude / animTime;
         m_AnimationTimer = 0;
+        
+        OnAnyMovementStart?.Invoke();
+
+        if (!PushingNow)
+        {
+            OnOwnMovementStart?.Invoke();
+        }
+        else
+        {
+            OnBePushedMovementStart?.Invoke();
+        }
 
         if (m_PlayerInput != null)
             m_PlayerInput.CanInput = false;
@@ -129,6 +151,7 @@ public class Movable : MonoBehaviour
     {
         if (m_Map.GetMapObjectByVector( pushTarget.GetComponent<MapObject>().Pos + input) == null)
         {
+            OnPush?.Invoke();
             pushTarget.PushingNow = true;
             pushTarget.Move(input,m_DefaultAnimType, m_DefaultAnimTime,0);
         }
@@ -148,8 +171,11 @@ public class Movable : MonoBehaviour
         m_MapObject.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
         m_Map.Cells[m_MapObject.Pos.x, m_MapObject.Pos.y] = m_MapObject;
         
+        OnAnyMovementEnd?.Invoke();
+        
         if (!m_PushingNow)
         {
+            OnOwnMovementEnd?.Invoke();
             if (m_ActionPointsContainer.CurrentPoints != 0)
             {
                 m_ActiveObjectsQueue.StartNextAction();
@@ -161,6 +187,7 @@ public class Movable : MonoBehaviour
         }
         else
         {
+            OnBePushedMovementEnd?.Invoke();
             m_PushingNow = false;
         }
 

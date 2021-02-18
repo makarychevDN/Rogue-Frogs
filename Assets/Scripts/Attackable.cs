@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Attackable : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class Attackable : MonoBehaviour
     [SerializeField] private PlayerInput m_PlayerInput;
     [SerializeField] private DamageUI m_DamageUI;
     [SerializeField] private RangeUI m_RangeUI;
+
+    [Header("Events")] 
+    [SerializeField] private UnityEvent OnAttack;
 
     private Destructible m_CurrentDestructible;
     public int ActionCost { get => m_ActionCost; set => m_ActionCost = value; }
@@ -113,6 +117,8 @@ public class Attackable : MonoBehaviour
                             item.SetActive(true);
                             item.transform.LookAt2D(Vector2.right, tempMapObject.Pos);
                         }
+                        
+                        OnAttack?.Invoke();
 
                         break;
                     }

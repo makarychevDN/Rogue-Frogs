@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Destructible : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Destructible : MonoBehaviour
     [Header("Setup")]
     [SerializeField] ActiveObjectsQueue m_ActiveObjectsQueue;
     [SerializeField] HpUI m_HpUI;
+
+    [Header("Events")] 
+    [SerializeField] private UnityEvent OnApplyDamage;
 
     private void Reset()
     {
@@ -29,6 +33,7 @@ public class Destructible : MonoBehaviour
         {
             m_CurrentHP = Mathf.Clamp(value, 0, MaxHP);
             m_HpUI.SetValue(CurrentHP);
+            OnApplyDamage?.Invoke();
 
             if (m_CurrentHP == 0)
             {
