@@ -10,6 +10,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     private List<QueueCell> m_Cells;
     private MapObject m_CurrentCharacter;
     private int m_QueueCount;
+    private float m_SkipTurnDelay = 0.5f;
 
     private void Start()
     {
@@ -75,6 +76,13 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     public void SkipTheTurn()
     {
+        m_CurrentCharacter.SkipTurnAnimation.SetActive(true);
+        Invoke("SkipTurnAfterDelay", m_SkipTurnDelay);
+    }
+
+    private void SkipTurnAfterDelay()
+    {
+        m_CurrentCharacter.SkipTurnAnimation.SetActive(false);
         m_Cells[m_QueueCount].ActiveCell.SetActive(false);
         
         var temp = m_CurrentCharacter.GetComponent<PlayerInput>();

@@ -7,6 +7,7 @@ public class MapObject : MonoBehaviour
 {
     //[SerializeField] private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private Sprite m_Sprite;
+    [SerializeField] private GameObject m_SkipTurnAnimation;
     private Vector2Int pos;
 
     public Vector2Int Pos
@@ -20,6 +21,12 @@ public class MapObject : MonoBehaviour
     {
         get => m_Sprite;
         set => m_Sprite = value;
+    }
+
+    public GameObject SkipTurnAnimation
+    {
+        get => m_SkipTurnAnimation;
+        set => m_SkipTurnAnimation = value;
     }
 
     private void Reset()
