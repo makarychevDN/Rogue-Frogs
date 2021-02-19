@@ -4212,8 +4212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0570aaac9d2d25246ba5bf1b289e8000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxPoints: 2
-  m_CurrentPoints: 2
+  m_MaxPoints: 0
+  m_CurrentPoints: 0
   m_PointsRegenerationInTurn: 2
   m_PointsVisualisation: {fileID: 1853607292}
   OnDidSomething:
@@ -6079,7 +6079,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544690805}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 5, z: 0}
+  m_LocalPosition: {x: 3, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 691117487}

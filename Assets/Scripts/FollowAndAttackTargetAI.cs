@@ -59,13 +59,21 @@ public class FollowAndAttackTargetAI : BaseAI
         }
         else
         {
-            m_Movement.Move(closestPointToPlayer);
+            if (closestPointToPlayer != Vector2Int.zero)
+            {
+                m_Movement.Move(closestPointToPlayer);
+            }
+            else
+            {
+                m_ActiveObjectsQueue.SkipTurnWithAnimation();
+            }
         }
     }
 
     public Vector2Int FindClosestPointToPlayer()
     {
-        Vector2Int closestPoint = Vector2Int.up * 999;
+        //Vector2Int closestPoint = Vector2Int.up * 999;
+        Vector2Int closestPoint = Vector2Int.zero;
         MapObject temp;
 
         foreach (var item in m_VerAndHorVectors)
