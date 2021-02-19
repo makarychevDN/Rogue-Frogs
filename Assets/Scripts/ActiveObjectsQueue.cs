@@ -76,12 +76,6 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     public void SkipTheTurn()
     {
-        m_CurrentCharacter.SkipTurnAnimation.SetActive(true);
-        Invoke("SkipTurnAfterDelay", m_SkipTurnDelay);
-    }
-
-    private void SkipTurnAfterDelay()
-    {
         m_CurrentCharacter.SkipTurnAnimation.SetActive(false);
         m_Cells[m_QueueCount].ActiveCell.SetActive(false);
         
@@ -104,5 +98,11 @@ public class ActiveObjectsQueue : MonoBehaviour
         m_CurrentCharacter.GetComponent<ActionPointsContainer>().ResetPoints();
 
         StartNextAction();
+    }
+
+    public void SkipTurnWithAnimation()
+    {
+        m_CurrentCharacter.SkipTurnAnimation.SetActive(true);
+        Invoke("SkipTheTurn", m_SkipTurnDelay);
     }
 }

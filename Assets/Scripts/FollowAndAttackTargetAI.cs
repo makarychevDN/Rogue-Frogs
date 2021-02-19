@@ -41,7 +41,7 @@ public class FollowAndAttackTargetAI : BaseAI
         Invoke("DoSomethingWithDelay", m_ActionDelay);
     }
 
-    public void DoSomethingWithDelay()
+    private void DoSomethingWithDelay()
     {
         Vector2Int closestPointToPlayer = FindClosestPointToPlayer();
 
@@ -54,7 +54,7 @@ public class FollowAndAttackTargetAI : BaseAI
             else
             {
                 print(transform.name + "Not enough action points to hit player");
-                m_ActiveObjectsQueue.SkipTheTurn();
+                m_ActiveObjectsQueue.SkipTurnWithAnimation();
             }
         }
         else

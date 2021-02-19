@@ -59,7 +59,7 @@ public class PlayerInput : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                m_ActiveObjectQueue.SkipTheTurn();
+                m_ActiveObjectQueue.SkipTurnWithAnimation();
             }
         }
     }
