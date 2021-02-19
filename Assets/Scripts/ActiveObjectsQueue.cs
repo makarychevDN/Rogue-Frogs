@@ -102,6 +102,13 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     public void SkipTurnWithAnimation()
     {
+        var temp = m_CurrentCharacter.GetComponent<PlayerInput>();
+
+        if (temp != null)
+        {
+            temp.CanInput = false;
+        }
+        
         m_CurrentCharacter.SkipTurnAnimation.SetActive(true);
         Invoke("SkipTheTurn", m_SkipTurnDelay);
     }
