@@ -33,6 +33,18 @@ public class Attackable : MonoBehaviour
     private Destructible m_CurrentDestructible;
     public int ActionCost { get => m_ActionCost; set => m_ActionCost = value; }
 
+    public Map Map
+    {
+        get => m_Map;
+        set => m_Map = value;
+    }
+
+    public ActiveObjectsQueue ObjectsQueue
+    {
+        get => m_ActiveObjectsQueue;
+        set => m_ActiveObjectsQueue = value;
+    }
+
     private void Reset()
     {
         m_Map = FindObjectOfType<Map>();

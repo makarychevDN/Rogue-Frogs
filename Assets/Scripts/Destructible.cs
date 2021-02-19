@@ -46,4 +46,10 @@ public class Destructible : MonoBehaviour
             }
         }
     }
+
+    public ActiveObjectsQueue ObjectsQueue
+    {
+        get => m_ActiveObjectsQueue;
+        set => m_ActiveObjectsQueue = value;
+    }
 }

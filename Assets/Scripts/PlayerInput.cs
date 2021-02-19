@@ -12,6 +12,12 @@ public class PlayerInput : MonoBehaviour
 
     public bool CanInput { get => m_CanInput; set => m_CanInput = value; }
 
+    public ActiveObjectsQueue ActiveObjectQueue
+    {
+        get => m_ActiveObjectQueue;
+        set => m_ActiveObjectQueue = value;
+    }
+
     private void Update()
     {
         if (m_CanInput)

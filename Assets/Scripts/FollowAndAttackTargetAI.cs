@@ -29,6 +29,7 @@ public class FollowAndAttackTargetAI : BaseAI
 
     private void Start()
     {
+        m_Target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
         m_VerAndHorVectors = new List<Vector2Int>();
         m_VerAndHorVectors.Add(Vector2Int.up);
         m_VerAndHorVectors.Add(Vector2Int.left);
