@@ -72,6 +72,11 @@ public class ActiveObjectsQueue : MonoBehaviour
         m_Cells[index].gameObject.SetActive(false);
         m_Cells.RemoveAt(index);
         RearrangeCells();
+
+        /*if (m_Characters.Count == 1)
+        {
+            FindObjectOfType<LevelsManager>().StartNextLevel();
+        }*/
     }
 
     public void SkipTheTurn()

@@ -13,7 +13,7 @@ public class LevelsManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            NextLevel();
+            StartNextLevel();
         }
     }
 
@@ -25,7 +25,7 @@ public class LevelsManager : MonoBehaviour
         ConnectPlayerToLevel();
     }
 
-    public void NextLevel()
+    public void StartNextLevel()
     {
         m_CurrentLevel.gameObject.SetActive(false);
         
@@ -36,7 +36,6 @@ public class LevelsManager : MonoBehaviour
         var cpawnedlevel = Instantiate(m_Levels[m_LevelCount]);
         m_CurrentLevel = cpawnedlevel;
         ConnectPlayerToLevel();
-
     }
 
     public void ConnectPlayerToLevel()
