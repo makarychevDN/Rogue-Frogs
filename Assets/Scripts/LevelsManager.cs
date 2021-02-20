@@ -28,9 +28,13 @@ public class LevelsManager : MonoBehaviour
     public void NextLevel()
     {
         m_CurrentLevel.gameObject.SetActive(false);
+        
         m_LevelCount++;
-        m_CurrentLevel = m_Levels[m_LevelCount];
-        Instantiate(m_CurrentLevel);
+        if (m_LevelCount == m_Levels.Count)
+            m_LevelCount = 0;
+        
+        var cpawnedlevel = Instantiate(m_Levels[m_LevelCount]);
+        m_CurrentLevel = cpawnedlevel;
         ConnectPlayerToLevel();
 
     }
