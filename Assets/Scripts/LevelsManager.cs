@@ -20,8 +20,9 @@ public class LevelsManager : MonoBehaviour
     private void Start()
     {
         m_Player = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
-        m_CurrentLevel = m_Levels[0];
-        Instantiate(m_CurrentLevel);
+        var cpawnedlevel = Instantiate(m_CurrentLevel);
+        m_CurrentLevel = cpawnedlevel;
+        ConnectPlayerToLevel();
     }
 
     public void NextLevel()
