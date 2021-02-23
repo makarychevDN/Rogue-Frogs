@@ -10,7 +10,8 @@ public class Movable : MonoBehaviour
     [SerializeField] private float m_DefaultAnimTime;
     [SerializeField] private AnimType m_DefaultAnimType;
 
-    [Header("Setup")]
+    [Header("Setup")] 
+    [SerializeField] private Transform m_Sprite;
     [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
     [SerializeField] private MapObject m_MapObject;
     [SerializeField] private Map m_Map;
@@ -105,6 +106,13 @@ public class Movable : MonoBehaviour
     {
         if (!m_MoveNow)
         {
+            if(input == Vector2Int.right)
+                m_Sprite.rotation = Quaternion.Euler(0,0,0);
+            else if (input == Vector2Int.left)
+            {
+                m_Sprite.rotation = Quaternion.Euler(0,180,0);
+            }
+            
             if (m_Map.GetMapObjectByVector(m_MapObject.Pos + input) == null)
             {
                 if (m_ActionPointsContainer.CurrentPoints >= stepCost)

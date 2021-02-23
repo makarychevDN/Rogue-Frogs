@@ -23,9 +23,11 @@ public class Attackable : MonoBehaviour
     [SerializeField] private Map m_Map;
     [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
     [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
-    [SerializeField] private PlayerInput m_PlayerInput;
     [SerializeField] private DamageUI m_DamageUI;
     [SerializeField] private RangeUI m_RangeUI;
+    
+    [Header("Player Setup")]
+    [SerializeField] private PlayerInput m_PlayerInput;
 
     [Header("Events")] 
     [SerializeField] private UnityEvent OnAttack;
