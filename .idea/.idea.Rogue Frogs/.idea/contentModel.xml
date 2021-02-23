@@ -11,13 +11,14 @@
           <e p="ActiveObjectsQueue.cs" t="Include" />
           <e p="Attackable.cs" t="Include" />
           <e p="BaseAI.cs" t="Include" />
-          <e p="BaseWeapon.cs" t="Include" />
           <e p="Destructible.cs" t="Include" />
           <e p="Extensions" t="Include">
             <e p="Extensions.cs" t="Include" />
           </e>
           <e p="FollowAndAttackTargetAI.cs" t="Include" />
           <e p="FollowTargetAI.cs" t="Include" />
+          <e p="Level.cs" t="Include" />
+          <e p="LevelsManager.cs" t="Include" />
           <e p="Map.cs" t="Include" />
           <e p="MapObject.cs" t="Include" />
           <e p="Movable.cs" t="Include" />
@@ -26,6 +27,7 @@
             <e p="ActionPointsUI.cs" t="Include" />
             <e p="DamageUI.cs" t="Include" />
             <e p="HpUI.cs" t="Include" />
+            <e p="QueueCell.cs" t="Include" />
             <e p="RangeUI.cs" t="Include" />
           </e>
         </e>
