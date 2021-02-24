@@ -40,7 +40,9 @@ public class Destructible : MonoBehaviour
             {
                 var temp = GetComponent<MapObject>();
                 m_ActiveObjectsQueue.RemoveCharacterFromStack(temp);
-                FindObjectOfType<Map>().Cells[temp.Pos.x, temp.Pos.y] = null;
+                //FindObjectOfType<Map>().Cells[temp.Pos.x, temp.Pos.y] = null;
+                FindObjectOfType<Map>().SetMapObjectByVector(GetComponent<MapObject>().Pos, null);
+
                 gameObject.SetActive(false);
                 OnDied?.Invoke();
             }

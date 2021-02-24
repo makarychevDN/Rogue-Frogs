@@ -79,7 +79,8 @@ public class FollowAndAttackTargetAI : BaseAI
 
         foreach (var item in m_VerAndHorVectors)
         {
-            temp = m_Map.Cells[(m_ThisMapObject.Pos + item).x, (m_ThisMapObject.Pos + item).y];
+            //temp = m_Map.Cells[(m_ThisMapObject.Pos + item).x, (m_ThisMapObject.Pos + item).y];
+            temp = m_Map.GetMapObjectByVector(m_ThisMapObject.Pos + item);
 
             if (temp == null || temp == m_Target)
             {
