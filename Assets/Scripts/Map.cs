@@ -12,11 +12,14 @@ public class Map : MonoBehaviour
     void Start()
     {
         m_Cells = new MapObject[m_TopRightWall.Pos.x + 1, m_TopRightWall.Pos.y + 1, 2];
-        var temp = FindObjectsOfType<MapObject>();
+        var tempMapObjects = FindObjectsOfType<MapObject>();
 
-        foreach (var item in temp)
+        foreach (var item in tempMapObjects)
         {
-            m_Cells[item.Pos.x, item.Pos.y, 0] = item;
+            if(item.MapObjectType == MapObjectType.materialObject)
+                m_Cells[item.Pos.x, item.Pos.y, 0] = item;
+            else
+                m_Cells[item.Pos.x, item.Pos.y, 1] = item;
         }
     }
 
