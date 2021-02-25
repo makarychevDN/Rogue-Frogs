@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -125,6 +126,7 @@ public class Attackable : MonoBehaviour
                         m_CurrentDestructible = tempDestructible;
                         m_CurrentDestructible.StartHitAnimation();
                         m_ActionPointsContainer.CurrentPoints -= m_ActionCost;
+                        m_AnimStateMashine.ActivateAttackAnim();
                         
                         
                         Invoke("DealDamage", m_AnimationTime);
@@ -148,6 +150,7 @@ public class Attackable : MonoBehaviour
     {
         m_CurrentDestructible.CurrentHP -= m_Damage;
         m_CurrentDestructible.StoptHitAnimation();
+        m_AnimStateMashine.ActivateStayAnim();
 
         foreach (var item in m_AttackAnimationObjects)
         {

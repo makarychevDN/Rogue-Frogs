@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toad Attack
+  m_Name: Player Apply Damage
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -610249697097556344, guid: 46e9d3f4bade47949ac852f26cd9631b,
-        type: 3}
-    - time: 0.15
-      value: {fileID: -304152975575646544, guid: 46e9d3f4bade47949ac852f26cd9631b,
-        type: 3}
-    - time: 0.25
-      value: {fileID: -304152975575646544, guid: 46e9d3f4bade47949ac852f26cd9631b,
+      value: {fileID: 7045002061266275968, guid: c957868459ccce44c96e2d15287915a8,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -47,15 +41,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -610249697097556344, guid: 46e9d3f4bade47949ac852f26cd9631b, type: 3}
-    - {fileID: -304152975575646544, guid: 46e9d3f4bade47949ac852f26cd9631b, type: 3}
-    - {fileID: -304152975575646544, guid: 46e9d3f4bade47949ac852f26cd9631b, type: 3}
+    - {fileID: 7045002061266275968, guid: c957868459ccce44c96e2d15287915a8, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.26
+    m_StopTime: 0.01
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
