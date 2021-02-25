@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ec0975ae608884c8aa8bd92ad2436b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Pushable: 0
+  m_Pushable: 1
   m_DefaultPushCost: 2
   m_DefaultStepCost: 1
   m_DefaultAnimTime: 0.35
