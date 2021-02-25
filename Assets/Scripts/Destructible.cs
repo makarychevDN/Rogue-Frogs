@@ -7,9 +7,11 @@ public class Destructible : MonoBehaviour
 {
     [SerializeField] private int m_MaxHP;
     [SerializeField] private int m_CurrentHP;
+    
     [Header("Setup")]
-    [SerializeField] ActiveObjectsQueue m_ActiveObjectsQueue;
-    [SerializeField] HpUI m_HpUI;
+    [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
+    [SerializeField] private HpUI m_HpUI;
+    [SerializeField] private AnimationsStateMashine m_AnimStateMashine; 
 
     [Header("Events")] 
     [SerializeField] private UnityEvent OnApplyDamage;
@@ -49,9 +51,25 @@ public class Destructible : MonoBehaviour
         }
     }
 
+    public void StartHitAnimation()
+    {
+        AnimStateMashine.ActivateApplyDamageAnim();
+    }
+    
+    public void StoptHitAnimation()
+    {
+        AnimStateMashine.ActivateStayAnim();
+    }
+    
     public ActiveObjectsQueue ObjectsQueue
     {
         get => m_ActiveObjectsQueue;
         set => m_ActiveObjectsQueue = value;
+    }
+
+    public AnimationsStateMashine AnimStateMashine
+    {
+        get => m_AnimStateMashine;
+        set => m_AnimStateMashine = value;
     }
 }

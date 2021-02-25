@@ -13,8 +13,9 @@ public class Attackable : MonoBehaviour
     [Header("Sprite Visualisation")]
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private Sprite m_Sprite;
-    
-    [Header("Animation")]
+
+    [Header("Animation")] 
+    [SerializeField] private AnimationsStateMashine m_AnimStateMashine;
     [SerializeField] private List<GameObject> m_AttackAnimationObjects;
     [SerializeField] private float m_AnimationTime;
 
@@ -120,9 +121,11 @@ public class Attackable : MonoBehaviour
                         {
                             m_PlayerInput.CanInput = false;
                         }
-
+                        
                         m_CurrentDestructible = tempDestructible;
+                        m_CurrentDestructible.StartHitAnimation();
                         m_ActionPointsContainer.CurrentPoints -= m_ActionCost;
+                        
                         
                         Invoke("DealDamage", m_AnimationTime);
 
@@ -144,6 +147,7 @@ public class Attackable : MonoBehaviour
     private void DealDamage()
     {
         m_CurrentDestructible.CurrentHP -= m_Damage;
+        m_CurrentDestructible.StoptHitAnimation();
 
         foreach (var item in m_AttackAnimationObjects)
         {
