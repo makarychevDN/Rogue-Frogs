@@ -187,9 +187,9 @@ public class Movable : MonoBehaviour
         transform.position = new Vector3(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y), 0);
         m_MoveNow = false;
 
-        m_Map.Cells[m_MapObject.Pos.x, m_MapObject.Pos.y] = null;
+        m_Map.SetMapObjectByVector(m_MapObject.Pos, null);
         m_MapObject.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
-        m_Map.Cells[m_MapObject.Pos.x, m_MapObject.Pos.y] = m_MapObject;
+        m_Map.SetMapObjectByVector(m_MapObject.Pos, m_MapObject);
         
         OnAnyMovementEnd?.Invoke();
         
