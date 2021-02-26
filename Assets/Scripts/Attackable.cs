@@ -20,7 +20,8 @@ public class Attackable : MonoBehaviour
     [SerializeField] private List<GameObject> m_AttackAnimationObjects;
     [SerializeField] private float m_AnimationTime;
 
-    [Header("Setup")]
+    [Header("Setup")] 
+    [SerializeField] private MapObjSpriteRotator m_SpriteRotator;
     [SerializeField] private MapObject m_MabObject;
     [SerializeField] private Map m_Map;
     [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
@@ -108,6 +109,7 @@ public class Attackable : MonoBehaviour
         if (m_ActionPointsContainer.CurrentPoints >= m_ActionCost)
         {
             MapObject tempMapObject;
+            m_SpriteRotator.RotateSprite(input);
 
             for (int i = 0; i < m_Range; i++)
             {

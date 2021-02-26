@@ -308,6 +308,7 @@ MonoBehaviour:
   m_AttackAnimationObjects:
   - {fileID: 343931656924320589}
   m_AnimationTime: 0.35
+  m_SpriteRotator: {fileID: 4766463325278074539}
   m_MabObject: {fileID: 343931658716712509}
   m_Map: {fileID: 0}
   m_ActiveObjectsQueue: {fileID: 0}
@@ -2077,6 +2078,7 @@ GameObject:
   - component: {fileID: 343931658716712496}
   - component: {fileID: 343931658716712497}
   - component: {fileID: 8561937701038740856}
+  - component: {fileID: 4766463325278074539}
   m_Layer: 0
   m_Name: Toad Enemie
   m_TagString: Untagged
@@ -2133,7 +2135,7 @@ MonoBehaviour:
   m_DefaultStepCost: 1
   m_DefaultAnimTime: 0.35
   m_DefaultAnimType: 1
-  m_Sprite: {fileID: 343931656691941064}
+  m_SpriteRotator: {fileID: 4766463325278074539}
   m_ActionPointsContainer: {fileID: 343931658716712496}
   m_MapObject: {fileID: 343931658716712509}
   m_Map: {fileID: 0}
@@ -2225,3 +2227,16 @@ MonoBehaviour:
   m_Movement: {fileID: 343931658716712508}
   m_Map: {fileID: 0}
   m_ActiveObjectsQueue: {fileID: 0}
+--- !u!114 &4766463325278074539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343931658716712511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4059914d1388ee4d81a51c62328247a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Sprite: {fileID: 343931656691941064}
