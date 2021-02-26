@@ -677,12 +677,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MapObject: {fileID: 1670691849509343332}
+  m_Map: {fileID: 0}
   m_SpriteRenderer: {fileID: 1670691850191986832}
   m_Sprites:
   - {fileID: 4318253296501502339, guid: 7abac5dbf9a881146a52aa5723e009ed, type: 3}
   - {fileID: -5749312215154670435, guid: 7abac5dbf9a881146a52aa5723e009ed, type: 3}
   - {fileID: -2837848667354824397, guid: 7abac5dbf9a881146a52aa5723e009ed, type: 3}
   m_TurnsBeforeHit: 3
+  m_Damage: 3
   m_Queue: {fileID: 0}
 --- !u!1 &1670691849680014381
 GameObject:

@@ -6,13 +6,16 @@ using UnityEngine;
 public class AttackableSurfaceAI : BaseAI
 {
     [SerializeField] private MapObject m_MapObject;
+    [SerializeField] private Map m_Map;
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private List<Sprite> m_Sprites;
     [SerializeField] private int m_TurnsBeforeHit;
+    [SerializeField] private int m_Damage;
     [SerializeField] private ActiveObjectsQueue m_Queue;
 
     private void Start()
     {
+        m_Map = FindObjectOfType<Map>();
         m_Queue = FindObjectOfType<ActiveObjectsQueue>();
     }
 
@@ -31,5 +34,15 @@ public class AttackableSurfaceAI : BaseAI
         
         m_SpriteRenderer.sprite = m_Sprites[m_Count];
         m_Queue.SkipTheTurn();
+
+        if (m_Count == m_TurnsBeforeHit - 1)
+        {
+            var temp = m_Map.GetMapObjectByVector(m_MapObject.Pos).GetComponent<Destructible>();
+
+            if (temp != null)
+            {
+                temp.CurrentHP -= m_Damage;
+            }
+        }
     }
 }
