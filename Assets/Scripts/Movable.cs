@@ -135,6 +135,8 @@ public class Movable : MonoBehaviour
 
     private void StartMovementSetup(Vector2Int input, AnimType animType, float animTime, int stepCost)
     {
+        if(m_Map.GetSurfaceByVector(m_MapObject.Pos) != null)
+            m_Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
         m_ActionPointsContainer.CurrentPoints -= stepCost;
         m_CurrentAnimType = animType;
         m_CurrentPos = m_MapObject.Pos;
@@ -188,6 +190,8 @@ public class Movable : MonoBehaviour
         m_Map.SetMapObjectByVector(m_MapObject.Pos, m_MapObject);
         
         OnAnyMovementEnd?.Invoke();
+        if(m_Map.GetSurfaceByVector(m_MapObject.Pos) != null)
+            m_Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepInEvent();
         
         if (!m_PushingNow)
         {

@@ -35,6 +35,11 @@ public class AttackableSurfaceAI : BaseAI
         m_SpriteRenderer.sprite = m_Sprites[m_Count];
         m_Queue.SkipTheTurn();
 
+        TryToDealDamage();
+    }
+
+    public void TryToDealDamage()
+    {
         if (m_Count == m_TurnsBeforeHit - 1)
         {
             if (m_Map.GetMapObjectByVector(m_MapObject.Pos) != null)
