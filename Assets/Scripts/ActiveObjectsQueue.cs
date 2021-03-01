@@ -16,7 +16,28 @@ public class ActiveObjectsQueue : MonoBehaviour
     {
         FindAllActiveMapObjects();
         SortActiveObjects();
+        InitPanels();
+    }
+
+    public void FindAllActiveMapObjects()
+    {
+        var temp = FindObjectsOfType<ActionPointsContainer>();
+        m_Characters = new List<MapObject>();
         
+        foreach (var item in temp)
+        {
+            m_Characters.Add(item.GetComponent<MapObject>());
+        }
+    }
+
+    public void SortActiveObjects()
+    {
+        InitiativeComparer ic = new InitiativeComparer();
+        m_Characters.Sort(ic);
+    }
+
+    public void InitPanels()
+    {
         m_Cells = new List<QueueCell>();
         for (int i = 0; i < m_Characters.Count; i++)
         {
@@ -28,32 +49,6 @@ public class ActiveObjectsQueue : MonoBehaviour
 
         m_CurrentCharacter = m_Characters[0];
         m_Cells[0].ActiveCell.SetActive(true);
-    }
-
-    public void FindAllActiveMapObjects()
-    {
-        var temp = FindObjectsOfType<ActionPointsContainer>();
-        m_Characters = new List<MapObject>();
-        
-        foreach (var item in temp)
-        {
-            if (item.GetComponent<PlayerInput>() != null)
-            {
-                m_Characters.Insert(0, item.GetComponent<MapObject>());
-                item.GetComponent<PlayerInput>().CanInput = true;
-            }
-
-            else
-            {
-                m_Characters.Add(item.GetComponent<MapObject>());
-            }
-        }
-    }
-
-    public void SortActiveObjects()
-    {
-        InitiativeComparer ic = new InitiativeComparer();
-        m_Characters.Sort(ic);
     }
 
     public void StartNextAction()
