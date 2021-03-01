@@ -585,11 +585,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1670691849509343339}
-  - component: {fileID: 1670691849509343332}
-  - component: {fileID: 7019594210430110383}
   - component: {fileID: 4040505977165377150}
   - component: {fileID: 2980044911631444863}
   - component: {fileID: 4247589161848642021}
+  - component: {fileID: 2427701611270322258}
   m_Layer: 0
   m_Name: Surface Spikes Trap
   m_TagString: Untagged
@@ -614,35 +613,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1670691849509343332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670691849509343334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c300635caba384f896aa5639f16174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -2837848667354824397, guid: 7abac5dbf9a881146a52aa5723e009ed,
-    type: 3}
-  m_SkipTurnAnimation: {fileID: 1670691850739029014}
-  m_Type: 1
---- !u!114 &7019594210430110383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670691849509343334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4059914d1388ee4d81a51c62328247a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1670691850191986833}
 --- !u!114 &4040505977165377150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efbe289d6a1e1945ad78998cbc0c328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MapObject: {fileID: 1670691849509343332}
+  m_MapObject: {fileID: 2427701611270322258}
   m_Map: {fileID: 0}
   m_SpriteRenderer: {fileID: 1670691850191986832}
   m_Sprites:
@@ -700,6 +670,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Initiative: -1
+--- !u!114 &2427701611270322258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670691849509343334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc3894f92fc107041ba40f1defb4202f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Sprite: {fileID: -2837848667354824397, guid: 7abac5dbf9a881146a52aa5723e009ed,
+    type: 3}
+  m_SkipTurnAnimation: {fileID: 0}
+  OnStepIn:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStepOut:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1670691849680014381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1408,7 @@ MonoBehaviour:
   - {fileID: 1670691850363292948}
   m_AnimationTime: 0.2
   m_SpriteRotator: {fileID: 0}
-  m_MabObject: {fileID: 1670691849509343332}
+  m_MabObject: {fileID: 0}
   m_Map: {fileID: 0}
   m_ActiveObjectsQueue: {fileID: 0}
   m_ActionPointsContainer: {fileID: 0}
@@ -2089,12 +2080,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dac9ff7d2435b0d44bd336e8b0194a51, type: 3}
---- !u!1 &1670691850739029014 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2825375137324220188, guid: dac9ff7d2435b0d44bd336e8b0194a51,
-    type: 3}
-  m_PrefabInstance: {fileID: 3466297084324260618}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1670691850739029013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2825375137324220191, guid: dac9ff7d2435b0d44bd336e8b0194a51,

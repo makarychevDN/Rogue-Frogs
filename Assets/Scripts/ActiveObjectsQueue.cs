@@ -85,7 +85,8 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     public void SkipTheTurn()
     {
-        m_CurrentCharacter.SkipTurnAnimation.SetActive(false);
+        if(m_CurrentCharacter.SkipTurnAnimation!=null)
+            m_CurrentCharacter.SkipTurnAnimation.SetActive(false);
         m_Cells[m_QueueCount].ActiveCell.SetActive(false);
         
         var temp = m_CurrentCharacter.GetComponent<PlayerInput>();

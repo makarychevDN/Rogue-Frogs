@@ -8,7 +8,6 @@ public class MapObject : MonoBehaviour
     //[SerializeField] private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private Sprite m_Sprite;
     [SerializeField] private GameObject m_SkipTurnAnimation;
-    [SerializeField] private MapObjectType m_Type;
     private Vector2Int pos;
 
     public Vector2Int Pos
@@ -30,19 +29,8 @@ public class MapObject : MonoBehaviour
         set => m_SkipTurnAnimation = value;
     }
 
-    public MapObjectType MapObjectType
-    {
-        get => m_Type;
-        set => m_Type = value;
-    }
-
     void Awake()
     {
         pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
     }
-}
-
-public enum MapObjectType
-{
-    materialObject,surface
 }

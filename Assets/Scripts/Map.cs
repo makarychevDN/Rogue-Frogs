@@ -16,16 +16,22 @@ public class Map : MonoBehaviour
 
         foreach (var item in tempMapObjects)
         {
-            if(item.MapObjectType == MapObjectType.materialObject)
-                m_Cells[item.Pos.x, item.Pos.y, 0] = item;
-            else
+            //MapObjectSurface tempMapObj = (MapObjectSurface) item;
+            if(item is MapObjectSurface)
                 m_Cells[item.Pos.x, item.Pos.y, 1] = item;
+            else
+                m_Cells[item.Pos.x, item.Pos.y, 0] = item;
         }
     }
 
     public MapObject GetMapObjectByVector(Vector2Int coordinates)
     {
         return m_Cells[coordinates.x, coordinates.y, 0];
+    }
+    
+    public MapObjectSurface GetSurfaceByVector(Vector2Int coordinates)
+    {
+        return (MapObjectSurface)m_Cells[coordinates.x, coordinates.y, 1];
     }
     
     public void SetMapObjectByVector(Vector2Int coordinates, MapObject mapObject)

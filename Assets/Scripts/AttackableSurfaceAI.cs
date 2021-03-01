@@ -37,11 +37,14 @@ public class AttackableSurfaceAI : BaseAI
 
         if (m_Count == m_TurnsBeforeHit - 1)
         {
-            var temp = m_Map.GetMapObjectByVector(m_MapObject.Pos).GetComponent<Destructible>();
-
-            if (temp != null)
+            if (m_Map.GetMapObjectByVector(m_MapObject.Pos) != null)
             {
-                temp.CurrentHP -= m_Damage;
+                var temp = m_Map.GetMapObjectByVector(m_MapObject.Pos).GetComponent<Destructible>();
+
+                if (temp != null)
+                {
+                    temp.CurrentHP -= m_Damage;
+                }
             }
         }
     }
