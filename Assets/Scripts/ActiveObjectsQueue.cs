@@ -15,7 +15,8 @@ public class ActiveObjectsQueue : MonoBehaviour
     private void Start()
     {
         FindAllActiveMapObjects();
-
+        SortActiveObjects();
+        
         m_Cells = new List<QueueCell>();
         for (int i = 0; i < m_Characters.Count; i++)
         {
@@ -47,6 +48,12 @@ public class ActiveObjectsQueue : MonoBehaviour
                 m_Characters.Add(item.GetComponent<MapObject>());
             }
         }
+    }
+
+    public void SortActiveObjects()
+    {
+        InitiativeComparer ic = new InitiativeComparer();
+        m_Characters.Sort(ic);
     }
 
     public void StartNextAction()
@@ -116,5 +123,21 @@ public class ActiveObjectsQueue : MonoBehaviour
         
         m_CurrentCharacter.SkipTurnAnimation.SetActive(true);
         Invoke("SkipTheTurn", m_SkipTurnDelay);
+    }
+}
+
+class InitiativeComparer : IComparer<MapObject>
+{
+    public int Compare(MapObject x, MapObject y)
+    {
+        var tempX = x.GetComponent<InitiativeContainer>().Initiative;
+        var tempY = y.GetComponent<InitiativeContainer>().Initiative;
+        
+        if (tempX > tempY)
+            return -1;
+        else if(tempX < tempY)
+            return 1;
+
+        return 0;
     }
 }

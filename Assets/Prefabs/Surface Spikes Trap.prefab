@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 7019594210430110383}
   - component: {fileID: 4040505977165377150}
   - component: {fileID: 2980044911631444863}
+  - component: {fileID: 4247589161848642021}
   m_Layer: 0
   m_Name: Surface Spikes Trap
   m_TagString: Untagged
@@ -686,6 +687,19 @@ MonoBehaviour:
   m_TurnsBeforeHit: 3
   m_Damage: 3
   m_Queue: {fileID: 0}
+--- !u!114 &4247589161848642021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670691849509343334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9efe9617dbb2d44db6e64ebc7534ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Initiative: -1
 --- !u!1 &1670691849680014381
 GameObject:
   m_ObjectHideFlags: 0
