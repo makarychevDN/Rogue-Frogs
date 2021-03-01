@@ -17,6 +17,8 @@ public class ActiveObjectsQueue : MonoBehaviour
         FindAllActiveMapObjects();
         SortActiveObjects();
         InitPanels();
+
+        m_CurrentCharacter.GetComponent<PlayerInput>().CanInput = true;
     }
 
     public void FindAllActiveMapObjects()
