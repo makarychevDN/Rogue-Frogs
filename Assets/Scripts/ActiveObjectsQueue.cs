@@ -14,6 +14,23 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     private void Start()
     {
+        FindAllActiveMapObjects();
+
+        m_Cells = new List<QueueCell>();
+        for (int i = 0; i < m_Characters.Count; i++)
+        {
+            var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
+            spawnedPanel.transform.localPosition = Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Characters.Count-1) * 0.5f * m_IndentMultiplier;
+            spawnedPanel.SetSprite(m_Characters[i].Sprite);
+            m_Cells.Add(spawnedPanel);
+        }
+
+        m_CurrentCharacter = m_Characters[0];
+        m_Cells[0].ActiveCell.SetActive(true);
+    }
+
+    public void FindAllActiveMapObjects()
+    {
         var temp = FindObjectsOfType<ActionPointsContainer>();
         m_Characters = new List<MapObject>();
         
@@ -30,18 +47,6 @@ public class ActiveObjectsQueue : MonoBehaviour
                 m_Characters.Add(item.GetComponent<MapObject>());
             }
         }
-
-        m_Cells = new List<QueueCell>();
-        for (int i = 0; i < m_Characters.Count; i++)
-        {
-            var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
-            spawnedPanel.transform.localPosition = Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Characters.Count-1) * 0.5f * m_IndentMultiplier;
-            spawnedPanel.SetSprite(m_Characters[i].Sprite);
-            m_Cells.Add(spawnedPanel);
-        }
-
-        m_CurrentCharacter = m_Characters[0];
-        m_Cells[0].ActiveCell.SetActive(true);
     }
 
     public void StartNextAction()
@@ -72,11 +77,6 @@ public class ActiveObjectsQueue : MonoBehaviour
         m_Cells[index].gameObject.SetActive(false);
         m_Cells.RemoveAt(index);
         RearrangeCells();
-
-        /*if (m_Characters.Count == 1)
-        {
-            FindObjectOfType<LevelsManager>().StartNextLevel();
-        }*/
     }
 
     public void SkipTheTurn()
