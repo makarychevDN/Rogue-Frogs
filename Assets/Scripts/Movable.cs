@@ -78,6 +78,8 @@ public class Movable : MonoBehaviour
     private void Start()
     {
         m_CurrentAnimType = m_DefaultAnimType;
+        m_Map = FindObjectOfType<Map>();
+        m_MapObject = GetComponent<MapObject>();
     }
 
     void Update()

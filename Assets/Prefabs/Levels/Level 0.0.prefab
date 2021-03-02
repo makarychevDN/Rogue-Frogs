@@ -1002,6 +1002,7 @@ MonoBehaviour:
   m_IndentMultiplier: 0.85
   m_BombPrefab: {fileID: 343931658716712509, guid: c661d81ba959e6f498d1f45c3072f017,
     type: 3}
+  m_Map: {fileID: 2924851349307712099}
 --- !u!1 &2924851349914751359
 GameObject:
   m_ObjectHideFlags: 0

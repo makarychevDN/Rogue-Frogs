@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,5 +38,13 @@ public class Map : MonoBehaviour
     public void SetMapObjectByVector(Vector2Int coordinates, MapObject mapObject)
     {
         m_Cells[coordinates.x, coordinates.y, 0] = mapObject;
+    }
+
+    private void Update() //todo remove this shit vvv
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            print(m_Cells[2, 2, 0]);
+        }
     }
 }
