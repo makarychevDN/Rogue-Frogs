@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     private MapObject m_CurrentCharacter;
     private int m_QueueCount;
     private float m_SkipTurnDelay = 0.5f;
-
+    [SerializeField] private MapObject m_BombPrefab;     //todo remove this shit <<<
     private void Start()
     {
         FindAllActiveMapObjects();
@@ -121,6 +122,26 @@ public class ActiveObjectsQueue : MonoBehaviour
         
         m_CurrentCharacter.SkipTurnAnimation.SetActive(true);
         Invoke("SkipTheTurn", m_SkipTurnDelay);
+    }
+    
+    //todo remove this shit vvv
+    private void Update()
+    {
+        print(FindObjectOfType<Map>().GetMapObjectByVector(m_Characters[m_Characters.Count-1].Pos));
+        print(m_Characters[m_Characters.Count-1]);
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            var temp = Instantiate(m_BombPrefab);
+            temp.transform.position = new Vector3(2, 2);
+            temp.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
+            FindObjectOfType<Map>().SetMapObjectByVector(temp.Pos, temp);
+            var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
+            spawnedPanel.SetSprite(temp.Sprite);
+            m_Characters.Add(temp);
+            m_Cells.Add(spawnedPanel);
+            RearrangeCells();
+            FindObjectOfType<Map>().SetMapObjectByVector(m_Characters[m_Characters.Count-1].Pos, m_Characters[m_Characters.Count-1]);
+        }
     }
 }
 
