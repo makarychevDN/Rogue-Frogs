@@ -448,6 +448,11 @@ PrefabInstance:
       propertyPath: m_SpriteRotator
       value: 
       objectReference: {fileID: 822011885}
+    - target: {fileID: 1670691850362982845, guid: 98fa00398bcdfc6449a2d117408eb1ee,
+        type: 3}
+      propertyPath: m_ActionCost
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1670691850417594790, guid: 98fa00398bcdfc6449a2d117408eb1ee,
         type: 3}
       propertyPath: m_Camera

@@ -83,13 +83,17 @@ public class ActiveObjectsQueue : MonoBehaviour
         m_Cells[index].gameObject.SetActive(false);
         m_Cells.RemoveAt(index);
         RearrangeCells();
+        
+        if(mapObject == m_CurrentCharacter)
+            SkipTheTurn();
     }
 
     public void SkipTheTurn()
     {
-        if(m_CurrentCharacter.SkipTurnAnimation!=null)
+        if(m_CurrentCharacter.SkipTurnAnimation != null)
             m_CurrentCharacter.SkipTurnAnimation.SetActive(false);
-        m_Cells[m_QueueCount].ActiveCell.SetActive(false);
+        if(m_QueueCount < m_Cells.Count)
+            m_Cells[m_QueueCount].ActiveCell.SetActive(false);
         
         var temp = m_CurrentCharacter.GetComponent<PlayerInput>();
         if (temp != null)
