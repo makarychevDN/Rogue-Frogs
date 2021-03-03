@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MapObject : MonoBehaviour
 {
-    //[SerializeField] private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private Sprite m_Sprite;
     [SerializeField] private GameObject m_SkipTurnAnimation;
     private Vector2Int pos;

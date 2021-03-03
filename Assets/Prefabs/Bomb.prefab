@@ -961,7 +961,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 7374874032361590669, guid: bc5f0f05fc4111040884c50d925931d2,
+  m_Sprite: {fileID: -8327471844586406341, guid: bc5f0f05fc4111040884c50d925931d2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1339,7 +1339,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 7374874032361590669, guid: bc5f0f05fc4111040884c50d925931d2,
+  m_Sprite: {fileID: -8327471844586406341, guid: bc5f0f05fc4111040884c50d925931d2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1920,7 +1920,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 7374874032361590669, guid: bc5f0f05fc4111040884c50d925931d2,
+  m_Sprite: {fileID: -8327471844586406341, guid: bc5f0f05fc4111040884c50d925931d2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2043,8 +2043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxPoints: 3
-  m_CurrentPoints: 3
-  m_PointsRegenerationInTurn: 2
+  m_CurrentPoints: 0
+  m_PointsRegenerationInTurn: 1
   m_PointsVisualisation: {fileID: 343931658405345089}
   OnDidSomething:
     m_PersistentCalls:
@@ -2100,7 +2100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9efe9617dbb2d44db6e64ebc7534ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Initiative: 4
+  m_Initiative: 40
 --- !u!114 &7065834550108698175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2113,6 +2113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8bcc823fb9ae574699276c31101608f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionPointsContainer: {fileID: 343931658716712496}
+  m_Queue: {fileID: 0}
 --- !u!1001 &2090115387118113381
 PrefabInstance:
   m_ObjectHideFlags: 0

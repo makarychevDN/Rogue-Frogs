@@ -130,28 +130,18 @@ public class ActiveObjectsQueue : MonoBehaviour
         m_Characters.Add(mapObject);
         SortActiveObjects();
         InitPanel(mapObject);
+        RearrangeCells();
     }
 
     public void InitPanel(MapObject mapObject)
     {
         var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
+
+        int count = m_Characters.IndexOf(mapObject);
+        
         spawnedPanel.SetSprite(mapObject.Sprite);
-        m_Cells.Add(spawnedPanel);
-        RearrangeCells();
+        m_Cells.Insert(count, spawnedPanel);
     }
-    
-    //todo remove this shit vvv
-    /*private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            var temp = Instantiate(m_BombPrefab);
-            m_Map.SetMapObjectByVector(new Vector2Int(2,2),temp);
-            temp.transform.position = new Vector3(2, 2);
-            temp.Pos = new Vector2Int(2, 2);
-            AddObjectInQueue(temp);
-        }
-    }*/
 }
 
 
