@@ -41,12 +41,12 @@ public class Destructible : MonoBehaviour
 
             if (m_CurrentHP == 0)
             {
+                OnDied?.Invoke();
                 var temp = GetComponent<MapObject>();
                 m_ActiveObjectsQueue.RemoveCharacterFromStack(temp);
                 FindObjectOfType<Map>().SetMapObjectByVector(GetComponent<MapObject>().Pos, null);
 
                 gameObject.SetActive(false);
-                OnDied?.Invoke();
             }
         }
     }
