@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 050806ef4d2e8174e8d1ba1520238b97, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fff8eb1d3ef99904db86db3b1af37d9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1947,9 +1947,9 @@ GameObject:
   - component: {fileID: 343931658716712497}
   - component: {fileID: 4766463325278074539}
   - component: {fileID: 1414013026064387548}
-  - component: {fileID: 7065834550108698175}
+  - component: {fileID: 1670481447268162988}
   m_Layer: 0
-  m_Name: Bomb
+  m_Name: Bomberman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c300635caba384f896aa5639f16174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 050806ef4d2e8174e8d1ba1520238b97, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fff8eb1d3ef99904db86db3b1af37d9f, type: 3}
   m_SkipTurnAnimation: {fileID: 4194024883726773625}
 --- !u!114 &343931658716712508
 MonoBehaviour:
@@ -2064,8 +2064,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHP: 2
-  m_CurrentHP: 2
+  m_MaxHP: 5
+  m_CurrentHP: 5
   m_ActiveObjectsQueue: {fileID: 0}
   m_HpUI: {fileID: 343931656883518439}
   m_AnimStateMashine: {fileID: 3281820124522564978}
@@ -2100,8 +2100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9efe9617dbb2d44db6e64ebc7534ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Initiative: 4
---- !u!114 &7065834550108698175
+  m_Initiative: 5
+--- !u!114 &1670481447268162988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2110,9 +2110,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 343931658716712511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8bcc823fb9ae574699276c31101608f, type: 3}
+  m_Script: {fileID: 11500000, guid: c850fd9677170b34aafd37c093d631cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SpawnObjectPrefab: {fileID: 343931658716712509, guid: c661d81ba959e6f498d1f45c3072f017,
+    type: 3}
+  m_Target: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 343931658716712496}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!1001 &2090115387118113381
 PrefabInstance:
   m_ObjectHideFlags: 0
