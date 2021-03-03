@@ -1986,7 +1986,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: d92a17bc849335c49887a9c3fd1bf895, type: 3}
   m_SkipTurnAnimation: {fileID: 4194024883726773625}
-  m_Type: 0
 --- !u!114 &343931658716712508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2065,8 +2064,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHP: 5
-  m_CurrentHP: 5
+  m_MaxHP: 4
+  m_CurrentHP: 4
   m_ActiveObjectsQueue: {fileID: 0}
   m_HpUI: {fileID: 343931656883518439}
   m_AnimStateMashine: {fileID: 3281820124522564978}

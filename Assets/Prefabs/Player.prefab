@@ -631,7 +631,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: b6ae114718d03b24ca85f1e029c0893a, type: 3}
   m_SkipTurnAnimation: {fileID: 1670691850739029014}
-  m_Type: 0
 --- !u!114 &1670691849509343333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,9 +1523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damage: 2
+  m_Damage: 5
   m_Range: 1
-  m_ActionCost: 1
+  m_ActionCost: 2
   m_SpriteRenderer: {fileID: 0}
   m_Sprite: {fileID: 0}
   m_AnimStateMashine: {fileID: 3743687435979842149}
