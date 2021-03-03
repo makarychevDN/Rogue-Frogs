@@ -1948,6 +1948,7 @@ GameObject:
   - component: {fileID: 4766463325278074539}
   - component: {fileID: 1414013026064387548}
   - component: {fileID: 7065834550108698175}
+  - component: {fileID: 6395402240479541469}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -2074,7 +2075,18 @@ MonoBehaviour:
       m_Calls: []
   OnDied:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6395402240479541469}
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4766463325278074539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,6 +2127,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionPointsContainer: {fileID: 343931658716712496}
   m_Queue: {fileID: 0}
+--- !u!114 &6395402240479541469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343931658716712511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aed3c3d943d6a64a9b676d87b8b0ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MapObject: {fileID: 343931658716712509}
+  m_Damage: 5
+  m_Range: 1
+  m_Map: {fileID: 0}
 --- !u!1001 &2090115387118113381
 PrefabInstance:
   m_ObjectHideFlags: 0

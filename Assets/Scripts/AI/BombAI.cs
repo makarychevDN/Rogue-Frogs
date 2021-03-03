@@ -12,7 +12,7 @@ public class BombAI : BaseAI
     {
         if (m_ActionPointsContainer.CurrentPoints > 2)
         {
-            GetComponent<Destructible>().CurrentHP -= 1000;
+            GetComponent<Destructible>().CurrentHP -= 10000;
         }
 
         else
