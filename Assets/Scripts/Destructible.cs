@@ -26,6 +26,7 @@ public class Destructible : MonoBehaviour
     private void Start()
     {
         m_HpUI.SetValue(CurrentHP);
+        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 
     public int MaxHP { get => m_MaxHP; set => m_MaxHP = value; }

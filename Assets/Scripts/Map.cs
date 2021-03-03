@@ -39,12 +39,4 @@ public class Map : MonoBehaviour
     {
         m_Cells[coordinates.x, coordinates.y, 0] = mapObject;
     }
-
-    private void Update() //todo remove this shit vvv
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            print(m_Cells[2, 2, 0]);
-        }
-    }
 }
