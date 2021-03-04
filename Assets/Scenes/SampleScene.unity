@@ -291,98 +291,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &618818690 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1670691850191986833, guid: 98fa00398bcdfc6449a2d117408eb1ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 1670691850785590291}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &822011885 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7019594210430110383, guid: 98fa00398bcdfc6449a2d117408eb1ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 1670691850785590291}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4059914d1388ee4d81a51c62328247a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1544690807 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1670691849509343332, guid: 98fa00398bcdfc6449a2d117408eb1ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 1670691850785590291}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c300635caba384f896aa5639f16174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &2050100933
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2050100935}
-  - component: {fileID: 2050100934}
-  m_Layer: 0
-  m_Name: Levels Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2050100934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050100933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbc754a5f36aef44aa71bf22f113b427, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Levels:
-  - {fileID: 626510083231995494, guid: 8341d003ee798c849a04df6ed604f0d1, type: 3}
-  - {fileID: 626510083231995494, guid: a39eb50744f65a546a0caedf7c9bef58, type: 3}
-  m_CurrentLevel: {fileID: 626510083231995494, guid: 8341d003ee798c849a04df6ed604f0d1,
-    type: 3}
-  m_LevelCount: 0
-  m_Player: {fileID: 1544690807}
---- !u!4 &2050100935
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050100933}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1670691850785590291
+--- !u!1001 &1327211946
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1670691849509343333, guid: 98fa00398bcdfc6449a2d117408eb1ee,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 618818690}
     - target: {fileID: 1670691849509343334, guid: 98fa00398bcdfc6449a2d117408eb1ee,
         type: 3}
       propertyPath: m_Name
@@ -443,20 +358,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1670691850362982845, guid: 98fa00398bcdfc6449a2d117408eb1ee,
-        type: 3}
-      propertyPath: m_SpriteRotator
-      value: 
-      objectReference: {fileID: 822011885}
-    - target: {fileID: 1670691850362982845, guid: 98fa00398bcdfc6449a2d117408eb1ee,
-        type: 3}
-      propertyPath: m_ActionCost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1670691850417594790, guid: 98fa00398bcdfc6449a2d117408eb1ee,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98fa00398bcdfc6449a2d117408eb1ee, type: 3}
+--- !u!1 &2050100933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2050100935}
+  - component: {fileID: 2050100934}
+  m_Layer: 0
+  m_Name: Levels Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2050100934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050100933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc754a5f36aef44aa71bf22f113b427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Levels:
+  - {fileID: 626510083231995494, guid: 8341d003ee798c849a04df6ed604f0d1, type: 3}
+  - {fileID: 626510083231995494, guid: a39eb50744f65a546a0caedf7c9bef58, type: 3}
+  m_CurrentLevel: {fileID: 626510083231995494, guid: 8341d003ee798c849a04df6ed604f0d1,
+    type: 3}
+  m_LevelCount: 0
+  m_Player: {fileID: 0}
+--- !u!4 &2050100935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050100933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
