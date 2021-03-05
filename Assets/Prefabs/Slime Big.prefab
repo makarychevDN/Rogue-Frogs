@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: d92a17bc849335c49887a9c3fd1bf895, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01762d9082a24ad45a9622ab5b6988b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 343931656691941067}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d4b24b5f538ade34a881dd255490fa0a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4391184aa1f7b774a9c1db066ee69f8d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 1470490729527418706}
-  m_Stay: {fileID: 7400000, guid: f1690dbd94b40ba43a18bdb3c6050b79, type: 2}
-  m_Attack: {fileID: 7400000, guid: 28be1290766036045aaa9b1f721d011c, type: 2}
-  m_ApplyDamage: {fileID: 7400000, guid: 1918f17f81bbba54ab6d7c97f7f043a5, type: 2}
+  m_Stay: {fileID: 7400000, guid: 6898cc19bb92cfa4fb05e715e6342f1b, type: 2}
+  m_Attack: {fileID: 7400000, guid: f1debe80c9bf84344b987b5a19203f80, type: 2}
+  m_ApplyDamage: {fileID: 7400000, guid: 27f37d7a904278b49b2a8e16673bc1e0, type: 2}
 --- !u!1 &343931656719435777
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,9 +299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damage: 2
+  m_Damage: 4
   m_Range: 1
-  m_ActionCost: 2
+  m_ActionCost: 1
   m_SpriteRenderer: {fileID: 0}
   m_Sprite: {fileID: 0}
   m_AnimStateMashine: {fileID: 3281820124522564978}
@@ -1952,8 +1952,9 @@ GameObject:
   - component: {fileID: 8561937701038740856}
   - component: {fileID: 4766463325278074539}
   - component: {fileID: 1414013026064387548}
+  - component: {fileID: 7079969554095168618}
   m_Layer: 0
-  m_Name: Toad Enemie
+  m_Name: Slime Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1988,7 +1989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c300635caba384f896aa5639f16174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: d92a17bc849335c49887a9c3fd1bf895, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01762d9082a24ad45a9622ab5b6988b6, type: 3}
   m_SkipTurnAnimation: {fileID: 4194024883726773625}
 --- !u!114 &343931658716712508
 MonoBehaviour:
@@ -2125,6 +2126,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Initiative: 5
+--- !u!95 &7079969554095168618
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343931658716712511}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4391184aa1f7b774a9c1db066ee69f8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2090115387118113381
 PrefabInstance:
   m_ObjectHideFlags: 0
