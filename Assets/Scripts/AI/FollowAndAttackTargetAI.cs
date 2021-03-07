@@ -29,6 +29,8 @@ public class FollowAndAttackTargetAI : BaseAI
 
     private void Start()
     {
+        m_Map = FindObjectOfType<Map>();
+        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
         m_Target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
         m_VerAndHorVectors = new List<Vector2Int>();
         m_VerAndHorVectors.Add(Vector2Int.up);
@@ -60,7 +62,7 @@ public class FollowAndAttackTargetAI : BaseAI
         }
         else
         {
-            if (closestPointToPlayer != Vector2Int.zero)
+            if (closestPointToPlayer != Vector2Int.zero && m_ActionPointsContainer.CurrentPoints >= m_Movement.DefaultStepCost)
             {
                 m_Movement.Move(closestPointToPlayer);
             }

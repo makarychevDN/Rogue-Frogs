@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: fff8eb1d3ef99904db86db3b1af37d9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bc004a312e19ecd40a3db17c2f0abf89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 343931656691941067}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4b24b5f538ade34a881dd255490fa0a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 1470490729527418706}
-  m_Stay: {fileID: 0}
-  m_Attack: {fileID: 0}
-  m_ApplyDamage: {fileID: 0}
+  m_Stay: {fileID: 7400000, guid: 8cdf1f59b9c2cf942adb29e534e06806, type: 2}
+  m_Attack: {fileID: 7400000, guid: ac3c3a230ec769f48af2cd04be27bbdf, type: 2}
+  m_ApplyDamage: {fileID: 7400000, guid: f39297d5ec93ba745b10ff823bd80bc2, type: 2}
 --- !u!1 &343931656719435777
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Damage: 2
   m_Range: 1
-  m_ActionCost: 2
+  m_ActionCost: 1
   m_SpriteRenderer: {fileID: 0}
   m_Sprite: {fileID: 0}
   m_AnimStateMashine: {fileID: 3281820124522564978}
@@ -1949,11 +1949,11 @@ GameObject:
   - component: {fileID: 343931658716712508}
   - component: {fileID: 343931658716712496}
   - component: {fileID: 343931658716712497}
+  - component: {fileID: 8561937701038740856}
   - component: {fileID: 4766463325278074539}
   - component: {fileID: 1414013026064387548}
-  - component: {fileID: 1670481447268162988}
   m_Layer: 0
-  m_Name: Bomberman
+  m_Name: Rat Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c300635caba384f896aa5639f16174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: fff8eb1d3ef99904db86db3b1af37d9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bc004a312e19ecd40a3db17c2f0abf89, type: 3}
   m_SkipTurnAnimation: {fileID: 4194024883726773625}
 --- !u!114 &343931658716712508
 MonoBehaviour:
@@ -2068,8 +2068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHP: 5
-  m_CurrentHP: 5
+  m_MaxHP: 4
+  m_CurrentHP: 4
   m_ActiveObjectsQueue: {fileID: 0}
   m_HpUI: {fileID: 343931656883518439}
   m_AnimStateMashine: {fileID: 3281820124522564978}
@@ -2079,6 +2079,26 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8561937701038740856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343931658716712511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9b84fd0373d924cacaf3398311af8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActionDelay: 0.2
+  m_ThisMapObject: {fileID: 343931658716712509}
+  m_Target: {fileID: 0}
+  m_Attackable: {fileID: 343931656923615204}
+  m_ActionPointsContainer: {fileID: 343931658716712496}
+  m_Movement: {fileID: 343931658716712508}
+  m_Map: {fileID: 0}
+  m_ActiveObjectsQueue: {fileID: 0}
 --- !u!114 &4766463325278074539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2105,24 +2125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Initiative: 5
---- !u!114 &1670481447268162988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343931658716712511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c850fd9677170b34aafd37c093d631cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SpawnObjectPrefab: {fileID: 343931658716712509, guid: c661d81ba959e6f498d1f45c3072f017,
-    type: 3}
-  m_Target: {fileID: 0}
-  m_ActionPointsContainer: {fileID: 343931658716712496}
-  m_Map: {fileID: 0}
-  m_Queue: {fileID: 0}
 --- !u!1001 &2090115387118113381
 PrefabInstance:
   m_ObjectHideFlags: 0

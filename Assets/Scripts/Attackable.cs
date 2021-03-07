@@ -63,6 +63,8 @@ public class Attackable : MonoBehaviour
 
     private void Start()
     {
+        m_Map = FindObjectOfType<Map>();
+        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
         m_DamageUI.SetValue(m_Damage);
         m_RangeUI.SetValue(m_Range);
     }

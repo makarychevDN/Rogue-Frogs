@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c300635caba384f896aa5639f16174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: b6ae114718d03b24ca85f1e029c0893a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de4929312c7024d4bbb239d1f91dea5a, type: 3}
   m_SkipTurnAnimation: {fileID: 1670691850739029014}
 --- !u!114 &1670691849509343333
 MonoBehaviour:
@@ -725,8 +725,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHP: 10
-  m_CurrentHP: 10
+  m_MaxHP: 30
+  m_CurrentHP: 30
   m_ActiveObjectsQueue: {fileID: 0}
   m_HpUI: {fileID: 1670691850269926846}
   m_AnimStateMashine: {fileID: 3743687435979842149}
@@ -1385,7 +1385,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: b6ae114718d03b24ca85f1e029c0893a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de4929312c7024d4bbb239d1f91dea5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1714,8 +1714,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.075, y: 0}
-  m_SizeDelta: {x: 0.12, y: 0.1}
+  m_AnchoredPosition: {x: 0.10609, y: 0}
+  m_SizeDelta: {x: 0.18217406, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1670691850688804420
 CanvasRenderer:

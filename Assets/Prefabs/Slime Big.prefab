@@ -1952,7 +1952,6 @@ GameObject:
   - component: {fileID: 8561937701038740856}
   - component: {fileID: 4766463325278074539}
   - component: {fileID: 1414013026064387548}
-  - component: {fileID: 7079969554095168618}
   m_Layer: 0
   m_Name: Slime Big
   m_TagString: Untagged
@@ -2126,25 +2125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Initiative: 5
---- !u!95 &7079969554095168618
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343931658716712511}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4391184aa1f7b774a9c1db066ee69f8d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2090115387118113381
 PrefabInstance:
   m_ObjectHideFlags: 0

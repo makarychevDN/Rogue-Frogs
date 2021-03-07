@@ -60,6 +60,12 @@ public class Movable : MonoBehaviour
         set => m_Map = value;
     }
 
+    public int DefaultStepCost
+    {
+        get => m_DefaultStepCost;
+        set => m_DefaultStepCost = value;
+    }
+
     private float m_AnimationTimer;
     private float m_Speed;
     private float m_DistanceDelta = 0.005f;
@@ -80,6 +86,7 @@ public class Movable : MonoBehaviour
         m_CurrentAnimType = m_DefaultAnimType;
         m_Map = FindObjectOfType<Map>();
         m_MapObject = GetComponent<MapObject>();
+        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 
     void Update()
