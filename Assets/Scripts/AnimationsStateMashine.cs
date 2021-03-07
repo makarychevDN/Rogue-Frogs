@@ -8,6 +8,7 @@ public class AnimationsStateMashine : MonoBehaviour
     [SerializeField] private AnimationClip m_Stay;
     [SerializeField] private AnimationClip m_Attack;
     [SerializeField] private AnimationClip m_ApplyDamage;
+    [SerializeField] private AnimationClip m_Death;
 
     public void ActivateStayAnim()
     {
@@ -25,5 +26,11 @@ public class AnimationsStateMashine : MonoBehaviour
     {
         if(m_ApplyDamage != null)
             m_Animator.Play(m_ApplyDamage.name);
+    }
+    
+    public void ActivateDeathAnim()
+    {
+        if(m_Death != null)
+            m_Animator.Play(m_Death.name);
     }
 }

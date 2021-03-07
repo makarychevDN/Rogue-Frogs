@@ -7,6 +7,7 @@ public class Destructible : MonoBehaviour
 {
     [SerializeField] private int m_MaxHP;
     [SerializeField] private int m_CurrentHP;
+    [SerializeField] private float m_AnimationTime;
     
     [Header("Setup")]
     [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
@@ -43,12 +44,17 @@ public class Destructible : MonoBehaviour
             {
                 FindObjectOfType<Map>().SetMapObjectByVector(GetComponent<MapObject>().Pos, null);
                 OnDied?.Invoke();
-                var temp = GetComponent<MapObject>();
-                m_ActiveObjectsQueue.RemoveCharacterFromStack(temp);
-
-                gameObject.SetActive(false);
+                AnimStateMashine.ActivateDeathAnim();
+                Invoke("RemoveObject", m_AnimationTime);
             }
         }
+    }
+
+    private void RemoveObject()
+    {
+        var temp = GetComponent<MapObject>();
+        m_ActiveObjectsQueue.RemoveCharacterFromStack(temp);
+        Destroy(gameObject);
     }
 
     public void StartHitAnimation()

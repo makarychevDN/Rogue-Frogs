@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 343931656691941067}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f775b8b721c12534084af777e0f3fe29, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -115,9 +115,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 1470490729527418706}
-  m_Stay: {fileID: 0}
+  m_Stay: {fileID: 7400000, guid: 459ef84c21a805345876b9e64aa3cb57, type: 2}
   m_Attack: {fileID: 0}
   m_ApplyDamage: {fileID: 0}
+  m_Death: {fileID: 7400000, guid: 172ce2654a2e4ca479d172a2461f4ec2, type: 2}
 --- !u!1 &343931656719435777
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damage: 2
+  m_Damage: 5
   m_Range: 1
   m_ActionCost: 2
   m_SpriteRenderer: {fileID: 0}
@@ -2073,6 +2074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHP: 2
   m_CurrentHP: 2
+  m_AnimationTime: 0.3
   m_ActiveObjectsQueue: {fileID: 0}
   m_HpUI: {fileID: 343931656883518439}
   m_AnimStateMashine: {fileID: 3281820124522564978}
@@ -2085,6 +2087,17 @@ MonoBehaviour:
       - m_Target: {fileID: 6395402240479541469}
         m_MethodName: Attack
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 343931657540141051}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
