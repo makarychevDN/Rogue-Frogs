@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Даня\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Даня\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Rogue Frogs.-373170870.00" t="ExcludeRecursive" />
-    <e p="D:\Rogue Frogs" t="IncludeRecursive">
+    <e p="C:\Unity projects\Rogue Frogs" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="ActionPointsContainer.cs" t="Include" />
           <e p="ActiveObjectsQueue.cs" t="Include" />
+          <e p="AI" t="Include">
+            <e p="AttackableSurfaceAI.cs" t="Include" />
+            <e p="BaseAI.cs" t="Include" />
+            <e p="BombAI.cs" t="Include" />
+            <e p="DoNothingAI.cs" t="Include" />
+            <e p="FollowAndAttackTargetAI.cs" t="Include" />
+            <e p="FollowTargetAI.cs" t="Include" />
+            <e p="ObjectSpawnerAI.cs" t="Include" />
+          </e>
+          <e p="AnimationsStateMashine.cs" t="Include" />
           <e p="Attackable.cs" t="Include" />
-          <e p="BaseAI.cs" t="Include" />
+          <e p="AttackableAroundPointAOE.cs" t="Include" />
           <e p="Destructible.cs" t="Include" />
           <e p="Extensions" t="Include">
             <e p="Extensions.cs" t="Include" />
           </e>
-          <e p="FollowAndAttackTargetAI.cs" t="Include" />
-          <e p="FollowTargetAI.cs" t="Include" />
+          <e p="InitiativeContainer.cs" t="Include" />
           <e p="Level.cs" t="Include" />
           <e p="LevelsManager.cs" t="Include" />
           <e p="Map.cs" t="Include" />
           <e p="MapObject.cs" t="Include" />
+          <e p="MapObjectSurface.cs" t="Include" />
+          <e p="MapObjSpriteRotator.cs" t="Include" />
           <e p="Movable.cs" t="Include" />
           <e p="PlayerInput.cs" t="Include" />
+          <e p="Score.cs" t="Include" />
+          <e p="SlimeSpawner.cs" t="Include" />
+          <e p="Spawner.cs" t="Include" />
+          <e p="SpawnManager.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="ActionPointsUI.cs" t="Include" />
             <e p="DamageUI.cs" t="Include" />
@@ -68,5 +81,7 @@
       <e p="Rogue Frogs.sln" t="IncludeFlat" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\Даня\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Даня\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Rogue Frogs.-547970056.00" t="ExcludeRecursive" />
   </component>
 </project>

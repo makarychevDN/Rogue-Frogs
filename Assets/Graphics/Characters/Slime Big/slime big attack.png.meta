@@ -3,14 +3,14 @@ guid: cac21118259eec942b63d9102b59dae9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3466897359121953109
-    second: slime big attack_0
+      213: -1739648973599030945
+    second: Slime Big Attack_0
   - first:
-      213: -4333088350981541268
-    second: slime big attack_1
+      213: 2826237051921222740
+    second: Slime Big Attack_1
   - first:
-      213: -487305845897395884
-    second: slime big attack_2
+      213: -7771995983905453737
+    second: Slime Big Attack_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -108,12 +108,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slime big attack_0
+      name: Slime Big Attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -122,40 +122,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baecbc4683b13efc0800000000000000
-      internalID: -3466897359121953109
+      spriteID: f51c1ceb9768bd7e0800000000000000
+      internalID: -1739648973599030945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slime big attack_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c62bc5b3a17cdd3c0800000000000000
-      internalID: -4333088350981541268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slime big attack_2
+      name: Slime Big Attack_1
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -164,8 +143,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 451805e3aedbc39f0800000000000000
-      internalID: -487305845897395884
+      spriteID: 45ccfcaef9fc83720800000000000000
+      internalID: 2826237051921222740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime Big Attack_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7598d8794d2542490800000000000000
+      internalID: -7771995983905453737
       vertices: []
       indices: 
       edges: []

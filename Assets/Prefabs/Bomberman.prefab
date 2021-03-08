@@ -300,9 +300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damage: 2
-  m_Range: 1
-  m_ActionCost: 2
+  m_Damage: 0
+  m_Range: 0
+  m_ActionCost: 0
   m_SpriteRenderer: {fileID: 0}
   m_Sprite: {fileID: 0}
   m_AnimStateMashine: {fileID: 3281820124522564978}
@@ -1301,7 +1301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1, y: 0}
+  m_AnchoredPosition: {x: -0.0921, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &343931657777499119
@@ -1883,7 +1883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1, y: 0}
+  m_AnchoredPosition: {x: 0.0936, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &343931658677315685
@@ -2072,6 +2072,7 @@ MonoBehaviour:
   m_MaxHP: 5
   m_CurrentHP: 5
   m_AnimationTime: 0
+  m_ScoreCost: 10
   m_ActiveObjectsQueue: {fileID: 0}
   m_HpUI: {fileID: 343931656883518439}
   m_AnimStateMashine: {fileID: 3281820124522564978}
@@ -2125,6 +2126,8 @@ MonoBehaviour:
   m_ActionPointsContainer: {fileID: 343931658716712496}
   m_Map: {fileID: 0}
   m_Queue: {fileID: 0}
+  m_AninationTime: 0.3
+  m_AnimationsStateMashine: {fileID: 3281820124522564978}
 --- !u!1001 &2090115387118113381
 PrefabInstance:
   m_ObjectHideFlags: 0

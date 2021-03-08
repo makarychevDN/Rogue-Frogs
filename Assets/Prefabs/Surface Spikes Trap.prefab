@@ -655,7 +655,7 @@ MonoBehaviour:
   - {fileID: -5749312215154670435, guid: 7abac5dbf9a881146a52aa5723e009ed, type: 3}
   - {fileID: -2837848667354824397, guid: 7abac5dbf9a881146a52aa5723e009ed, type: 3}
   m_TurnsBeforeHit: 3
-  m_Damage: 3
+  m_Damage: 5
   m_Queue: {fileID: 0}
 --- !u!114 &4247589161848642021
 MonoBehaviour:

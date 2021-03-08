@@ -8,6 +8,7 @@ public class Destructible : MonoBehaviour
     [SerializeField] private int m_MaxHP;
     [SerializeField] private int m_CurrentHP;
     [SerializeField] private float m_AnimationTime;
+    [SerializeField] private int m_ScoreCost;
     
     [Header("Setup")]
     [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
@@ -43,6 +44,7 @@ public class Destructible : MonoBehaviour
             if (m_CurrentHP == 0)
             {
                 FindObjectOfType<Map>().SetMapObjectByVector(GetComponent<MapObject>().Pos, null);
+                FindObjectOfType<Score>().AddScore(m_ScoreCost);
                 OnDied?.Invoke();
                 AnimStateMashine.ActivateDeathAnim();
                 Invoke("RemoveObject", m_AnimationTime);

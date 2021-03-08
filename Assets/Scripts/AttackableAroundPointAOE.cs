@@ -10,7 +10,7 @@ public class AttackableAroundPointAOE : MonoBehaviour
     [SerializeField] private int m_Range;
     [SerializeField] private Map m_Map;
 
-    private void Start()
+    private void Awake()
     {
         m_Map = FindObjectOfType<Map>();
     }
@@ -21,7 +21,7 @@ public class AttackableAroundPointAOE : MonoBehaviour
         {
             for (int j = m_MapObject.Pos.y - m_Range; j < m_MapObject.Pos.y + m_Range + 1; j++)
             {
-                if (m_Map.GetMapObjectByVector(new Vector2Int(i,j))!= null)
+                if (m_Map.GetMapObjectByVector(new Vector2Int(i,j))!= null && m_Map.GetMapObjectByVector(new Vector2Int(i,j))!= m_MapObject)
                 {
                     if (m_Map.GetMapObjectByVector(new Vector2Int(i, j)).GetComponent<Destructible>() != null)
                     {
@@ -29,6 +29,7 @@ public class AttackableAroundPointAOE : MonoBehaviour
                         m_Map.GetMapObjectByVector(new Vector2Int(i, j)).GetComponent<Destructible>().CurrentHP-= m_Damage;
                     }
                 }
+                
             }
         }
     }

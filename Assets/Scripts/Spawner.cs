@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private MapObject m_SpawnObjectPrefab;
+    [SerializeField] protected MapObject m_SpawnObjectPrefab;
+    protected Vector2Int m_SpawnPos;
     
     public void Spawn(Vector2Int spawnPos)
     {
@@ -15,13 +16,13 @@ public class Spawner : MonoBehaviour
         FindObjectOfType<ActiveObjectsQueue>().AddObjectInQueue(temp);
     }
     
-    public void Spawn(Transform spawnPostransform)
+    public virtual void Spawn(Transform spawnPostransform)
     {
-        Vector2Int spawnPos = new Vector2Int((int) spawnPostransform.position.x, (int) spawnPostransform.position.y);
+        m_SpawnPos = new Vector2Int((int) spawnPostransform.position.x, (int) spawnPostransform.position.y);
         var temp = Instantiate(m_SpawnObjectPrefab);
-        FindObjectOfType<Map>().SetMapObjectByVector(spawnPos,temp);
-        temp.transform.position = new Vector3(spawnPos.x, spawnPos.y);
-        temp.Pos = spawnPos;
+        FindObjectOfType<Map>().SetMapObjectByVector(m_SpawnPos,temp);
+        temp.transform.position = new Vector3(m_SpawnPos.x, m_SpawnPos.y);
+        temp.Pos = m_SpawnPos;
         FindObjectOfType<ActiveObjectsQueue>().AddObjectInQueue(temp);
     }
 }

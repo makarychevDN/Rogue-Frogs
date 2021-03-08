@@ -10,13 +10,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapObjectSurface.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/FollowAndAttackTargetAI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MapObject.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ActiveObjectsQueue.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Attackable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AnimationsStateMashine.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SlimeSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Movable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AI/ObjectSpawnerAI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ActiveObjectsQueue.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Score.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Destructible.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AI/DoNothingAI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AttackableAroundPointAOE.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oZmksycpqbSCrRWxbMFbzRsL77" />
@@ -74,6 +96,9 @@
       <workItem from="1613680959141" duration="1592000" />
       <workItem from="1613936993860" duration="306000" />
       <workItem from="1614076368507" duration="1845000" />
+      <workItem from="1615126835278" duration="4658000" />
+      <workItem from="1615138567254" duration="7625000" />
+      <workItem from="1615194411318" duration="3017000" />
     </task>
     <servers />
   </component>

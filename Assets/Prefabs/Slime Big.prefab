@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 343931656691941067}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4391184aa1f7b774a9c1db066ee69f8d, type: 2}
+  m_Controller: {fileID: 9100000, guid: f0f71776c54526546948e53ea72daec5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -115,9 +115,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 1470490729527418706}
-  m_Stay: {fileID: 7400000, guid: 6898cc19bb92cfa4fb05e715e6342f1b, type: 2}
-  m_Attack: {fileID: 7400000, guid: f1debe80c9bf84344b987b5a19203f80, type: 2}
-  m_ApplyDamage: {fileID: 7400000, guid: 27f37d7a904278b49b2a8e16673bc1e0, type: 2}
+  m_Stay: {fileID: 7400000, guid: f43b9abf0aaba0143bd335d619bef59b, type: 2}
+  m_Attack: {fileID: 7400000, guid: cb5adb10f5a95df469b52f9c3328f37d, type: 2}
+  m_ApplyDamage: {fileID: 7400000, guid: 92e1966a49bd6004fa6d0ff13cebd335, type: 2}
+  m_Death: {fileID: 0}
 --- !u!1 &343931656719435777
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +308,7 @@ MonoBehaviour:
   m_AnimStateMashine: {fileID: 3281820124522564978}
   m_AttackAnimationObjects:
   - {fileID: 343931656924320589}
-  m_AnimationTime: 0.35
+  m_AnimationTime: 0.3
   m_SpriteRotator: {fileID: 4766463325278074539}
   m_MabObject: {fileID: 343931658716712509}
   m_Map: {fileID: 0}
@@ -922,7 +923,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.046, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &343931657330405949
@@ -1300,7 +1301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1, y: 0}
+  m_AnchoredPosition: {x: -0.046, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &343931657777499119
@@ -1811,7 +1812,6 @@ MonoBehaviour:
   m_ActionPointIcons:
   - {fileID: 343931657777499119}
   - {fileID: 343931657330405949}
-  - {fileID: 343931658677315685}
   m_FullIcon: {fileID: 7374874032361590669, guid: bc5f0f05fc4111040884c50d925931d2,
     type: 3}
   m_EmptyIcon: {fileID: -8327471844586406341, guid: bc5f0f05fc4111040884c50d925931d2,
@@ -1865,7 +1865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &343931658677315684
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1952,6 +1952,7 @@ GameObject:
   - component: {fileID: 8561937701038740856}
   - component: {fileID: 4766463325278074539}
   - component: {fileID: 1414013026064387548}
+  - component: {fileID: 7101176200263694008}
   m_Layer: 0
   m_Name: Slime Big
   m_TagString: Untagged
@@ -2046,8 +2047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0570aaac9d2d25246ba5bf1b289e8000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxPoints: 3
-  m_CurrentPoints: 3
+  m_MaxPoints: 2
+  m_CurrentPoints: 2
   m_PointsRegenerationInTurn: 2
   m_PointsVisualisation: {fileID: 343931658405345089}
   OnDidSomething:
@@ -2070,6 +2071,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHP: 4
   m_CurrentHP: 4
+  m_AnimationTime: 0
+  m_ScoreCost: 10
   m_ActiveObjectsQueue: {fileID: 0}
   m_HpUI: {fileID: 343931656883518439}
   m_AnimStateMashine: {fileID: 3281820124522564978}
@@ -2078,7 +2081,18 @@ MonoBehaviour:
       m_Calls: []
   OnDied:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7101176200263694008}
+        m_MethodName: Spawn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 343931658716712498}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8561937701038740856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2125,6 +2139,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Initiative: 5
+--- !u!114 &7101176200263694008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343931658716712511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2113a23359a8547b083890a516e57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnObjectPrefab: {fileID: 343931658716712509, guid: 784b2b6cd4b8ace438a190533ddbea7b,
+    type: 3}
 --- !u!1001 &2090115387118113381
 PrefabInstance:
   m_ObjectHideFlags: 0

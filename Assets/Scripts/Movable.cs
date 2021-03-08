@@ -120,7 +120,7 @@ public class Movable : MonoBehaviour
 
             if (m_Map.GetMapObjectByVector(m_MapObject.Pos + input) == null)
             {
-                if (m_ActionPointsContainer.CurrentPoints >= stepCost)
+                if (m_ActionPointsContainer!=null && m_ActionPointsContainer.CurrentPoints >= stepCost)
                 {
                     StartMovementSetup(input, animType, animTime, stepCost);
                 }

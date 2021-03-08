@@ -3,11 +3,11 @@ guid: ee2e118dffbaa5141896c9fcf6a96de2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5579596431384598646
-    second: slime big apply damage_0
+      213: 5290848466101224297
+    second: Slime Big Apply Damage_0
   - first:
-      213: -2174152823432442944
-    second: slime big apply damage_1
+      213: -4369619201321909050
+    second: Slime Big Apply Damage_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,12 +105,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slime big apply damage_0
+      name: Slime Big Apply Damage_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -119,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67857b27465be6d40800000000000000
-      internalID: 5579596431384598646
+      spriteID: 9634266d5aedc6940800000000000000
+      internalID: 5290848466101224297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slime big apply damage_1
+      name: Slime Big Apply Damage_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 0
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cb85e7b68bd3d1e0800000000000000
-      internalID: -2174152823432442944
+      spriteID: 6c44b75dc7efb53c0800000000000000
+      internalID: -4369619201321909050
       vertices: []
       indices: 
       edges: []

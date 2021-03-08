@@ -12,8 +12,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     private MapObject m_CurrentCharacter;
     private int m_QueueCount;
     private float m_SkipTurnDelay = 0.5f;
-    //[SerializeField] private MapObject m_BombPrefab; //todo remove this shit <<<
-    //[SerializeField] private Map m_Map; //todo remove this shit <<<
+    [SerializeField] private SpawnManager m_SpawnManager;
     private void Start()
     {
         FindAllActiveMapObjects();
@@ -78,14 +77,17 @@ public class ActiveObjectsQueue : MonoBehaviour
     
     public void RemoveCharacterFromStack(MapObject mapObject)
     {
-        int index = m_Characters.IndexOf(mapObject);
-        m_Characters.RemoveAt(index);
-        m_Cells[index].gameObject.SetActive(false);
-        m_Cells.RemoveAt(index);
-        RearrangeCells();
+        if (m_Characters.Contains(mapObject))
+        {
+            int index = m_Characters.IndexOf(mapObject);
+            m_Characters.RemoveAt(index);
+            m_Cells[index].gameObject.SetActive(false);
+            m_Cells.RemoveAt(index);
+            RearrangeCells();
         
-        if(mapObject == m_CurrentCharacter)
-            SkipTheTurn();
+            if(mapObject == m_CurrentCharacter)
+                SkipTheTurn();
+        }
     }
 
     public void SkipTheTurn()
@@ -106,6 +108,8 @@ public class ActiveObjectsQueue : MonoBehaviour
         if (m_QueueCount >= m_Characters.Count)
         {
             m_QueueCount = 0;
+            if(m_SpawnManager != null)
+                m_SpawnManager.IncrementCyclesCount();
         }
         
         m_Cells[m_QueueCount].ActiveCell.SetActive(true);
@@ -131,10 +135,13 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     public void AddObjectInQueue(MapObject mapObject)
     {
-        m_Characters.Add(mapObject);
-        SortActiveObjects();
-        InitPanel(mapObject);
-        RearrangeCells();
+        if (mapObject.GetComponent<ActionPointsContainer>())
+        {
+            m_Characters.Add(mapObject);
+            SortActiveObjects();
+            InitPanel(mapObject);
+            RearrangeCells(); 
+        }
     }
 
     public void InitPanel(MapObject mapObject)
