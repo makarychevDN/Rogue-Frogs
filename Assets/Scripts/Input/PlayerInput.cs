@@ -6,7 +6,7 @@ public class PlayerInput : BaseInput
 {
     [Header("Setup")]
     [SerializeField] private Movable m_PlayerMovement;
-    [SerializeField] private Attackable m_PlayerAttackModule;
+    [SerializeField] private AttackableInDirection m_PlayerAttackModule;
     [SerializeField] private ActiveObjectsQueue m_ActiveObjectQueue;
     private bool m_InputIsPossible;
 
@@ -73,7 +73,7 @@ public class PlayerInput : BaseInput
     private void Reset()
     {
         m_PlayerMovement = GetComponent<Movable>();
-        m_PlayerAttackModule = GetComponent<Attackable>();
+        m_PlayerAttackModule = GetComponent<AttackableInDirection>();
         m_ActiveObjectQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 

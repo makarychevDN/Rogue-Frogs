@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Attackable : MonoBehaviour
+public class AttackableInDirection : MonoBehaviour
 {
     [Header("Characteristics")]
     [SerializeField] private int m_Damage;

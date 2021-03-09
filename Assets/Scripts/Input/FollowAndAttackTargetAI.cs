@@ -8,7 +8,7 @@ public class FollowAndAttackTargetAI : BaseInput
     [Range(0,1)] [SerializeField] private float m_ActionDelay;
     [SerializeField] private MapObject m_ThisMapObject;
     [SerializeField] private MapObject m_Target;
-    [SerializeField] private Attackable m_Attackable;
+    [SerializeField] private AttackableInDirection m_Attackable;
     [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
     [SerializeField] private Movable m_Movement;
     [SerializeField] private Map m_Map;
@@ -20,7 +20,7 @@ public class FollowAndAttackTargetAI : BaseInput
     {
         m_Target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
         m_ThisMapObject = GetComponent<MapObject>();
-        m_Attackable = GetComponent<Attackable>();
+        m_Attackable = GetComponent<AttackableInDirection>();
         m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
         m_Movement = GetComponent<Movable>();
         m_Map = FindObjectOfType<Map>();
