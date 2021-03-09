@@ -47,7 +47,7 @@ public class LevelsManager : MonoBehaviour
         m_Player.GetComponent<Movable>().ObjectsQueue = m_CurrentLevel.Queue;
         m_Player.GetComponent<Movable>().Map = m_CurrentLevel.Map;
 
-        var attackables = m_Player.GetComponentsInChildren<Attackable>();
+        var attackables = m_Player.GetComponentsInChildren<AttackableInDirection>();
         foreach (var temp in attackables)
         {
             temp.ObjectsQueue = m_CurrentLevel.Queue;
