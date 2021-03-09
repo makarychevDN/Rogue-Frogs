@@ -219,7 +219,6 @@ public class Movable : MonoBehaviour
             OnBePushedMovementEnd?.Invoke();
             m_PushingNow = false;
         }
-
     }
 
     public float CosLerpFunc(float timer, float speed)

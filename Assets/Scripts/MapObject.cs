@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MapObject : MonoBehaviour
 {
-    [SerializeField] private Sprite m_Sprite;
+    [SerializeField] private Sprite m_Sprite; //todo - вынести или вырезать нахой
     [SerializeField] private GameObject m_SkipTurnAnimation;
     private Vector2Int pos;
 
