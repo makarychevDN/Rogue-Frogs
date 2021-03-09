@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ObjectSpawnerAI : BaseAI
+public class ObjectSpawnerAI : BaseInput
 {
     [SerializeField] private MapObject m_SpawnObjectPrefab;
     [SerializeField] private MapObject m_Target;

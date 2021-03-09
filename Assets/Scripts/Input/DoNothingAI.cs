@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoNothingAI : BaseAI
+public class DoNothingAI : BaseInput
 {
     [SerializeField] private ActiveObjectsQueue m_Queue;
     public override void DoSomething()

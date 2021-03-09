@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : BaseInput
 {
     [Header("Setup")]
     [SerializeField] private Movable m_PlayerMovement;
     [SerializeField] private Attackable m_PlayerAttackModule;
     [SerializeField] private ActiveObjectsQueue m_ActiveObjectQueue;
-    private bool m_CanInput;
+    private bool m_InputIsPossible;
 
-    public bool CanInput { get => m_CanInput; set => m_CanInput = value; }
+    public bool InputIsPossible { get => m_InputIsPossible; set => m_InputIsPossible = value; }
 
     public ActiveObjectsQueue ActiveObjectQueue
     {
@@ -20,7 +20,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (m_CanInput)
+        if (m_InputIsPossible)
         {
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
@@ -75,5 +75,10 @@ public class PlayerInput : MonoBehaviour
         m_PlayerMovement = GetComponent<Movable>();
         m_PlayerAttackModule = GetComponent<Attackable>();
         m_ActiveObjectQueue = FindObjectOfType<ActiveObjectsQueue>();
+    }
+
+    public override void DoSomething()
+    {
+        InputIsPossible = true;
     }
 }

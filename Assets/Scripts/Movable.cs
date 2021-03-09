@@ -167,7 +167,7 @@ public class Movable : MonoBehaviour
         }
 
         if (m_PlayerInput != null)
-            m_PlayerInput.CanInput = false;
+            m_PlayerInput.InputIsPossible = false;
     }
 
     private bool CheckPushIsPossible(Vector2Int input ,Movable pushTarget)

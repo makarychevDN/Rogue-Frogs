@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombAI : BaseAI
+public class BombAI : BaseInput
 {
     [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
     [SerializeField] private ActiveObjectsQueue m_Queue;

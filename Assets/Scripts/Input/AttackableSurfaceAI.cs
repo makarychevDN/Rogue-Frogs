@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackableSurfaceAI : BaseAI
+public class AttackableSurfaceAI : BaseInput
 {
     [SerializeField] private MapObject m_MapObject;
     [SerializeField] private Map m_Map;

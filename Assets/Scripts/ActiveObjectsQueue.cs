@@ -18,10 +18,10 @@ public class ActiveObjectsQueue : MonoBehaviour
         FindAllActiveMapObjects();
         SortActiveObjects();
         InitPanels();
-
-        m_CurrentCharacter.GetComponent<PlayerInput>().CanInput = true;
+        StartNextAction();
     }
 
+    #region QueueVisualisation
     public void FindAllActiveMapObjects()
     {
         var temp = FindObjectsOfType<ActionPointsContainer>();
@@ -53,26 +53,30 @@ public class ActiveObjectsQueue : MonoBehaviour
         m_CurrentCharacter = m_Characters[0];
         m_Cells[0].ActiveCell.SetActive(true);
     }
-
-    public void StartNextAction()
-    {
-        var temp = m_CurrentCharacter.GetComponent<PlayerInput>();
-        if (temp != null)
-        {
-            temp.CanInput = true;
-        }
-        else
-        {
-            m_CurrentCharacter.GetComponent<BaseAI>().DoSomething();
-        }
-    }
-
+    
     public void RearrangeCells()
     {
         for (int i = 0; i < m_Cells.Count; i++)
         {
             m_Cells[i].transform.localPosition = Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Characters.Count-1) * 0.5f * m_IndentMultiplier;
         }
+    }
+    
+    public void InitPanel(MapObject mapObject)
+    {
+        var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
+
+        int count = m_Characters.IndexOf(mapObject);
+        
+        spawnedPanel.SetSprite(mapObject.Sprite);
+        m_Cells.Insert(count, spawnedPanel);
+    }
+    
+    #endregion
+
+    public void StartNextAction()
+    {
+        m_CurrentCharacter.GetComponent<BaseInput>().DoSomething();
     }
     
     public void RemoveCharacterFromStack(MapObject mapObject)
@@ -92,16 +96,14 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     public void SkipTheTurn()
     {
+        m_CurrentCharacter.GetComponent<ActionPointsContainer>().ResetPoints();
+        
         if(m_CurrentCharacter.SkipTurnAnimation != null)
             m_CurrentCharacter.SkipTurnAnimation.SetActive(false);
         if(m_QueueCount < m_Cells.Count)
             m_Cells[m_QueueCount].ActiveCell.SetActive(false);
         
-        var temp = m_CurrentCharacter.GetComponent<PlayerInput>();
-        if (temp != null)
-        {
-            temp.CanInput = false;
-        }
+        DisablePlayerInput();
 
         m_QueueCount++;
 
@@ -115,20 +117,13 @@ public class ActiveObjectsQueue : MonoBehaviour
         m_Cells[m_QueueCount].ActiveCell.SetActive(true);
 
         m_CurrentCharacter = m_Characters[m_QueueCount];
-        m_CurrentCharacter.GetComponent<ActionPointsContainer>().ResetPoints();
 
         StartNextAction();
     }
 
     public void SkipTurnWithAnimation()
     {
-        var temp = m_CurrentCharacter.GetComponent<PlayerInput>();
-
-        if (temp != null)
-        {
-            temp.CanInput = false;
-        }
-        
+        DisablePlayerInput();
         m_CurrentCharacter.SkipTurnAnimation.SetActive(true);
         Invoke("SkipTheTurn", m_SkipTurnDelay);
     }
@@ -144,14 +139,13 @@ public class ActiveObjectsQueue : MonoBehaviour
         }
     }
 
-    public void InitPanel(MapObject mapObject)
+    public void DisablePlayerInput()
     {
-        var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
-
-        int count = m_Characters.IndexOf(mapObject);
-        
-        spawnedPanel.SetSprite(mapObject.Sprite);
-        m_Cells.Insert(count, spawnedPanel);
+        var temp = m_CurrentCharacter.GetComponent<PlayerInput>();
+        if (temp != null)
+        {
+            temp.InputIsPossible = false;
+        }
     }
 }
 

@@ -124,7 +124,7 @@ public class Attackable : MonoBehaviour
                     {
                         if (m_PlayerInput != null)
                         {
-                            m_PlayerInput.CanInput = false;
+                            m_PlayerInput.InputIsPossible = false;
                         }
                         
                         m_CurrentDestructible = tempDestructible;

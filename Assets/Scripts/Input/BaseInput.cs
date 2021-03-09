@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseAI : MonoBehaviour
+public abstract class BaseInput : MonoBehaviour
 {
     public abstract void DoSomething();
 }
