@@ -17,6 +17,7 @@ public class Destructible : MonoBehaviour
 
     [Header("Events")] 
     [SerializeField] private UnityEvent OnApplyDamage;
+    [SerializeField] private UnityEvent OnApplyHealing;
     [SerializeField] private UnityEvent OnDied;
 
     private void Reset()
@@ -37,9 +38,18 @@ public class Destructible : MonoBehaviour
         get => m_CurrentHP;         
         set
         {
+            if (value < m_CurrentHP)
+            {
+                OnApplyDamage?.Invoke();
+            }
+
+            if (value > m_CurrentHP)
+            {
+                OnApplyHealing?.Invoke();
+            }
+            
             m_CurrentHP = Mathf.Clamp(value, 0, MaxHP);
             m_HpUI.SetValue(CurrentHP);
-            OnApplyDamage?.Invoke();
 
             if (m_CurrentHP == 0)
             {
