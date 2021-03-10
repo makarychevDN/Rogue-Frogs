@@ -14,12 +14,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     private int m_QueueCount;
     private float m_SkipTurnDelay = 0.5f;
     [SerializeField] private SpawnManager m_SpawnManager;
-<<<<<<< HEAD
-    
-    private void Start()
-=======
     private void Awake()
->>>>>>> 4bcf32fb0f3a88b1c304d3ae8248a7e13a4de131
     {
         FindAllActiveMapObjects();
         SortActiveObjects();
