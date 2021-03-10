@@ -61,7 +61,7 @@ public class AttackableInDirection : MonoBehaviour
         m_RangeUI = GetComponentInChildren<RangeUI>();
     }
 
-    private void Start()
+    private void Awake()
     {
         m_Map = FindObjectOfType<Map>();
         m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();

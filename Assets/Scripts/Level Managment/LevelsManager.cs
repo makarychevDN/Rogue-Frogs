@@ -17,7 +17,7 @@ public class LevelsManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         m_Player = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
         var cpawnedlevel = Instantiate(m_CurrentLevel);

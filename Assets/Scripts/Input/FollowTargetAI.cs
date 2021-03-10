@@ -24,7 +24,7 @@ public class FollowTargetAI : BaseInput
         m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 
-    private void Start()
+    private void Awake()
     {
         m_VerAndHorVectors = new List<Vector2Int>();
         m_VerAndHorVectors.Add(Vector2Int.up);

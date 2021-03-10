@@ -81,7 +81,7 @@ public class Movable : MonoBehaviour
         m_SpriteRotator = GetComponent<MapObjSpriteRotator>();
     }
 
-    private void Start()
+    private void Awake()
     {
         m_CurrentAnimType = m_DefaultAnimType;
         m_Map = FindObjectOfType<Map>();

@@ -26,7 +26,7 @@ public class Destructible : MonoBehaviour
         m_HpUI = GetComponentInChildren<HpUI>();
     }
 
-    private void Start()
+    private void Awake()
     {
         m_HpUI.SetValue(CurrentHP);
         m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();

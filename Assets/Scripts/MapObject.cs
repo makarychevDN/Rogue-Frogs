@@ -7,12 +7,12 @@ public class MapObject : MonoBehaviour
 {
     [SerializeField] private Sprite m_Sprite; //todo - вынести или вырезать нахой
     [SerializeField] private GameObject m_SkipTurnAnimation;
-    private Vector2Int pos;
+    private Vector2Int m_Pos;
 
     public Vector2Int Pos
     {
-        get => pos; 
-        set => pos = value; 
+        get => m_Pos; 
+        set => m_Pos = value; 
         
     }
 
@@ -30,6 +30,6 @@ public class MapObject : MonoBehaviour
 
     void Awake()
     {
-        pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
+        m_Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
     }
 }
