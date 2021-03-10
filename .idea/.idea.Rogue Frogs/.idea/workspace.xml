@@ -19,26 +19,31 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapObjectSurface.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SlimeSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Attackable/AttackableInDirection.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/FollowAndAttackTargetAI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/MapObject.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Attackable.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AnimationsStateMashine.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SlimeSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Movable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SpawnManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AI/ObjectSpawnerAI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ActiveObjectsQueue.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Score.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Destructible.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AI/DoNothingAI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AttackableAroundPointAOE.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Restart.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Input/BaseInput.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Destructible.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AnimationsStateMashine.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MapObject.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Input/PlayerInput.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Movable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/BaseAttackable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Attackable/Attackable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Attackable/AttackableInDirection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ActiveObjectsQueue.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oZmksycpqbSCrRWxbMFbzRsL77" />
@@ -99,6 +104,10 @@
       <workItem from="1615126835278" duration="4658000" />
       <workItem from="1615138567254" duration="7625000" />
       <workItem from="1615194411318" duration="3017000" />
+      <workItem from="1615202833031" duration="1243000" />
+      <workItem from="1615208162441" duration="193000" />
+      <workItem from="1615310033928" duration="7575000" />
+      <workItem from="1615400779836" duration="474000" />
     </task>
     <servers />
   </component>

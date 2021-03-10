@@ -13,7 +13,7 @@ public class AttackableSurfaceAI : BaseInput
     [SerializeField] private int m_Damage;
     [SerializeField] private ActiveObjectsQueue m_Queue;
 
-    private void Start()
+    private void Awake()
     {
         m_Map = FindObjectOfType<Map>();
         m_Queue = FindObjectOfType<ActiveObjectsQueue>();

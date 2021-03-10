@@ -34,7 +34,7 @@ public class Level : MonoBehaviour
         set => m_PlayerSpawnCoordinates = value;
     }
 
-    private void Start()
+    private void Awake()
     {
         FindObjectOfType<Camera>().transform.position = m_CameraPosition;
         var player = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();

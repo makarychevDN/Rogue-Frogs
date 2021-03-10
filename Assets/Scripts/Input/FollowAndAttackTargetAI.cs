@@ -27,7 +27,7 @@ public class FollowAndAttackTargetAI : BaseInput
         m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 
-    private void Start()
+    private void Awake()
     {
         m_Map = FindObjectOfType<Map>();
         m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();

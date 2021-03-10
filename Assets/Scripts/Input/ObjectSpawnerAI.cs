@@ -17,7 +17,7 @@ public class ObjectSpawnerAI : BaseInput
     private List<Vector2Int> m_VectorsToCheckPlace;
     private Vector2Int m_CurrentSpawnPos;
 
-    private void Start()
+    private void Awake()
     {
         m_Target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
         m_Map = FindObjectOfType<Map>();

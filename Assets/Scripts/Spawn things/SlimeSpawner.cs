@@ -10,7 +10,7 @@ public class SlimeSpawner : Spawner
     private List<Vector2Int> m_SpawnDirections;
     private Map m_Map;
 
-    private void Start()
+    private void Awake()
     {
         m_Map = FindObjectOfType<Map>();
         m_SpawnDirections = new List<Vector2Int>();

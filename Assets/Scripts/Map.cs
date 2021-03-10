@@ -17,7 +17,6 @@ public class Map : MonoBehaviour
 
         foreach (var item in tempMapObjects)
         {
-            //MapObjectSurface tempMapObj = (MapObjectSurface) item;
             if(item is MapObjectSurface)
                 m_Cells[item.Pos.x, item.Pos.y, 1] = item;
             else
