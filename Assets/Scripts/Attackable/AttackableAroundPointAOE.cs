@@ -25,7 +25,6 @@ public class AttackableAroundPointAOE : MonoBehaviour
                 {
                     if (m_Map.GetMapObjectByVector(new Vector2Int(i, j)).GetComponent<Destructible>() != null)
                     {
-                        print(m_Map.GetMapObjectByVector(new Vector2Int(i, j)));
                         m_Map.GetMapObjectByVector(new Vector2Int(i, j)).GetComponent<Destructible>().CurrentHP-= m_Damage;
                     }
                 }

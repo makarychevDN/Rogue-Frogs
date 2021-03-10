@@ -17,6 +17,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     {
         FindAllActiveMapObjects();
         SortActiveObjects();
+        m_CurrentCharacter = m_Characters[0];
         InitPanels();
         StartNextAction();
     }
@@ -49,8 +50,7 @@ public class ActiveObjectsQueue : MonoBehaviour
             spawnedPanel.SetSprite(m_Characters[i].Sprite);
             m_Cells.Add(spawnedPanel);
         }
-
-        m_CurrentCharacter = m_Characters[0];
+        
         m_Cells[0].ActiveCell.SetActive(true);
     }
     

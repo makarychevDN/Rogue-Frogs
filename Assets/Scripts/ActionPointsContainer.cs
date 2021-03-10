@@ -27,7 +27,7 @@ public class ActionPointsContainer : MonoBehaviour
             OnDidSomething?.Invoke();
         } 
     }
-
+    
     private void Reset()
     {
         m_PointsVisualisation = GetComponentInChildren<ActionPointsUI>();
