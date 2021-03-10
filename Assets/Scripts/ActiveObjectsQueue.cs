@@ -8,11 +8,13 @@ public class ActiveObjectsQueue : MonoBehaviour
     [SerializeField] private QueueCell m_QueuePanelPrefab;
     [SerializeField] private float m_IndentMultiplier;
     private List<MapObject> m_Characters;
+    private List<MapObject> m_ActiveObjects;
     private List<QueueCell> m_Cells;
     private MapObject m_CurrentCharacter;
     private int m_QueueCount;
     private float m_SkipTurnDelay = 0.5f;
     [SerializeField] private SpawnManager m_SpawnManager;
+    
     private void Start()
     {
         FindAllActiveMapObjects();
