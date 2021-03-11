@@ -23,7 +23,7 @@ public class ActiveObjectsQueue : MonoBehaviour
         SortActiveObjects();
         m_CurrentCharacter = m_Characters[0];
         InitPanels();
-        StartNextAction();
+        //StartNextAction();
     }
 
     public void AddToActiveObjectsList(MonoBehaviour something)
@@ -42,10 +42,7 @@ public class ActiveObjectsQueue : MonoBehaviour
         if (m_ActiveNowObjects.Count == 0)
         {
             m_CheckActiveNowObjectsTimer += Time.deltaTime;
-            //if (m_CheckActiveNowObjectsTimer > Time.deltaTime)
-            {
-                isSomeoneActiveNow = false;
-            }
+            StartNextAction();
         }
         else
         {
@@ -150,7 +147,7 @@ public class ActiveObjectsQueue : MonoBehaviour
 
         m_CurrentCharacter = m_Characters[m_QueueCount];
 
-        StartNextAction();
+        //StartNextAction();
     }
 
     public void SkipTurnWithAnimation()

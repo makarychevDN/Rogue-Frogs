@@ -144,7 +144,7 @@ public class Movable : MonoBehaviour
 
     private void StartMovementSetup(Vector2Int input, AnimType animType, float animTime, int stepCost)
     {
-        m_ActiveObjectsQueue.AddToActiveObjectsList(m_MapObject);
+        m_ActiveObjectsQueue.AddToActiveObjectsList(this);
         if(m_Map.GetSurfaceByVector(m_MapObject.Pos) != null)
             m_Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
         m_ActionPointsContainer.CurrentPoints -= stepCost;
@@ -193,7 +193,7 @@ public class Movable : MonoBehaviour
 
     public void StopMovement()
     {
-        m_ActiveObjectsQueue.RemoveFromActiveObjectsList(m_MapObject);
+        m_ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
         transform.position = new Vector3(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y), 0);
         m_MoveNow = false;
         
@@ -209,7 +209,7 @@ public class Movable : MonoBehaviour
             OnOwnMovementEnd?.Invoke();
             if (m_ActionPointsContainer.CurrentPoints != 0)
             {
-                m_ActiveObjectsQueue.StartNextAction();
+                //m_ActiveObjectsQueue.StartNextAction();
             }
             else
             {

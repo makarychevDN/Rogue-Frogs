@@ -166,7 +166,7 @@ public class AttackableInDirection : MonoBehaviour
         
         if (m_ActionPointsContainer.CurrentPoints != 0)
         {
-            m_ActiveObjectsQueue.StartNextAction();
+            //m_ActiveObjectsQueue.StartNextAction();
         }
         else
         {
