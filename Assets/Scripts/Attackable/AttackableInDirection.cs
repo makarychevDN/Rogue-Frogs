@@ -164,14 +164,9 @@ public class AttackableInDirection : MonoBehaviour
         
         m_ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
         
-        if (m_ActionPointsContainer.CurrentPoints != 0)
-        {
-            //m_ActiveObjectsQueue.StartNextAction();
-        }
-        else
+        if (m_ActionPointsContainer.CurrentPoints == 0)
         {
             m_ActiveObjectsQueue.SkipTheTurn();
         }
-
     }
 }

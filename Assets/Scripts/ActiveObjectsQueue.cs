@@ -38,17 +38,10 @@ public class ActiveObjectsQueue : MonoBehaviour
     
     private void Update()
     {
-        bool isSomeoneActiveNow = true;
         if (m_ActiveNowObjects.Count == 0)
         {
-            m_CheckActiveNowObjectsTimer += Time.deltaTime;
             StartNextAction();
         }
-        else
-        {
-            m_CheckActiveNowObjectsTimer = 0;
-        }
-        print(isSomeoneActiveNow);
     }
 
     #region QueueVisualisation
