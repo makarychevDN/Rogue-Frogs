@@ -17,7 +17,7 @@ public class BombAI : BaseInput
 
         else
         {
-            m_Queue.SkipTurnWithAnimation();   
+            GetComponent<SkipTurnModule>().SkipTurn();
         }
     }
 

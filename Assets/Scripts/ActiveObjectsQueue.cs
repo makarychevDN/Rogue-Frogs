@@ -8,7 +8,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     [SerializeField] private QueueCell m_QueuePanelPrefab;
     [SerializeField] private float m_IndentMultiplier;
     private List<MapObject> m_Characters;
-    private List<MonoBehaviour> m_ActiveNowObjects;
+    [SerializeField] private List<MonoBehaviour> m_ActiveNowObjects;
     private List<QueueCell> m_Cells;
     private MapObject m_CurrentCharacter;
     private int m_QueueCount;
@@ -26,14 +26,14 @@ public class ActiveObjectsQueue : MonoBehaviour
         StartNextAction();
     }
 
-    public void AddToActiveObjectsList(MonoBehaviour mapObject)
+    public void AddToActiveObjectsList(MonoBehaviour something)
     {
-        m_ActiveNowObjects.Add(mapObject);
+        m_ActiveNowObjects.Add(something);
     }
 
-    public void RemoveFromActiveObjectsList(MonoBehaviour mapObject)
+    public void RemoveFromActiveObjectsList(MonoBehaviour something)
     {
-        m_ActiveNowObjects.Remove(mapObject);
+        m_ActiveNowObjects.Remove(something);
     }
     
     private void Update()
@@ -42,7 +42,7 @@ public class ActiveObjectsQueue : MonoBehaviour
         if (m_ActiveNowObjects.Count == 0)
         {
             m_CheckActiveNowObjectsTimer += Time.deltaTime;
-            if (m_CheckActiveNowObjectsTimer > m_CheckActiveNowObjectsTime)
+            //if (m_CheckActiveNowObjectsTimer > Time.deltaTime)
             {
                 isSomeoneActiveNow = false;
             }

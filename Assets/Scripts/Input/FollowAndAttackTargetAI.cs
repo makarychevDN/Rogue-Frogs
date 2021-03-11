@@ -41,6 +41,7 @@ public class FollowAndAttackTargetAI : BaseInput
 
     public override void DoSomething()
     {
+        m_ActiveObjectsQueue.AddToActiveObjectsList(this);
         Invoke("DoSomethingWithDelay", m_ActionDelay);
     }
 
@@ -57,7 +58,7 @@ public class FollowAndAttackTargetAI : BaseInput
             else
             {
                 print(transform.name + "Not enough action points to hit player");
-                m_ActiveObjectsQueue.SkipTurnWithAnimation();
+                GetComponent<SkipTurnModule>().SkipTurn();
             }
         }
         else
@@ -68,9 +69,10 @@ public class FollowAndAttackTargetAI : BaseInput
             }
             else
             {
-                m_ActiveObjectsQueue.SkipTurnWithAnimation();
+                GetComponent<SkipTurnModule>().SkipTurn();
             }
         }
+        m_ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
     }
 
     public Vector2Int FindClosestPointToPlayer()

@@ -1953,6 +1953,7 @@ GameObject:
   - component: {fileID: 4766463325278074539}
   - component: {fileID: 1414013026064387548}
   - component: {fileID: 1670481447268162988}
+  - component: {fileID: 2960125556207835054}
   m_Layer: 0
   m_Name: Bomberman
   m_TagString: Untagged
@@ -2079,6 +2080,9 @@ MonoBehaviour:
   OnApplyDamage:
     m_PersistentCalls:
       m_Calls: []
+  OnApplyHealing:
+    m_PersistentCalls:
+      m_Calls: []
   OnDied:
     m_PersistentCalls:
       m_Calls: []
@@ -2128,6 +2132,20 @@ MonoBehaviour:
   m_Queue: {fileID: 0}
   m_AninationTime: 0.3
   m_AnimationsStateMashine: {fileID: 3281820124522564978}
+--- !u!114 &2960125556207835054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343931658716712511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda6d32f249eb97499fcfedbc0f0e538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Queue: {fileID: 0}
+  m_SkipTurnAnimationGameObject: {fileID: 4194024883726773625}
 --- !u!1001 &2090115387118113381
 PrefabInstance:
   m_ObjectHideFlags: 0

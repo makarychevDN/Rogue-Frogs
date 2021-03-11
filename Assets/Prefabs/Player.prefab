@@ -593,6 +593,7 @@ GameObject:
   - component: {fileID: 1670691849509343336}
   - component: {fileID: 7019594210430110383}
   - component: {fileID: 7662191266721509947}
+  - component: {fileID: 5248308712592632174}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -766,6 +767,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Initiative: 100000
+--- !u!114 &5248308712592632174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670691849509343334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda6d32f249eb97499fcfedbc0f0e538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Queue: {fileID: 0}
+  m_SkipTurnAnimationGameObject: {fileID: 1670691850739029014}
 --- !u!1 &1670691849680014381
 GameObject:
   m_ObjectHideFlags: 0

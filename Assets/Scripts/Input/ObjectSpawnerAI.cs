@@ -31,6 +31,7 @@ public class ObjectSpawnerAI : BaseInput
 
     public override void DoSomething()
     {
+        m_Queue.AddToActiveObjectsList(this);
         m_CurrentSpawnPos = FindEmptyPlacesAroundTarget();
         if (m_CurrentSpawnPos != Vector2Int.zero && m_ActionPointsContainer.CurrentPoints >= 3)
         {
@@ -40,12 +41,14 @@ public class ObjectSpawnerAI : BaseInput
         }
         else
         {
-            m_Queue.SkipTurnWithAnimation();
+            m_Queue.RemoveFromActiveObjectsList(this);
+            GetComponent<SkipTurnModule>().SkipTurn();
         }
     }
 
     public void Spawn()
     {
+        m_Queue.RemoveFromActiveObjectsList(this);
         var temp = Instantiate(m_SpawnObjectPrefab);
         m_Map.SetMapObjectByVector(m_CurrentSpawnPos,temp);
         temp.transform.position = new Vector3(m_CurrentSpawnPos.x, m_CurrentSpawnPos.y);
