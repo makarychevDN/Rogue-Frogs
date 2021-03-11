@@ -108,6 +108,7 @@ public class AttackableInDirection : MonoBehaviour
 
     public void Attack(Vector2Int input)
     {
+        m_ActiveObjectsQueue.AddToActiveObjectsList(this);
         if (m_ActionPointsContainer.CurrentPoints >= m_ActionCost)
         {
             MapObject tempMapObject;
@@ -160,7 +161,9 @@ public class AttackableInDirection : MonoBehaviour
         {
             item.SetActive(false);
         }
-
+        
+        m_ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+        
         if (m_ActionPointsContainer.CurrentPoints != 0)
         {
             m_ActiveObjectsQueue.StartNextAction();

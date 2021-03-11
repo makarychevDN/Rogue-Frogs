@@ -8,19 +8,50 @@ public class ActiveObjectsQueue : MonoBehaviour
     [SerializeField] private QueueCell m_QueuePanelPrefab;
     [SerializeField] private float m_IndentMultiplier;
     private List<MapObject> m_Characters;
-    private List<MapObject> m_ActiveObjects;
+    private List<MonoBehaviour> m_ActiveNowObjects;
     private List<QueueCell> m_Cells;
     private MapObject m_CurrentCharacter;
     private int m_QueueCount;
     private float m_SkipTurnDelay = 0.5f;
     [SerializeField] private SpawnManager m_SpawnManager;
+    private float m_CheckActiveNowObjectsTime = 0.6f;
+    private float m_CheckActiveNowObjectsTimer; 
     private void Awake()
     {
+        m_ActiveNowObjects = new List<MonoBehaviour>();
         FindAllActiveMapObjects();
         SortActiveObjects();
         m_CurrentCharacter = m_Characters[0];
         InitPanels();
         StartNextAction();
+    }
+
+    public void AddToActiveObjectsList(MonoBehaviour mapObject)
+    {
+        m_ActiveNowObjects.Add(mapObject);
+    }
+
+    public void RemoveFromActiveObjectsList(MonoBehaviour mapObject)
+    {
+        m_ActiveNowObjects.Remove(mapObject);
+    }
+    
+    private void Update()
+    {
+        bool isSomeoneActiveNow = true;
+        if (m_ActiveNowObjects.Count == 0)
+        {
+            m_CheckActiveNowObjectsTimer += Time.deltaTime;
+            if (m_CheckActiveNowObjectsTimer > m_CheckActiveNowObjectsTime)
+            {
+                isSomeoneActiveNow = false;
+            }
+        }
+        else
+        {
+            m_CheckActiveNowObjectsTimer = 0;
+        }
+        print(isSomeoneActiveNow);
     }
 
     #region QueueVisualisation
