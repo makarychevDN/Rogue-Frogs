@@ -9,10 +9,13 @@ public class AttackableAroundPointAOE : MonoBehaviour
     [SerializeField] private int m_Damage;
     [SerializeField] private int m_Range;
     [SerializeField] private Map m_Map;
+    [SerializeField] private float m_DefaultDelay;
+    [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
 
     private void Awake()
     {
         m_Map = FindObjectOfType<Map>();
+        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 
     public void Attack()
@@ -31,6 +34,19 @@ public class AttackableAroundPointAOE : MonoBehaviour
                 
             }
         }
+        
+        m_ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+    }
+
+    public void AttackWithDelay(float delay)
+    {
+        m_ActiveObjectsQueue.AddToActiveObjectsList(this);
+        Invoke("Attack", delay);
+    }
+    
+    public void AttackWithDelay()
+    {
+        AttackWithDelay(m_DefaultDelay);
     }
     
 }

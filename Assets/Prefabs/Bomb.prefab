@@ -2090,7 +2090,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6395402240479541469}
-        m_MethodName: Attack
+        m_MethodName: AttackWithDelay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2167,6 +2167,8 @@ MonoBehaviour:
   m_Damage: 5
   m_Range: 1
   m_Map: {fileID: 0}
+  m_DefaultDelay: 0.15
+  m_ActiveObjectsQueue: {fileID: 0}
 --- !u!114 &4091954571780884517
 MonoBehaviour:
   m_ObjectHideFlags: 0
