@@ -6,7 +6,7 @@ public class SkipTurnModule : MonoBehaviour
 {
     [SerializeField] private ActiveObjectsQueue m_Queue;
     [SerializeField] private GameObject m_SkipTurnAnimationGameObject;
-    private float m_SkipTurnAnimationTime = 0.75f;
+    private float m_SkipTurnAnimationTime = 0.74f;
     void Awake()
     {
         m_Queue = FindObjectOfType<ActiveObjectsQueue>();
