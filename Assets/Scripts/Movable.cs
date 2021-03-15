@@ -36,6 +36,7 @@ public class Movable : MonoBehaviour
     private AnimType m_CurrentAnimType;
     private bool m_MoveNow;
     private bool m_PushingNow;
+    private bool m_IsNextCellBecameFull;
     
     public bool PushingNow
     {
@@ -114,6 +115,11 @@ public class Movable : MonoBehaviour
 
     public void Move(Vector2Int input, AnimType animType, float animTime, int stepCost)
     {
+        Move(input, animType, animTime, stepCost, true, true);
+    }
+    
+    public void Move(Vector2Int input, AnimType animType, float animTime, int stepCost, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
+    {
         if (!m_MoveNow)
         {
             m_SpriteRotator.RotateSprite(input);
@@ -122,7 +128,7 @@ public class Movable : MonoBehaviour
             {
                 if (m_ActionPointsContainer!=null && m_ActionPointsContainer.CurrentPoints >= stepCost)
                 {
-                    StartMovementSetup(input, animType, animTime, stepCost);
+                    StartMovementSetup(input, animType, animTime, stepCost, isStartCellBecameEmpty, isNextCellBecameFull);
                 }
             }
             
@@ -134,7 +140,7 @@ public class Movable : MonoBehaviour
                 {
                     if (m_ActionPointsContainer.CurrentPoints >= m_DefaultPushCost)
                     {
-                        StartMovementSetup(input, animType, animTime, m_DefaultPushCost);
+                        StartMovementSetup(input, animType, animTime, m_DefaultPushCost, isStartCellBecameEmpty, isNextCellBecameFull);
                         Push(input, tempMovable);
                     }
                 }
@@ -142,7 +148,7 @@ public class Movable : MonoBehaviour
         }
     }
 
-    private void StartMovementSetup(Vector2Int input, AnimType animType, float animTime, int stepCost)
+    private void StartMovementSetup(Vector2Int input, AnimType animType, float animTime, int stepCost, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
     {
         m_ActiveObjectsQueue.AddToActiveObjectsList(this);
         if(m_Map.GetSurfaceByVector(m_MapObject.Pos) != null)
@@ -154,7 +160,9 @@ public class Movable : MonoBehaviour
         m_MoveNow = true;
         m_Speed = (m_NextPos - m_MapObject.Pos).magnitude / animTime;
         m_AnimationTimer = 0;
-        m_Map.SetMapObjectByVector(m_MapObject.Pos, null);
+        m_IsNextCellBecameFull = isNextCellBecameFull;
+        if(isStartCellBecameEmpty)
+            m_Map.SetMapObjectByVector(m_MapObject.Pos, null);
         
         OnAnyMovementStart?.Invoke();
 
@@ -198,7 +206,9 @@ public class Movable : MonoBehaviour
         m_MoveNow = false;
         
         m_MapObject.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
-        m_Map.SetMapObjectByVector(m_MapObject.Pos, m_MapObject);
+        
+        if(m_IsNextCellBecameFull)
+            m_Map.SetMapObjectByVector(m_MapObject.Pos, m_MapObject);
         
         OnAnyMovementEnd?.Invoke();
         if(m_Map.GetSurfaceByVector(m_MapObject.Pos) != null)
