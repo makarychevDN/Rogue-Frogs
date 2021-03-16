@@ -66,6 +66,7 @@ public class PlayerInput : BaseInput
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 GetComponent<SkipTurnModule>().SkipTurn();
+                m_InputIsPossible = false;
             }
         }
     }
