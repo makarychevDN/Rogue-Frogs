@@ -37,7 +37,7 @@ public class ObjectSpawnerAI : BaseInput
         {
             m_ActionPointsContainer.CurrentPoints -= 3;
             m_AnimationsStateMashine.ActivateAttackAnim();
-            Invoke("Spawn",m_AninationTime);
+            Invoke("SpawnAndPush",m_AninationTime);
         }
         else
         {
@@ -53,6 +53,19 @@ public class ObjectSpawnerAI : BaseInput
         m_Map.SetMapObjectByVector(m_CurrentSpawnPos,temp);
         temp.transform.position = new Vector3(m_CurrentSpawnPos.x, m_CurrentSpawnPos.y);
         temp.Pos = m_CurrentSpawnPos;
+        m_Queue.AddObjectInQueue(temp);
+        m_AnimationsStateMashine.ActivateStayAnim();
+        m_Queue.SkipTheTurn();
+    }
+    
+    public void SpawnAndPush()
+    {
+        m_Queue.RemoveFromActiveObjectsList(this);
+        var temp = Instantiate(m_SpawnObjectPrefab);
+        temp.transform.position = transform.position;
+        //temp.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
+        temp.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
+        temp.GetComponent<Movable>().Move(temp.Pos,m_CurrentSpawnPos,AnimType.cos,1f,0,false,true);
         m_Queue.AddObjectInQueue(temp);
         m_AnimationsStateMashine.ActivateStayAnim();
         m_Queue.SkipTheTurn();

@@ -112,6 +112,16 @@ public class Movable : MonoBehaviour
 
         }
     }
+    
+    public void Move(Vector2Int input, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
+    {
+        Move(input, m_DefaultAnimType, m_DefaultAnimTime, m_DefaultStepCost, isStartCellBecameEmpty, isNextCellBecameFull);
+    }
+
+    public void Move(Vector2Int input)
+    {
+        Move(input, m_DefaultAnimType, m_DefaultAnimTime, m_DefaultStepCost);
+    }
 
     public void Move(Vector2Int input, AnimType animType, float animTime, int stepCost)
     {
@@ -178,6 +188,54 @@ public class Movable : MonoBehaviour
         if (m_PlayerInput != null)
             m_PlayerInput.InputIsPossible = false;
     }
+    
+    public void Move(Vector2Int startPos, Vector2Int endPos, AnimType animType, float animTime, int stepCost, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
+    {
+        if (!m_MoveNow)
+        {
+            m_SpriteRotator.RotateSprite(endPos - startPos);
+
+            if (m_Map.GetMapObjectByVector(endPos) == null)
+            {
+                if (m_ActionPointsContainer!=null && m_ActionPointsContainer.CurrentPoints >= stepCost)
+                {
+                    StartMovementSetup(startPos, endPos, animType, animTime, stepCost, isStartCellBecameEmpty, isNextCellBecameFull);
+                }
+            }
+        }
+    }
+    
+    
+    private void StartMovementSetup(Vector2Int startPos, Vector2Int endPos, AnimType animType, float animTime, int stepCost, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
+    {
+        m_ActiveObjectsQueue.AddToActiveObjectsList(this);
+        if(m_Map.GetSurfaceByVector(m_MapObject.Pos) != null)
+            m_Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
+        m_ActionPointsContainer.CurrentPoints -= stepCost;
+        m_CurrentAnimType = animType;
+        m_CurrentPos = m_MapObject.Pos;
+        m_NextPos = endPos;
+        m_MoveNow = true;
+        m_Speed = (m_NextPos - m_MapObject.Pos).magnitude / animTime;
+        m_AnimationTimer = 0;
+        m_IsNextCellBecameFull = isNextCellBecameFull;
+        if(isStartCellBecameEmpty)
+            m_Map.SetMapObjectByVector(m_MapObject.Pos, null);
+        
+        OnAnyMovementStart?.Invoke();
+
+        if (!PushingNow)
+        {
+            OnOwnMovementStart?.Invoke();
+        }
+        else
+        {
+            OnBePushedMovementStart?.Invoke();
+        }
+
+        if (m_PlayerInput != null)
+            m_PlayerInput.InputIsPossible = false;
+    }
 
     private bool CheckPushIsPossible(Vector2Int input ,Movable pushTarget)
     {
@@ -192,11 +250,6 @@ public class Movable : MonoBehaviour
             pushTarget.PushingNow = true;
             pushTarget.Move(input,m_DefaultAnimType, m_DefaultAnimTime,0);
         }
-    }
-
-    public void Move(Vector2Int input)
-    {
-        Move(input, m_DefaultAnimType, m_DefaultAnimTime, m_DefaultStepCost);
     }
 
     public void StopMovement()

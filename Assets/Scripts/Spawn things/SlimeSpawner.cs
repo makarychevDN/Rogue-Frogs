@@ -35,7 +35,14 @@ public class SlimeSpawner : Spawner
         
         if (emptyCellsPositions.Count != 0)
         {
-            Spawn(emptyCellsPositions[Random.Range(0, emptyCellsPositions.Count - 1)] + m_SpawnPos);
+            //Spawn(emptyCellsPositions[Random.Range(0, emptyCellsPositions.Count - 1)] + m_SpawnPos);
+            m_SpawnPos = new Vector2Int((int) spawnPostransform.position.x, (int) spawnPostransform.position.y);
+            var temp = Instantiate(m_SpawnObjectPrefab);
+            temp.transform.position = new Vector3(m_SpawnPos.x, m_SpawnPos.y);
+            temp.Pos = m_SpawnPos;
+            temp.GetComponent<Movable>().Move(emptyCellsPositions[Random.Range(0, emptyCellsPositions.Count - 1)],
+                AnimType.cos, 0.1f, 0, false, true);
+            FindObjectOfType<ActiveObjectsQueue>().AddObjectInQueue(temp);
         }
         
     }

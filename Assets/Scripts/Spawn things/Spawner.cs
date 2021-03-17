@@ -25,4 +25,5 @@ public class Spawner : MonoBehaviour
         temp.Pos = m_SpawnPos;
         FindObjectOfType<ActiveObjectsQueue>().AddObjectInQueue(temp);
     }
+    
 }
