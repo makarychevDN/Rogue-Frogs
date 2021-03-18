@@ -69,7 +69,7 @@ public class Movable : MonoBehaviour
 
     private float m_AnimationTimer;
     private float m_Speed;
-    private float m_DistanceDelta = 0.005f;
+    private float m_DistanceDelta = 0.01f;
 
 
     private void Reset()
