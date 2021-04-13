@@ -594,6 +594,8 @@ GameObject:
   - component: {fileID: 7019594210430110383}
   - component: {fileID: 7662191266721509947}
   - component: {fileID: 5248308712592632174}
+  - component: {fileID: 7024516985726897167}
+  - component: {fileID: 1831174749568412677}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -781,6 +783,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Queue: {fileID: 0}
   m_SkipTurnAnimationGameObject: {fileID: 1670691850739029014}
+--- !u!58 &7024516985726897167
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670691849509343334}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &1831174749568412677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670691849509343334}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3aca5e46470974ba6fba9a56e26e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiObjects:
+  - {fileID: 1670691850417594786}
 --- !u!1 &1670691849680014381
 GameObject:
   m_ObjectHideFlags: 0
