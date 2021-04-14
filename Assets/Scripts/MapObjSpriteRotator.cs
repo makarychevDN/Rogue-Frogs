@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class MapObjSpriteRotator : MonoBehaviour
 {
-    [SerializeField] private Transform m_Sprite;
+    [SerializeField] private List<Transform> m_Sprites;
+    
     public void RotateSprite(Vector2Int input)
     {
-        if(input == Vector2Int.right)
-            m_Sprite.rotation = Quaternion.Euler(0,0,0);
-        else if (input == Vector2Int.left)
+        foreach (var temp in m_Sprites)
         {
-            m_Sprite.rotation = Quaternion.Euler(0,180,0);
+            if(input == Vector2Int.right)
+                temp.rotation = Quaternion.Euler(0,0,0);
+            else if (input == Vector2Int.left)
+            {
+                temp.rotation = Quaternion.Euler(0,180,0);
+            }
         }
+
     }
 }
