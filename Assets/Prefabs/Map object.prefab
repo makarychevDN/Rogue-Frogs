@@ -640,6 +640,8 @@ GameObject:
   - component: {fileID: 3941225358882038696}
   - component: {fileID: 5153808861905180153}
   - component: {fileID: 7692104732494564149}
+  - component: {fileID: 580135006043732780}
+  - component: {fileID: 7757102120528914358}
   m_Layer: 0
   m_Name: Map object
   m_TagString: Untagged
@@ -734,6 +736,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Queue: {fileID: 0}
   m_SkipTurnAnimationGameObject: {fileID: 6253253949558179749}
+--- !u!114 &580135006043732780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159493106554256554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxHP: 1
+  m_CurrentHP: 1
+  m_AnimationTime: 0
+  m_ScoreCost: 0
+  m_ActiveObjectsQueue: {fileID: 0}
+  m_HpUI: {fileID: 4159493106297047410}
+  m_AnimStateMashine: {fileID: 0}
+  OnApplyDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnApplyHealing:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDied:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7757102120528914358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159493106554256554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ec0975ae608884c8aa8bd92ad2436b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Pushable: 0
+  m_DefaultPushCost: 0
+  m_DefaultStepCost: 0
+  m_DefaultAnimTime: 0
+  m_DefaultAnimType: 0
+  m_SpriteRotator: {fileID: 5153808861905180153}
+  m_ActionPointsContainer: {fileID: 0}
+  m_MapObject: {fileID: 4159493106554256552}
+  m_Map: {fileID: 0}
+  m_ActiveObjectsQueue: {fileID: 0}
+  m_PlayerInput: {fileID: 0}
+  OnOwnMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOwnMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBePushedMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBePushedMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAnyMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAnyMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPush:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4159493106648013554
 GameObject:
   m_ObjectHideFlags: 0
