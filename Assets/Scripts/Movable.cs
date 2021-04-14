@@ -270,11 +270,7 @@ public class Movable : MonoBehaviour
         if (!m_PushingNow)
         {
             OnOwnMovementEnd?.Invoke();
-            if (m_ActionPointsContainer.CurrentPoints != 0)
-            {
-                //m_ActiveObjectsQueue.StartNextAction();
-            }
-            else
+            if (m_ActionPointsContainer.CurrentPoints == 0)
             {
                 m_ActiveObjectsQueue.SkipTheTurn();
             }
