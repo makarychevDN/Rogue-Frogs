@@ -121,6 +121,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &29125322
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103136785347439454, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5279806585418823705, guid: 8341d003ee798c849a04df6ed604f0d1,
+        type: 3}
+      propertyPath: m_Name
+      value: Level 0.0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8341d003ee798c849a04df6ed604f0d1, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,8 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 80
-  m_RefResolutionX: 400
-  m_RefResolutionY: 400
+  m_RefResolutionX: 720
+  m_RefResolutionY: 480
   m_UpscaleRT: 0
   m_PixelSnapping: 1
   m_CropFrameX: 0
@@ -193,9 +262,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 70
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 3.11875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -219,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 2.5, z: -10}
+  m_LocalPosition: {x: 3, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -632,12 +701,12 @@ PrefabInstance:
     - target: {fileID: 1670691849509343339, guid: 98fa00398bcdfc6449a2d117408eb1ee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1670691849509343339, guid: 98fa00398bcdfc6449a2d117408eb1ee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1670691849509343339, guid: 98fa00398bcdfc6449a2d117408eb1ee,
         type: 3}
