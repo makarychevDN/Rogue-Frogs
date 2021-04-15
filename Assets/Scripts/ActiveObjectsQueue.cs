@@ -7,6 +7,7 @@ public class ActiveObjectsQueue : MonoBehaviour
 {
     [SerializeField] private QueueCell m_QueuePanelPrefab;
     [SerializeField] private float m_IndentMultiplier;
+    [SerializeField] private Transform m_QueueVisualisationParent;
     private List<MapObject> m_Characters;
     [SerializeField] private List<MonoBehaviour> m_ActiveNowObjects;
     private List<QueueCell> m_Cells;
@@ -71,6 +72,7 @@ public class ActiveObjectsQueue : MonoBehaviour
             spawnedPanel.transform.localPosition = Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Characters.Count-1) * 0.5f * m_IndentMultiplier;
             spawnedPanel.SetSprite(m_Characters[i].Sprite);
             m_Cells.Add(spawnedPanel);
+            spawnedPanel.transform.parent = m_QueueVisualisationParent;
         }
         
         m_Cells[0].ActiveCell.SetActive(true);
@@ -91,6 +93,7 @@ public class ActiveObjectsQueue : MonoBehaviour
         int count = m_Characters.IndexOf(mapObject);
         
         spawnedPanel.SetSprite(mapObject.Sprite);
+        spawnedPanel.transform.parent = m_QueueVisualisationParent;
         m_Cells.Insert(count, spawnedPanel);
     }
     
