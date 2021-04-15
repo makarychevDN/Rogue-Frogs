@@ -7,17 +7,10 @@ public class PlayerInput : BaseInput
     [Header("Setup")]
     [SerializeField] private Movable m_PlayerMovement;
     [SerializeField] private AttackableInDirection m_PlayerAttackModule;
-    [SerializeField] private ActiveObjectsQueue m_ActiveObjectQueue;
     private bool m_InputIsPossible;
 
     public bool InputIsPossible { get => m_InputIsPossible; set => m_InputIsPossible = value; }
-
-    public ActiveObjectsQueue ActiveObjectQueue
-    {
-        get => m_ActiveObjectQueue;
-        set => m_ActiveObjectQueue = value;
-    }
-
+    
     private void Update()
     {
         if (m_InputIsPossible)
@@ -75,7 +68,6 @@ public class PlayerInput : BaseInput
     {
         m_PlayerMovement = GetComponent<Movable>();
         m_PlayerAttackModule = GetComponent<AttackableInDirection>();
-        m_ActiveObjectQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 
     public override void DoSomething()

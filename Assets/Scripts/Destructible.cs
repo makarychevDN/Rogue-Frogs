@@ -5,31 +5,24 @@ using UnityEngine.Events;
 
 public class Destructible : MonoBehaviour
 {
+    [Header("References Setup")]
+    [SerializeField] private MapObject m_MapObject;
+    [Header("Setup")]
     [SerializeField] private int m_MaxHP;
     [SerializeField] private int m_CurrentHP;
     [SerializeField] private float m_AnimationTime;
     [SerializeField] private int m_ScoreCost;
     
-    [Header("Setup")]
-    [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
     [SerializeField] private HpUI m_HpUI;
-    [SerializeField] private AnimationsStateMashine m_AnimStateMashine; 
 
     [Header("Events")] 
     [SerializeField] private UnityEvent OnApplyDamage;
     [SerializeField] private UnityEvent OnApplyHealing;
     [SerializeField] private UnityEvent OnDied;
 
-    private void Reset()
-    {
-        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
-        m_HpUI = GetComponentInChildren<HpUI>();
-    }
-
     private void Awake()
     {
         m_HpUI.SetValue(CurrentHP);
-        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
     }
 
     public int MaxHP { get => m_MaxHP; set => m_MaxHP = value; }
@@ -53,11 +46,11 @@ public class Destructible : MonoBehaviour
 
             if (m_CurrentHP == 0)
             {
-                m_ActiveObjectsQueue.AddToActiveObjectsList(this);
+                m_MapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
                 FindObjectOfType<Map>().SetMapObjectByVector(GetComponent<MapObject>().Pos, null);
                 FindObjectOfType<Score>().AddScore(m_ScoreCost);
                 OnDied?.Invoke();
-                AnimStateMashine.ActivateDeathAnim();
+                m_MapObject.AnimationStateMashine.ActivateDeathAnim();
                 Invoke("RemoveObject", m_AnimationTime);
             }
         }
@@ -66,30 +59,18 @@ public class Destructible : MonoBehaviour
     private void RemoveObject()
     {
         var temp = GetComponent<MapObject>();
-        m_ActiveObjectsQueue.RemoveCharacterFromStack(temp);
+        m_MapObject.ActiveObjectsQueue.RemoveCharacterFromStack(temp);
         Destroy(gameObject);
-        m_ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+        m_MapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
     }
 
     public void StartHitAnimation()
     {
-        AnimStateMashine.ActivateApplyDamageAnim();
+        m_MapObject.AnimationStateMashine.ActivateApplyDamageAnim();
     }
     
     public void StoptHitAnimation()
     {
-        AnimStateMashine.ActivateStayAnim();
-    }
-    
-    public ActiveObjectsQueue ObjectsQueue
-    {
-        get => m_ActiveObjectsQueue;
-        set => m_ActiveObjectsQueue = value;
-    }
-
-    public AnimationsStateMashine AnimStateMashine
-    {
-        get => m_AnimStateMashine;
-        set => m_AnimStateMashine = value;
+        m_MapObject.AnimationStateMashine.ActivateStayAnim();
     }
 }

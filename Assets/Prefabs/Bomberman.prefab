@@ -1991,7 +1991,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 05ab667014298d248946ddd753cbf200, type: 3}
+  m_ActionPointsContainer: {fileID: 343931658716712496}
+  m_Movable: {fileID: 343931658716712508}
+  m_Destructible: {fileID: 343931658716712497}
   m_SkipTurnAnimation: {fileID: 4194024883726773625}
+  m_SkipTurnModule: {fileID: 2960125556207835054}
+  m_InitiativeContainer: {fileID: 1414013026064387548}
+  m_AnimationsStateMashine: {fileID: 3281820124522564978}
+  m_MapObjSpriteRotator: {fileID: 4766463325278074539}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!114 &343931658716712508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2004,16 +2014,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ec0975ae608884c8aa8bd92ad2436b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MapObject: {fileID: 343931658716712509}
   m_Pushable: 1
   m_DefaultPushCost: 2
   m_DefaultStepCost: 1
   m_DefaultAnimTime: 0.35
   m_DefaultAnimType: 1
-  m_SpriteRotator: {fileID: 4766463325278074539}
-  m_ActionPointsContainer: {fileID: 343931658716712496}
-  m_MapObject: {fileID: 343931658716712509}
-  m_Map: {fileID: 0}
-  m_ActiveObjectsQueue: {fileID: 0}
   m_PlayerInput: {fileID: 0}
   OnOwnMovementStart:
     m_PersistentCalls:
@@ -2050,7 +2056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxPoints: 3
   m_CurrentPoints: 3
-  m_PointsRegenerationInTurn: 2
+  m_PointsRegenerationInTurn: 1
   m_PointsVisualisation: {fileID: 343931658405345089}
   OnDidSomething:
     m_PersistentCalls:
@@ -2070,13 +2076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MapObject: {fileID: 343931658716712509}
   m_MaxHP: 5
   m_CurrentHP: 5
   m_AnimationTime: 0
   m_ScoreCost: 10
-  m_ActiveObjectsQueue: {fileID: 0}
   m_HpUI: {fileID: 343931656883518439}
-  m_AnimStateMashine: {fileID: 3281820124522564978}
   OnApplyDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -2112,7 +2117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9efe9617dbb2d44db6e64ebc7534ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Initiative: 5
+  m_Initiative: 500
 --- !u!114 &1670481447268162988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,7 +2150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda6d32f249eb97499fcfedbc0f0e538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Queue: {fileID: 0}
+  m_MapObject: {fileID: 343931658716712509}
   m_SkipTurnAnimationGameObject: {fileID: 4194024883726773625}
 --- !u!1001 &2090115387118113381
 PrefabInstance:

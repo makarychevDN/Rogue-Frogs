@@ -6,28 +6,31 @@ using UnityEngine;
 public class ShowUI : MonoBehaviour
 {
     [SerializeField] private List<GameObject> m_UiObjects;
+    [SerializeField] private bool m_AlwaysShow;
 
     private void Start()
     {
-        foreach (var temp in m_UiObjects)
-        {
-            temp.SetActive(false);
-        }
+        SetActiveUiObjects(false);
     }
 
     void OnMouseEnter()
     {
-        foreach (var temp in m_UiObjects)
-        {
-            temp.SetActive(true);
-        }
+        SetActiveUiObjects(true);
     }
     
     void OnMouseExit()
     {
-        foreach (var temp in m_UiObjects)
+        SetActiveUiObjects(false);
+    }
+
+    public void SetActiveUiObjects(bool value)
+    {
+        if (!m_AlwaysShow)
         {
-            temp.SetActive(false);
+            foreach (var temp in m_UiObjects)
+            {
+                temp.SetActive(value);
+            }
         }
     }
 }

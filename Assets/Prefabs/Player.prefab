@@ -632,7 +632,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: de4929312c7024d4bbb239d1f91dea5a, type: 3}
+  m_ActionPointsContainer: {fileID: 1670691849509343337}
+  m_Movable: {fileID: 1670691849509343333}
+  m_Destructible: {fileID: 1670691849509343336}
   m_SkipTurnAnimation: {fileID: 1670691850739029014}
+  m_SkipTurnModule: {fileID: 5248308712592632174}
+  m_InitiativeContainer: {fileID: 7662191266721509947}
+  m_AnimationsStateMashine: {fileID: 3743687435979842149}
+  m_MapObjSpriteRotator: {fileID: 7019594210430110383}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!114 &1670691849509343333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,16 +655,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ec0975ae608884c8aa8bd92ad2436b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MapObject: {fileID: 1670691849509343332}
   m_Pushable: 0
   m_DefaultPushCost: 2
   m_DefaultStepCost: 1
   m_DefaultAnimTime: 0.35
   m_DefaultAnimType: 1
-  m_SpriteRotator: {fileID: 7019594210430110383}
-  m_ActionPointsContainer: {fileID: 1670691849509343337}
-  m_MapObject: {fileID: 1670691849509343332}
-  m_Map: {fileID: 0}
-  m_ActiveObjectsQueue: {fileID: 0}
   m_PlayerInput: {fileID: 1670691849509343338}
   OnOwnMovementStart:
     m_PersistentCalls:
@@ -726,13 +732,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MapObject: {fileID: 1670691849509343332}
   m_MaxHP: 40
   m_CurrentHP: 40
   m_AnimationTime: 0
   m_ScoreCost: 0
-  m_ActiveObjectsQueue: {fileID: 0}
   m_HpUI: {fileID: 1670691850269926846}
-  m_AnimStateMashine: {fileID: 3743687435979842149}
   OnApplyDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -781,7 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda6d32f249eb97499fcfedbc0f0e538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Queue: {fileID: 0}
+  m_MapObject: {fileID: 1670691849509343332}
   m_SkipTurnAnimationGameObject: {fileID: 1670691850739029014}
 --- !u!58 &7024516985726897167
 CircleCollider2D:

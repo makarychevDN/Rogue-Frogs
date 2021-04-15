@@ -14,6 +14,7 @@ public class MapObject : MonoBehaviour
     [SerializeField] private GameObject m_SkipTurnAnimation; // todo удалить
     [SerializeField] private SkipTurnModule m_SkipTurnModule;
     [SerializeField] private InitiativeContainer m_InitiativeContainer;
+    [SerializeField] private AnimationsStateMashine m_AnimationsStateMashine;
     [SerializeField] private MapObjSpriteRotator m_MapObjSpriteRotator;
     [SerializeField] private ShowUI m_ShowUI;
 
@@ -73,7 +74,7 @@ public class MapObject : MonoBehaviour
         set => m_InitiativeContainer = value;
     }
 
-    public MapObjSpriteRotator ObjSpriteRotator
+    public MapObjSpriteRotator SpriteRotator
     {
         get => m_MapObjSpriteRotator;
         set => m_MapObjSpriteRotator = value;
@@ -97,9 +98,17 @@ public class MapObject : MonoBehaviour
         set => m_Queue = value;
     }
 
+    public AnimationsStateMashine AnimationStateMashine
+    {
+        get => m_AnimationsStateMashine;
+        set => m_AnimationsStateMashine = value;
+    }
+
     #endregion
     void Awake()
     {
+        m_Map = FindObjectOfType<Map>();
+        m_Queue = FindObjectOfType<ActiveObjectsQueue>();
         m_Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
     }
 }

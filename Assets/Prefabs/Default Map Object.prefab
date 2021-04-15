@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 5153808861905180153}
   - component: {fileID: 405666737696072823}
   - component: {fileID: 3941225358882038696}
+  - component: {fileID: 573186985650939648}
   m_Layer: 0
   m_Name: Default Map Object
   m_TagString: Untagged
@@ -602,8 +603,11 @@ MonoBehaviour:
   m_SkipTurnAnimation: {fileID: 6253253949558179749}
   m_SkipTurnModule: {fileID: 7692104732494564149}
   m_InitiativeContainer: {fileID: 3496162514070850782}
+  m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 5153808861905180153}
   m_ShowUI: {fileID: 405666737696072823}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!114 &7757102120528914358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,16 +620,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ec0975ae608884c8aa8bd92ad2436b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MapObject: {fileID: 4159493106554256552}
   m_Pushable: 1
   m_DefaultPushCost: 0
   m_DefaultStepCost: 0
   m_DefaultAnimTime: 0
   m_DefaultAnimType: 1
-  m_SpriteRotator: {fileID: 5153808861905180153}
-  m_ActionPointsContainer: {fileID: 3364906430477112401}
-  m_MapObject: {fileID: 4159493106554256552}
-  m_Map: {fileID: 0}
-  m_ActiveObjectsQueue: {fileID: 0}
   m_PlayerInput: {fileID: 0}
   OnOwnMovementStart:
     m_PersistentCalls:
@@ -682,13 +682,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75906e8091f1aba4ebd48a3151482220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MapObject: {fileID: 4159493106554256552}
   m_MaxHP: 1
   m_CurrentHP: 1
   m_AnimationTime: 0
   m_ScoreCost: 0
-  m_ActiveObjectsQueue: {fileID: 0}
   m_HpUI: {fileID: 4159493106297047410}
-  m_AnimStateMashine: {fileID: 0}
   OnApplyDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -710,7 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda6d32f249eb97499fcfedbc0f0e538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Queue: {fileID: 0}
+  m_MapObject: {fileID: 4159493106554256552}
   m_SkipTurnAnimationGameObject: {fileID: 6253253949558179749}
 --- !u!114 &3496162514070850782
 MonoBehaviour:
@@ -753,6 +752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiObjects:
   - {fileID: 4159493105646095726}
+  m_AlwaysShow: 0
 --- !u!58 &3941225358882038696
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -769,6 +769,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &573186985650939648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159493106554256554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b49f6298348a74eb60be69e1c1a85b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 0}
+  m_Stay: {fileID: 0}
+  m_Attack: {fileID: 0}
+  m_ApplyDamage: {fileID: 0}
+  m_Death: {fileID: 0}
 --- !u!1 &4159493106913953238
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,12 +40,9 @@ public class LevelsManager : MonoBehaviour
 
     public void ConnectPlayerToLevel()
     {
-        m_Player.GetComponent<Destructible>().ObjectsQueue = m_CurrentLevel.Queue;
-        
-        m_Player.GetComponent<PlayerInput>().ActiveObjectQueue = m_CurrentLevel.Queue;
-
-        m_Player.GetComponent<Movable>().ObjectsQueue = m_CurrentLevel.Queue;
-        m_Player.GetComponent<Movable>().Map = m_CurrentLevel.Map;
+        m_Player.GetComponent<MapObject>().ActiveObjectsQueue = m_CurrentLevel.Queue;
+        m_Player.GetComponent<MapObject>().ActiveObjectsQueue = m_CurrentLevel.Queue;
+        m_Player.GetComponent<MapObject>().Map = m_CurrentLevel.Map;
 
         var attackables = m_Player.GetComponentsInChildren<AttackableInDirection>();
         foreach (var temp in attackables)

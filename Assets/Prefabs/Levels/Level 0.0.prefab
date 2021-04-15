@@ -45,7 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &4997135005381376757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -142,7 +152,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &6166389101248418405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -239,7 +259,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &8463428894105820797
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -336,7 +366,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &5607947206570593317
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -433,7 +473,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &6120606323224738183
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -530,7 +580,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &5540215213923433654
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -626,7 +686,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &3261608127201530156
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -723,7 +793,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &1545397977565198293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -819,7 +899,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &8204519659002512283
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -895,7 +985,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2924851348948991032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.018, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2924851349657849723}
@@ -1145,7 +1235,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &8409946965483326433
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1323,7 +1423,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &3941758565639452565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1420,7 +1530,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &3761140395938455692
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1516,7 +1636,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &7716067573088004355
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1612,7 +1742,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &400454383514338964
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1769,7 +1909,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &7683767431346836450
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1866,7 +2016,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &7534229161438372426
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1962,7 +2122,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &3546895645675460116
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2059,7 +2229,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &7547538521047369153
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2156,7 +2336,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &5505467022442793517
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2253,7 +2443,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &3551045674917667474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2350,7 +2550,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &8312363090054395588
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2502,7 +2712,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &1327235578336074946
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2599,7 +2819,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &5932851276579392135
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2696,7 +2926,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
+  m_ActionPointsContainer: {fileID: 0}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 0}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
 --- !u!212 &7487071941530680377
 SpriteRenderer:
   m_ObjectHideFlags: 0

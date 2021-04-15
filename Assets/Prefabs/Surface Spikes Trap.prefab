@@ -684,7 +684,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -2837848667354824397, guid: 7abac5dbf9a881146a52aa5723e009ed,
     type: 3}
+  m_ActionPointsContainer: {fileID: 4040505977165377150}
+  m_Movable: {fileID: 0}
+  m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
+  m_SkipTurnModule: {fileID: 0}
+  m_InitiativeContainer: {fileID: 4247589161848642021}
+  m_AnimationsStateMashine: {fileID: 0}
+  m_MapObjSpriteRotator: {fileID: 0}
+  m_ShowUI: {fileID: 0}
+  m_Map: {fileID: 0}
+  m_Queue: {fileID: 0}
   OnStepIn:
     m_PersistentCalls:
       m_Calls:

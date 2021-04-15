@@ -4,20 +4,15 @@ using UnityEngine.Events;
 
 public class Movable : MonoBehaviour
 {
-    //
+    [Header("References Setup")] 
+    [SerializeField] private MapObject m_MapObject;
+    [Header("Setup")] 
     [SerializeField] private bool m_Pushable;
     [SerializeField] private int m_DefaultPushCost;
     [SerializeField] private int m_DefaultStepCost;
     [SerializeField] private float m_DefaultAnimTime;
     [SerializeField] private AnimType m_DefaultAnimType;
-
-    [Header("Setup")] 
-    [SerializeField] private MapObjSpriteRotator m_SpriteRotator;
-    [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
-    [SerializeField] private MapObject m_MapObject;
-    [SerializeField] private Map m_Map;
-    [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
-
+        
     [Header("Player Setup")]
     [SerializeField] private PlayerInput m_PlayerInput;
 
@@ -38,7 +33,8 @@ public class Movable : MonoBehaviour
     private bool m_MoveNow;
     private bool m_PushingNow;
     private bool m_IsNextCellBecameFull;
-    
+
+    #region Properties
     public bool PushingNow
     {
         get => m_PushingNow;
@@ -49,47 +45,16 @@ public class Movable : MonoBehaviour
         get => m_Pushable;
         set => m_Pushable = value;
     }
-
-    public ActiveObjectsQueue ObjectsQueue
-    {
-        get => m_ActiveObjectsQueue;
-        set => m_ActiveObjectsQueue = value;
-    }
-
-    public Map Map
-    {
-        get => m_Map;
-        set => m_Map = value;
-    }
-
     public int DefaultStepCost
     {
         get => m_DefaultStepCost;
         set => m_DefaultStepCost = value;
     }
-
+    #endregion
+    
     private float m_AnimationTimer;
     private float m_Speed;
     private float m_DistanceDelta = 0.01f;
-
-
-    private void Reset()
-    {
-        m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
-        m_Map = FindObjectOfType<Map>();
-        m_MapObject = GetComponent<MapObject>();
-        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
-        m_PlayerInput = GetComponent<PlayerInput>();
-        m_SpriteRotator = GetComponent<MapObjSpriteRotator>();
-    }
-
-    private void Awake()
-    {
-        m_CurrentAnimType = m_DefaultAnimType;
-        m_Map = FindObjectOfType<Map>();
-        m_MapObject = GetComponent<MapObject>();
-        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
-    }
 
     void Update()
     {
@@ -133,11 +98,11 @@ public class Movable : MonoBehaviour
     {
         if (!m_MoveNow)
         {
-            m_SpriteRotator.RotateSprite(input);
+            m_MapObject.SpriteRotator.RotateSprite(input);
 
-            if (m_Map.GetMapObjectByVector(m_MapObject.Pos + input) == null)
+            if (m_MapObject.Map.GetMapObjectByVector(m_MapObject.Pos + input) == null)
             {
-                if (m_ActionPointsContainer!=null && m_ActionPointsContainer.CurrentPoints >= stepCost)
+                if (m_MapObject.ActionPointsContainerModule != null && m_MapObject.ActionPointsContainerModule.CurrentPoints >= stepCost)
                 {
                     StartMovementSetup(input, animType, animTime, stepCost, isStartCellBecameEmpty, isNextCellBecameFull);
                 }
@@ -145,11 +110,11 @@ public class Movable : MonoBehaviour
             
             else
             {
-                var tempMovable = m_Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>();
+                var tempMovable = m_MapObject.Map.GetMapObjectByVector(m_MapObject.Pos + input).GetComponent<Movable>();
 
                 if (tempMovable != null && tempMovable.Pushable && CheckPushIsPossible(input, tempMovable))
                 {
-                    if (m_ActionPointsContainer.CurrentPoints >= m_DefaultPushCost)
+                    if (m_MapObject.ActionPointsContainerModule.CurrentPoints >= m_DefaultPushCost)
                     {
                         StartMovementSetup(input, animType, animTime, m_DefaultPushCost, isStartCellBecameEmpty, isNextCellBecameFull);
                         Push(input, tempMovable);
@@ -161,10 +126,10 @@ public class Movable : MonoBehaviour
 
     private void StartMovementSetup(Vector2Int input, AnimType animType, float animTime, int stepCost, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
     {
-        m_ActiveObjectsQueue.AddToActiveObjectsList(this);
-        if(m_Map.GetSurfaceByVector(m_MapObject.Pos) != null)
-            m_Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
-        m_ActionPointsContainer.CurrentPoints -= stepCost;
+        m_MapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
+        if(m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos) != null)
+            m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
+        m_MapObject.ActionPointsContainerModule.CurrentPoints -= stepCost;
         m_CurrentAnimType = animType;
         m_CurrentPos = m_MapObject.Pos;
         m_NextPos = m_CurrentPos + input;
@@ -173,7 +138,7 @@ public class Movable : MonoBehaviour
         m_AnimationTimer = 0;
         m_IsNextCellBecameFull = isNextCellBecameFull;
         if(isStartCellBecameEmpty)
-            m_Map.SetMapObjectByVector(m_MapObject.Pos, null);
+            m_MapObject.Map.SetMapObjectByVector(m_MapObject.Pos, null);
         
         OnAnyMovementStart?.Invoke();
 
@@ -194,11 +159,11 @@ public class Movable : MonoBehaviour
     {
         if (!m_MoveNow)
         {
-            m_SpriteRotator.RotateSprite(endPos - startPos);
+            m_MapObject.SpriteRotator.RotateSprite(endPos - startPos);
 
-            if (m_Map.GetMapObjectByVector(endPos) == null)
+            if (m_MapObject.Map.GetMapObjectByVector(endPos) == null)
             {
-                if (m_ActionPointsContainer!=null && m_ActionPointsContainer.CurrentPoints >= stepCost)
+                if (m_MapObject.ActionPointsContainerModule !=null && m_MapObject.ActionPointsContainerModule.CurrentPoints >= stepCost)
                 {
                     StartMovementSetup(startPos, endPos, animType, animTime, stepCost, isStartCellBecameEmpty, isNextCellBecameFull);
                 }
@@ -209,10 +174,10 @@ public class Movable : MonoBehaviour
     
     private void StartMovementSetup(Vector2Int startPos, Vector2Int endPos, AnimType animType, float animTime, int stepCost, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
     {
-        m_ActiveObjectsQueue.AddToActiveObjectsList(this);
-        if(m_Map.GetSurfaceByVector(m_MapObject.Pos) != null)
-            m_Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
-        m_ActionPointsContainer.CurrentPoints -= stepCost;
+        m_MapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
+        if(m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos) != null)
+            m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
+        m_MapObject.ActionPointsContainerModule.CurrentPoints -= stepCost;
         m_CurrentAnimType = animType;
         m_CurrentPos = m_MapObject.Pos;
         m_NextPos = endPos;
@@ -221,7 +186,7 @@ public class Movable : MonoBehaviour
         m_AnimationTimer = 0;
         m_IsNextCellBecameFull = isNextCellBecameFull;
         if(isStartCellBecameEmpty)
-            m_Map.SetMapObjectByVector(m_MapObject.Pos, null);
+            m_MapObject.Map.SetMapObjectByVector(m_MapObject.Pos, null);
         
         OnAnyMovementStart?.Invoke();
 
@@ -240,12 +205,12 @@ public class Movable : MonoBehaviour
 
     private bool CheckPushIsPossible(Vector2Int input ,Movable pushTarget)
     {
-        return m_Map.GetMapObjectByVector(pushTarget.GetComponent<MapObject>().Pos + input) == null;
+        return m_MapObject.Map.GetMapObjectByVector(pushTarget.GetComponent<MapObject>().Pos + input) == null;
     }
 
     public void Push(Vector2Int input ,Movable pushTarget)
     {
-        if (m_Map.GetMapObjectByVector( pushTarget.GetComponent<MapObject>().Pos + input) == null)
+        if (m_MapObject.Map.GetMapObjectByVector( pushTarget.GetComponent<MapObject>().Pos + input) == null)
         {
             OnPush?.Invoke();
             pushTarget.PushingNow = true;
@@ -255,25 +220,25 @@ public class Movable : MonoBehaviour
 
     public void StopMovement()
     {
-        m_ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+        m_MapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
         transform.position = new Vector3(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y), 0);
         m_MoveNow = false;
         
         m_MapObject.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
         
         if(m_IsNextCellBecameFull)
-            m_Map.SetMapObjectByVector(m_MapObject.Pos, m_MapObject);
+            m_MapObject.Map.SetMapObjectByVector(m_MapObject.Pos, m_MapObject);
         
         OnAnyMovementEnd?.Invoke();
-        if(m_Map.GetSurfaceByVector(m_MapObject.Pos) != null)
-            m_Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepInEvent();
+        if(m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos) != null)
+            m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepInEvent();
         
         if (!m_PushingNow)
         {
             OnOwnMovementEnd?.Invoke();
-            if (m_ActionPointsContainer.CurrentPoints == 0)
+            if (m_MapObject.ActionPointsContainerModule.CurrentPoints == 0)
             {
-                m_ActiveObjectsQueue.SkipTheTurn();
+                m_MapObject.ActiveObjectsQueue.SkipTheTurn();
             }
         }
         else
