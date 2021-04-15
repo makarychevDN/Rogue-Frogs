@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class Movable : MonoBehaviour
 {
+    //
     [SerializeField] private bool m_Pushable;
     [SerializeField] private int m_DefaultPushCost;
     [SerializeField] private int m_DefaultStepCost;
