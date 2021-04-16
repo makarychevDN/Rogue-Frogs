@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActionPointsUI : MonoBehaviour
 {
-    [SerializeField] private List<SpriteRenderer> m_ActionPointIcons;
+    [SerializeField] private List<ActionPointIcon> m_ActionPointIcons;
     [SerializeField] private Sprite m_FullIcon;
     [SerializeField] private Sprite m_EmptyIcon;
 
@@ -12,12 +12,12 @@ public class ActionPointsUI : MonoBehaviour
     {
         for (int i = 0; i < m_ActionPointIcons.Count; i++)
         {
-            m_ActionPointIcons[i].sprite = m_EmptyIcon;
+            m_ActionPointIcons[i].FullIcon.SetActive(false);
         }
 
         for (int i = 0; i < iconsCount; i++)
         {
-            m_ActionPointIcons[i].sprite = m_FullIcon;
+            m_ActionPointIcons[i].FullIcon.SetActive(true);
         }
     }
 
