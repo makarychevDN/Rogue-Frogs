@@ -5,24 +5,18 @@ using UnityEngine;
 
 public class BombAI : BaseInput
 {
-    [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
-    [SerializeField] private ActiveObjectsQueue m_Queue;
-    
+    [SerializeField] private MapObject m_MapObject;
+
     public override void DoSomething()
     {
-        if (m_ActionPointsContainer.CurrentPoints > 2)
+        if (m_MapObject.ActionPointsContainerModule.CurrentPoints > 2)
         {
-            GetComponent<Destructible>().CurrentHP -= 10000;
+            m_MapObject.DestructibleModule.CurrentHP -= 10000;
         }
 
         else
         {
-            GetComponent<SkipTurnModule>().SkipTurn();
+            m_MapObject.SkipTurnModule1.SkipTurn();
         }
-    }
-
-    private void Awake()
-    {
-        m_Queue = FindObjectOfType<ActiveObjectsQueue>();
     }
 }

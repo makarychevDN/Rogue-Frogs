@@ -303,19 +303,10 @@ MonoBehaviour:
   m_Damage: 0
   m_Range: 0
   m_ActionCost: 0
-  m_SpriteRenderer: {fileID: 0}
-  m_Sprite: {fileID: 0}
-  m_AnimStateMashine: {fileID: 3281820124522564978}
-  m_AttackAnimationObjects:
-  - {fileID: 343931656924320589}
-  m_AnimationTime: 0.35
-  m_SpriteRotator: {fileID: 4766463325278074539}
   m_MabObject: {fileID: 343931658716712509}
-  m_Map: {fileID: 0}
-  m_ActiveObjectsQueue: {fileID: 0}
-  m_ActionPointsContainer: {fileID: 343931658716712496}
   m_DamageUI: {fileID: 343931658293105999}
   m_RangeUI: {fileID: 343931658074889530}
+  m_AnimationTime: 0.35
   m_PlayerInput: {fileID: 0}
   OnAttack:
     m_PersistentCalls:
@@ -2130,14 +2121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c850fd9677170b34aafd37c093d631cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ThisMapObject: {fileID: 343931658716712509}
   m_SpawnObjectPrefab: {fileID: 343931658716712509, guid: c661d81ba959e6f498d1f45c3072f017,
     type: 3}
   m_Target: {fileID: 0}
-  m_ActionPointsContainer: {fileID: 343931658716712496}
-  m_Map: {fileID: 0}
-  m_Queue: {fileID: 0}
   m_AninationTime: 0.3
-  m_AnimationsStateMashine: {fileID: 3281820124522564978}
 --- !u!114 &2960125556207835054
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,18 +5,12 @@ using UnityEngine;
 
 public class AttackableAroundPointAOE : MonoBehaviour
 {
+    [Header("References Setup")]
     [SerializeField] private MapObject m_MapObject;
+    [Header("Setup")] 
     [SerializeField] private int m_Damage;
     [SerializeField] private int m_Range;
-    [SerializeField] private Map m_Map;
     [SerializeField] private float m_DefaultDelay;
-    [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
-
-    private void Awake()
-    {
-        m_Map = FindObjectOfType<Map>();
-        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
-    }
 
     public void Attack()
     {
@@ -24,23 +18,23 @@ public class AttackableAroundPointAOE : MonoBehaviour
         {
             for (int j = m_MapObject.Pos.y - m_Range; j < m_MapObject.Pos.y + m_Range + 1; j++)
             {
-                if (m_Map.GetMapObjectByVector(new Vector2Int(i,j))!= null && m_Map.GetMapObjectByVector(new Vector2Int(i,j))!= m_MapObject)
+                if (m_MapObject.Map.GetMapObjectByVector(new Vector2Int(i,j))!= null && m_MapObject.Map.GetMapObjectByVector(new Vector2Int(i,j))!= m_MapObject)
                 {
-                    if (m_Map.GetMapObjectByVector(new Vector2Int(i, j)).GetComponent<Destructible>() != null)
+                    if (m_MapObject.Map.GetMapObjectByVector(new Vector2Int(i, j)).GetComponent<Destructible>() != null)
                     {
-                        m_Map.GetMapObjectByVector(new Vector2Int(i, j)).GetComponent<Destructible>().CurrentHP-= m_Damage;
+                        m_MapObject.Map.GetMapObjectByVector(new Vector2Int(i, j)).GetComponent<Destructible>().CurrentHP-= m_Damage;
                     }
                 }
                 
             }
         }
         
-        m_ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+        m_MapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
     }
 
     public void AttackWithDelay(float delay)
     {
-        m_ActiveObjectsQueue.AddToActiveObjectsList(this);
+        m_MapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
         Invoke("Attack", delay);
     }
     

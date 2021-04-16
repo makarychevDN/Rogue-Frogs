@@ -6,13 +6,10 @@ using Random = UnityEngine.Random;
 
 public class ObjectSpawnerAI : BaseInput
 {
+    [SerializeField] private MapObject m_ThisMapObject;
     [SerializeField] private MapObject m_SpawnObjectPrefab;
     [SerializeField] private MapObject m_Target;
-    [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
-    [SerializeField] private Map m_Map;
-    [SerializeField] private ActiveObjectsQueue m_Queue;
     [SerializeField] private float m_AninationTime;
-    [SerializeField] private AnimationsStateMashine m_AnimationsStateMashine;
 
     private List<Vector2Int> m_VectorsToCheckPlace;
     private Vector2Int m_CurrentSpawnPos;
@@ -20,8 +17,6 @@ public class ObjectSpawnerAI : BaseInput
     private void Awake()
     {
         m_Target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
-        m_Map = FindObjectOfType<Map>();
-        m_Queue = FindObjectOfType<ActiveObjectsQueue>();
         m_VectorsToCheckPlace = new List<Vector2Int>();
         m_VectorsToCheckPlace.Add(Vector2Int.up);
         m_VectorsToCheckPlace.Add(Vector2Int.down);
@@ -31,44 +26,43 @@ public class ObjectSpawnerAI : BaseInput
 
     public override void DoSomething()
     {
-        m_Queue.AddToActiveObjectsList(this);
+        m_ThisMapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
         m_CurrentSpawnPos = FindEmptyPlacesAroundTarget();
-        if (m_CurrentSpawnPos != Vector2Int.zero && m_ActionPointsContainer.CurrentPoints >= 3)
+        if (m_CurrentSpawnPos != Vector2Int.zero && m_ThisMapObject.ActionPointsContainerModule.CurrentPoints >= 3)
         {
-            m_ActionPointsContainer.CurrentPoints -= 3;
-            m_AnimationsStateMashine.ActivateAttackAnim();
+            m_ThisMapObject.ActionPointsContainerModule.CurrentPoints -= 3;
+            m_ThisMapObject.AnimationStateMashine.ActivateAttackAnim();
             Invoke("SpawnAndPush",m_AninationTime);
         }
         else
         {
-            m_Queue.RemoveFromActiveObjectsList(this);
+            m_ThisMapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
             GetComponent<SkipTurnModule>().SkipTurn();
         }
     }
 
     public void Spawn()
     {
-        m_Queue.RemoveFromActiveObjectsList(this);
+        m_ThisMapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
         var temp = Instantiate(m_SpawnObjectPrefab);
-        m_Map.SetMapObjectByVector(m_CurrentSpawnPos,temp);
+        m_ThisMapObject.Map.SetMapObjectByVector(m_CurrentSpawnPos,temp);
         temp.transform.position = new Vector3(m_CurrentSpawnPos.x, m_CurrentSpawnPos.y);
         temp.Pos = m_CurrentSpawnPos;
-        m_Queue.AddObjectInQueue(temp);
-        m_AnimationsStateMashine.ActivateStayAnim();
-        m_Queue.SkipTheTurn();
+        m_ThisMapObject.ActiveObjectsQueue.AddObjectInQueue(temp);
+        m_ThisMapObject.AnimationStateMashine.ActivateStayAnim();
+        m_ThisMapObject.ActiveObjectsQueue.SkipTheTurn();
     }
     
     public void SpawnAndPush()
     {
-        m_Queue.RemoveFromActiveObjectsList(this);
+        m_ThisMapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
         var temp = Instantiate(m_SpawnObjectPrefab);
         temp.transform.position = transform.position;
-        //temp.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
         temp.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
         temp.GetComponent<Movable>().Move(temp.Pos,m_CurrentSpawnPos,AnimType.cos,1f,0,false,true);
-        m_Queue.AddObjectInQueue(temp);
-        m_AnimationsStateMashine.ActivateStayAnim();
-        m_Queue.SkipTheTurn();
+        m_ThisMapObject.ActiveObjectsQueue.AddObjectInQueue(temp);
+        m_ThisMapObject.AnimationStateMashine.ActivateStayAnim();
+        m_ThisMapObject.ActiveObjectsQueue.SkipTheTurn();
     }
 
     public Vector2Int FindEmptyPlacesAroundTarget()
@@ -77,7 +71,7 @@ public class ObjectSpawnerAI : BaseInput
 
         foreach (var temp in m_VectorsToCheckPlace)
         {
-            if (m_Map.GetMapObjectByVector(m_Target.Pos + temp) == null)
+            if (m_ThisMapObject.Map.GetMapObjectByVector(m_Target.Pos + temp) == null)
             {
                 results.Add(temp);
             }

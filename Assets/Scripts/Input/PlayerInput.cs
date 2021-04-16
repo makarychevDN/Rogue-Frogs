@@ -15,52 +15,33 @@ public class PlayerInput : BaseInput
     {
         if (m_InputIsPossible)
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                m_PlayerMovement.Move(Vector2Int.down);
-            }
-
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                m_PlayerMovement.Move(Vector2Int.up);
-            }
-
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                m_PlayerMovement.Move(Vector2Int.left);
-            }
-
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                m_PlayerMovement.Move(Vector2Int.right);
-            }
-
-
-            if (Input.GetKeyDown(KeyCode.S) && m_PlayerAttackModule.CheckAttackIsPossible(Vector2Int.down))
-            {
-                m_PlayerAttackModule.Attack(Vector2Int.down);
-            }
-
-            if (Input.GetKeyDown(KeyCode.W) && m_PlayerAttackModule.CheckAttackIsPossible(Vector2Int.up))
-            {
-                m_PlayerAttackModule.Attack(Vector2Int.up);
-            }
-
-            if (Input.GetKeyDown(KeyCode.A) && m_PlayerAttackModule.CheckAttackIsPossible(Vector2Int.left))
-            {
-                m_PlayerAttackModule.Attack(Vector2Int.left);
-            }
-
-            if (Input.GetKeyDown(KeyCode.D) && m_PlayerAttackModule.CheckAttackIsPossible(Vector2Int.right))
-            {
-                m_PlayerAttackModule.Attack(Vector2Int.right);
-            }
+            
+            CheckKeysPressed(KeyCode.W, Vector2Int.up);
+            CheckKeysPressed(KeyCode.A, Vector2Int.left);
+            CheckKeysPressed(KeyCode.S, Vector2Int.down);
+            CheckKeysPressed(KeyCode.D, Vector2Int.right);
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 GetComponent<SkipTurnModule>().SkipTurn();
                 m_InputIsPossible = false;
             }
+        }
+    }
+
+    public void CheckKeysPressed(KeyCode keyCode, Vector2Int vector2Int)
+    {
+        if (Input.GetKeyDown(keyCode) && Input.GetKey(KeyCode.LeftShift) && m_PlayerAttackModule.CheckAttackIsPossible(vector2Int))
+        {
+            m_PlayerMovement.Move(vector2Int);
+        }
+        else if (Input.GetKeyDown(keyCode) && m_PlayerAttackModule.CheckAttackIsPossible(vector2Int))
+        {
+            m_PlayerAttackModule.Attack(vector2Int);
+        }
+        else if (Input.GetKeyDown(keyCode))
+        {
+            m_PlayerMovement.Move(vector2Int);
         }
     }
 

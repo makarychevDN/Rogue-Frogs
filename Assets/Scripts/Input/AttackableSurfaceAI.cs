@@ -6,19 +6,11 @@ using UnityEngine;
 public class AttackableSurfaceAI : BaseInput
 {
     [SerializeField] private MapObject m_MapObject;
-    [SerializeField] private Map m_Map;
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private List<Sprite> m_Sprites;
     [SerializeField] private int m_TurnsBeforeHit;
     [SerializeField] private int m_Damage;
-    [SerializeField] private ActiveObjectsQueue m_Queue;
-
-    private void Awake()
-    {
-        m_Map = FindObjectOfType<Map>();
-        m_Queue = FindObjectOfType<ActiveObjectsQueue>();
-    }
-
+    
     private int m_Count;
     
     public override void DoSomething()
@@ -33,7 +25,7 @@ public class AttackableSurfaceAI : BaseInput
         }
         
         m_SpriteRenderer.sprite = m_Sprites[m_Count];
-        m_Queue.SkipTheTurn();
+        m_MapObject.ActiveObjectsQueue.SkipTheTurn();
 
         TryToDealDamage();
     }
@@ -42,9 +34,9 @@ public class AttackableSurfaceAI : BaseInput
     {
         if (m_Count == m_TurnsBeforeHit - 1)
         {
-            if (m_Map.GetMapObjectByVector(m_MapObject.Pos) != null)
+            if (m_MapObject.Map.GetMapObjectByVector(m_MapObject.Pos) != null)
             {
-                var temp = m_Map.GetMapObjectByVector(m_MapObject.Pos).GetComponent<Destructible>();
+                var temp = m_MapObject.Map.GetMapObjectByVector(m_MapObject.Pos).GetComponent<Destructible>();
 
                 if (temp != null)
                 {

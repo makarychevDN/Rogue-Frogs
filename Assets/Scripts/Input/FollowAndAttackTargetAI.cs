@@ -9,28 +9,11 @@ public class FollowAndAttackTargetAI : BaseInput
     [SerializeField] private MapObject m_ThisMapObject;
     [SerializeField] private MapObject m_Target;
     [SerializeField] private AttackableInDirection m_Attackable;
-    [SerializeField] private ActionPointsContainer m_ActionPointsContainer;
-    [SerializeField] private Movable m_Movement;
-    [SerializeField] private Map m_Map;
-    [SerializeField] private ActiveObjectsQueue m_ActiveObjectsQueue;
 
     private List<Vector2Int> m_VerAndHorVectors;
 
-    private void Reset()
-    {
-        m_Target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
-        m_ThisMapObject = GetComponent<MapObject>();
-        m_Attackable = GetComponent<AttackableInDirection>();
-        m_ActionPointsContainer = GetComponent<ActionPointsContainer>();
-        m_Movement = GetComponent<Movable>();
-        m_Map = FindObjectOfType<Map>();
-        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
-    }
-
     private void Awake()
     {
-        m_Map = FindObjectOfType<Map>();
-        m_ActiveObjectsQueue = FindObjectOfType<ActiveObjectsQueue>();
         m_Target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
         m_VerAndHorVectors = new List<Vector2Int>();
         m_VerAndHorVectors.Add(Vector2Int.up);
@@ -41,7 +24,7 @@ public class FollowAndAttackTargetAI : BaseInput
 
     public override void DoSomething()
     {
-        m_ActiveObjectsQueue.AddToActiveObjectsList(this);
+        m_ThisMapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
         Invoke("DoSomethingWithDelay", m_ActionDelay);
     }
 
@@ -49,9 +32,9 @@ public class FollowAndAttackTargetAI : BaseInput
     {
         Vector2Int closestPointToPlayer = FindClosestPointToPlayer();
 
-        if (m_Map.GetMapObjectByVector(m_ThisMapObject.Pos + closestPointToPlayer) == m_Target)
+        if (m_ThisMapObject.Map.GetMapObjectByVector(m_ThisMapObject.Pos + closestPointToPlayer) == m_Target)
         {
-            if (m_ActionPointsContainer.CurrentPoints >= m_Attackable.ActionCost)
+            if (m_ThisMapObject.ActionPointsContainerModule.CurrentPoints >= m_Attackable.ActionCost)
             {
                 m_Attackable.Attack(closestPointToPlayer);
             }
@@ -63,28 +46,26 @@ public class FollowAndAttackTargetAI : BaseInput
         }
         else
         {
-            if (closestPointToPlayer != Vector2Int.zero && m_ActionPointsContainer.CurrentPoints >= m_Movement.DefaultStepCost)
+            if (closestPointToPlayer != Vector2Int.zero && m_ThisMapObject.ActionPointsContainerModule.CurrentPoints >= m_ThisMapObject.MovableModule.DefaultStepCost)
             {
-                m_Movement.Move(closestPointToPlayer);
+                m_ThisMapObject.MovableModule.Move(closestPointToPlayer);
             }
             else
             {
                 GetComponent<SkipTurnModule>().SkipTurn();
             }
         }
-        m_ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+        m_ThisMapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
     }
 
     public Vector2Int FindClosestPointToPlayer()
     {
-        //Vector2Int closestPoint = Vector2Int.up * 999;
         Vector2Int closestPoint = Vector2Int.zero;
         MapObject temp;
 
         foreach (var item in m_VerAndHorVectors)
         {
-            //temp = m_Map.Cells[(m_ThisMapObject.Pos + item).x, (m_ThisMapObject.Pos + item).y];
-            temp = m_Map.GetMapObjectByVector(m_ThisMapObject.Pos + item);
+            temp = m_ThisMapObject.Map.GetMapObjectByVector(m_ThisMapObject.Pos + item);
 
             if (temp == null || temp == m_Target)
             {

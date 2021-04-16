@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class DoNothingAI : BaseInput
 {
-    [SerializeField] private ActiveObjectsQueue m_Queue;
+    [SerializeField] private MapObject m_MapObject;
     public override void DoSomething()
     {
-        m_Queue.SkipTheTurn();
-    }
-    
-    private void Awake()
-    {
-        m_Queue = FindObjectOfType<ActiveObjectsQueue>();
+        m_MapObject.ActiveObjectsQueue.SkipTheTurn();
     }
 }
