@@ -5,8 +5,6 @@ using UnityEngine;
 public class ActionPointsUI : MonoBehaviour
 {
     [SerializeField] private List<ActionPointIcon> m_ActionPointIcons;
-    [SerializeField] private Sprite m_FullIcon;
-    [SerializeField] private Sprite m_EmptyIcon;
 
     public void ReFillIcons(int iconsCount)
     {
