@@ -15,7 +15,6 @@ public class AttackableInDirection : MonoBehaviour
     [Header("Setup")]
     [SerializeField] private MapObject m_MabObject;
     [SerializeField] private DamageUI m_DamageUI;
-    [SerializeField] private RangeUI m_RangeUI;
     [SerializeField] private float m_AnimationTime;
     
     [Header("Player Setup")]
@@ -30,7 +29,6 @@ public class AttackableInDirection : MonoBehaviour
     private void Awake()
     {
         m_DamageUI.SetValue(m_Damage);
-        m_RangeUI.SetValue(m_Range);
     }
 
     public bool CheckAttackIsPossible(Vector2Int input)

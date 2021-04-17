@@ -20,7 +20,7 @@ public class Destructible : MonoBehaviour
     [SerializeField] private UnityEvent OnApplyHealing;
     [SerializeField] private UnityEvent OnDied;
 
-    private void Awake()
+    private void Start()
     {
         m_HpUI.SetValue(CurrentHP);
     }

@@ -202,7 +202,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &343931656883518433
@@ -305,7 +305,6 @@ MonoBehaviour:
   m_ActionCost: 2
   m_MabObject: {fileID: 343931658716712509}
   m_DamageUI: {fileID: 343931658293105999}
-  m_RangeUI: {fileID: 343931658074889530}
   m_AnimationTime: 0.35
   m_PlayerInput: {fileID: 0}
   OnAttack:
@@ -425,7 +424,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &343931657167873844
@@ -967,7 +966,7 @@ SpriteRenderer:
   m_Size: {x: 0.0625, y: 0.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &343931657382458811
@@ -1155,7 +1154,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &343931657540141051
@@ -1345,7 +1344,7 @@ SpriteRenderer:
   m_Size: {x: 0.0625, y: 0.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &343931657856871525
@@ -1697,7 +1696,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &343931658293105993
@@ -1803,13 +1802,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ActionPointIcons:
-  - {fileID: 343931657777499119}
-  - {fileID: 343931657330405949}
-  - {fileID: 343931658677315685}
-  m_FullIcon: {fileID: 7374874032361590669, guid: bc5f0f05fc4111040884c50d925931d2,
-    type: 3}
-  m_EmptyIcon: {fileID: -8327471844586406341, guid: bc5f0f05fc4111040884c50d925931d2,
-    type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &343931658411856500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,7 +1922,7 @@ SpriteRenderer:
   m_Size: {x: 0.0625, y: 0.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &343931658716712511

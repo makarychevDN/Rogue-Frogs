@@ -7,6 +7,13 @@ public class ShowUI : MonoBehaviour
 {
     [SerializeField] private List<GameObject> m_UiObjects;
     [SerializeField] private bool m_AlwaysShow;
+    private bool m_MapObjectIsActiveNow;
+
+    public bool MapObjectIsActiveNow
+    {
+        get => m_MapObjectIsActiveNow;
+        set => m_MapObjectIsActiveNow = value;
+    }
 
     private void Start()
     {
@@ -27,9 +34,12 @@ public class ShowUI : MonoBehaviour
     {
         if (!m_AlwaysShow)
         {
-            foreach (var temp in m_UiObjects)
+            if (!m_MapObjectIsActiveNow)
             {
-                temp.SetActive(value);
+                foreach (var temp in m_UiObjects)
+                {
+                    temp.SetActive(value);
+                }
             }
         }
     }

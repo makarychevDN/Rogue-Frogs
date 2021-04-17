@@ -127,6 +127,11 @@ public class ActiveObjectsQueue : MonoBehaviour
             m_CurrentCharacter.SkipTurnAnimation.SetActive(false);
         if(m_QueueCount < m_Cells.Count)
             m_Cells[m_QueueCount].ActiveCell.SetActive(false);
+        if (m_CurrentCharacter.ShowUI != null)
+        {
+            m_CurrentCharacter.ShowUI.MapObjectIsActiveNow = false;
+            m_CurrentCharacter.ShowUI.SetActiveUiObjects(false);
+        }
         
         DisablePlayerInput();
 
@@ -142,6 +147,12 @@ public class ActiveObjectsQueue : MonoBehaviour
         m_Cells[m_QueueCount].ActiveCell.SetActive(true);
 
         m_CurrentCharacter = m_Characters[m_QueueCount];
+        
+        if (m_CurrentCharacter.ShowUI != null)
+        {
+            m_CurrentCharacter.ShowUI.SetActiveUiObjects(true);
+            m_CurrentCharacter.ShowUI.MapObjectIsActiveNow = true;
+        }
 
         //StartNextAction();
     }
