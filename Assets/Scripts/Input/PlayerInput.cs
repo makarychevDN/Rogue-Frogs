@@ -34,14 +34,17 @@ public class PlayerInput : BaseInput
         if (Input.GetKeyDown(keyCode) && Input.GetKey(KeyCode.LeftShift) && m_PlayerAttackModule.CheckAttackIsPossible(vector2Int))
         {
             m_PlayerMovement.Move(vector2Int);
+            m_InputIsPossible = false;
         }
         else if (Input.GetKeyDown(keyCode) && m_PlayerAttackModule.CheckAttackIsPossible(vector2Int))
         {
             m_PlayerAttackModule.Attack(vector2Int);
+            m_InputIsPossible = false;
         }
         else if (Input.GetKeyDown(keyCode))
         {
             m_PlayerMovement.Move(vector2Int);
+            m_InputIsPossible = false;
         }
     }
 
