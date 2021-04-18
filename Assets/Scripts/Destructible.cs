@@ -59,9 +59,9 @@ public class Destructible : MonoBehaviour
     private void RemoveObject()
     {
         var temp = GetComponent<MapObject>();
+        m_MapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
         m_MapObject.ActiveObjectsQueue.RemoveCharacterFromStack(temp);
         Destroy(gameObject);
-        m_MapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
     }
 
     public void StartHitAnimation()

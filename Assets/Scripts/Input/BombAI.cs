@@ -9,7 +9,7 @@ public class BombAI : BaseInput
 
     public override void DoSomething()
     {
-        if (m_MapObject.ActionPointsContainerModule.CurrentPoints > 2)
+        if (m_MapObject.ActionPointsContainerModule.CurrentPoints == 2)
         {
             m_MapObject.DestructibleModule.CurrentHP -= 10000;
         }

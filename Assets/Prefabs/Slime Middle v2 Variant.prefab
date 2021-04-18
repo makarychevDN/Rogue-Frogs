@@ -176,6 +176,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime Middle v2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9014069178189991578, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 63fe9b4989627dc4a903cbb7aa6e8998,
+        type: 3}
     - target: {fileID: 9014069178583203438, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: m_Sprite

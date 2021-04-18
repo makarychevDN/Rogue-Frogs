@@ -2041,7 +2041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxPoints: 3
-  m_CurrentPoints: 3
+  m_CurrentPoints: 0
   m_PointsRegenerationInTurn: 1
   m_PointsVisualisation: {fileID: 343931658405345089}
   OnDidSomething:

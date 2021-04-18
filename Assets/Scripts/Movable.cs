@@ -50,6 +50,13 @@ public class Movable : MonoBehaviour
         get => m_DefaultStepCost;
         set => m_DefaultStepCost = value;
     }
+
+    public int DefaultPushCost
+    {
+        get => m_DefaultPushCost;
+        set => m_DefaultPushCost = value;
+    }
+
     #endregion
     
     private float m_AnimationTimer;
@@ -116,7 +123,7 @@ public class Movable : MonoBehaviour
                 {
                     if (m_MapObject.ActionPointsContainerModule.CurrentPoints >= m_DefaultPushCost)
                     {
-                        StartMovementSetup(input, animType, animTime, m_DefaultPushCost, isStartCellBecameEmpty, isNextCellBecameFull);
+                        //StartMovementSetup(input, animType, animTime, m_DefaultPushCost, isStartCellBecameEmpty, isNextCellBecameFull);
                         Push(input, tempMovable);
                     }
                 }
@@ -212,9 +219,15 @@ public class Movable : MonoBehaviour
     {
         if (m_MapObject.Map.GetMapObjectByVector( pushTarget.GetComponent<MapObject>().Pos + input) == null)
         {
+            m_MapObject.ActionPointsContainerModule.CurrentPoints -= pushTarget.DefaultPushCost;
             OnPush?.Invoke();
             pushTarget.PushingNow = true;
             pushTarget.Move(input,m_DefaultAnimType, m_DefaultAnimTime,0);
+            
+            if (m_MapObject.ActionPointsContainerModule.CurrentPoints == 0)
+            {
+                m_MapObject.ActiveObjectsQueue.SkipTheTurn();
+            }
         }
     }
 

@@ -976,7 +976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2924851348948991039
 Transform:
   m_ObjectHideFlags: 0
@@ -2656,14 +2656,14 @@ MonoBehaviour:
   m_CyclesBeforeSpawn: 2
   m_Count: 0
   m_SpawnObjectPrefab:
-  - {fileID: 343931658716712509, guid: 565648aa465c5254298be61f6038d0c6, type: 3}
-  - {fileID: 1005855434174650533, guid: fe3383cc604426840b6bf1c39c034edf, type: 3}
+  - {fileID: 7490965563461372636, guid: 280309d9da9580447ad681983463a4d8, type: 3}
   - {fileID: 6682067327709362511, guid: 6146c0de01588ec43accad4ae9ecb469, type: 3}
+  - {fileID: 1005855434174650533, guid: fe3383cc604426840b6bf1c39c034edf, type: 3}
   - {fileID: 4256787534179473901, guid: 99485b00312bf2a42944686afee3f61f, type: 3}
   - {fileID: 3797654356141642320, guid: 185592a39968094408f064464fff40dd, type: 3}
   - {fileID: 7032984901642514499, guid: 164690cb9577f9445a26963f4ef9cbb7, type: 3}
-  - {fileID: 343931658716712509, guid: ad9f3c9c3c943664f972e171bfe570e7, type: 3}
-  - {fileID: 343931658716712509, guid: ad9f3c9c3c943664f972e171bfe570e7, type: 3}
+  - {fileID: 4662791148115230192, guid: 6d131055ef56bf84fb59c25a77e86ac0, type: 3}
+  - {fileID: 4662791148115230192, guid: 6d131055ef56bf84fb59c25a77e86ac0, type: 3}
   m_Map: {fileID: 2924851349307712099}
 --- !u!1 &8671229383580548974
 GameObject:
@@ -3053,6 +3053,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rat Knife v2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6682067327709362509, guid: 6146c0de01588ec43accad4ae9ecb469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6146c0de01588ec43accad4ae9ecb469, type: 3}
 --- !u!4 &5224740101798963580 stripped
@@ -3127,6 +3132,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Surface Spikes Trap v2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294550136445211401, guid: d22cb1b7c23700c45b3d9ec2bfba231b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d22cb1b7c23700c45b3d9ec2bfba231b, type: 3}
@@ -3278,6 +3288,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rat Bomberman
       objectReference: {fileID: 0}
+    - target: {fileID: 7490965563461372638, guid: 280309d9da9580447ad681983463a4d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 280309d9da9580447ad681983463a4d8, type: 3}
 --- !u!4 &5316777217300274952 stripped
@@ -3353,6 +3368,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime Big v2
       objectReference: {fileID: 0}
+    - target: {fileID: 4256787534179473903, guid: 99485b00312bf2a42944686afee3f61f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99485b00312bf2a42944686afee3f61f, type: 3}
 --- !u!4 &1555971670421754884 stripped
@@ -3376,7 +3396,7 @@ PrefabInstance:
     - target: {fileID: 3797654356141642322, guid: 185592a39968094408f064464fff40dd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3797654356141642335, guid: 185592a39968094408f064464fff40dd,
         type: 3}

@@ -264,6 +264,16 @@ PrefabInstance:
       propertyPath: m_AnimationTime
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1184274444845484242, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980678921064661944, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3054135266461274693, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Controller
@@ -272,7 +282,7 @@ PrefabInstance:
     - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_MaxPoints
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
@@ -282,7 +292,7 @@ PrefabInstance:
     - target: {fileID: 3496162514070850782, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Initiative
-      value: 10000
+      value: 99998
       objectReference: {fileID: 0}
     - target: {fileID: 4159493106408508508, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
@@ -304,6 +314,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159493106408508508, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4159493106554256551, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
