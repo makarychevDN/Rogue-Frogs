@@ -35,15 +35,19 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/AttackableAroundPointAOE.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Restart.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Input/BaseInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Destructible.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AnimationsStateMashine.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/MapObject.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Input/PlayerInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Movable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/BaseAttackable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Attackable/Attackable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SkipTurnModule.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Input/PlayerInput.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Level Managment/LevelsManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MapObject.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/ActionPointsUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Attackable/AttackableInDirection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Movable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/ShowUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ActiveObjectsQueue.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Destructible.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oZmksycpqbSCrRWxbMFbzRsL77" />
@@ -56,6 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -108,6 +113,9 @@
       <workItem from="1615208162441" duration="193000" />
       <workItem from="1615310033928" duration="7575000" />
       <workItem from="1615400779836" duration="474000" />
+      <workItem from="1618505647861" duration="9415000" />
+      <workItem from="1618667466671" duration="5316000" />
+      <workItem from="1618683937922" duration="698000" />
     </task>
     <servers />
   </component>

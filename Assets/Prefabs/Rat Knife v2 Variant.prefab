@@ -47,6 +47,11 @@ PrefabInstance:
       propertyPath: m_ScoreCost
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6025039437618041192, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+        type: 3}
+      propertyPath: m_Damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7643620444696864355, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: m_MaxPoints
@@ -142,6 +147,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rat Knife v2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9014069178189991578, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bc004a312e19ecd40a3db17c2f0abf89,
+        type: 3}
     - target: {fileID: 9014069178583203438, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: m_Sprite

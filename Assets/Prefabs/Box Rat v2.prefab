@@ -116,7 +116,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Stay
       value: 
-      objectReference: {fileID: 7400000, guid: 459ef84c21a805345876b9e64aa3cb57, type: 2}
+      objectReference: {fileID: 7400000, guid: 7594886da9b8cf94c9c8a7c7bf771850, type: 2}
     - target: {fileID: 4851865946426185010, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: m_Attack
@@ -171,6 +171,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnimationTime
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643620444696864355, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+        type: 3}
+      propertyPath: m_MaxPoints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643620444696864355, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+        type: 3}
+      propertyPath: m_CurrentPoints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643620444696864355, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+        type: 3}
+      propertyPath: m_PointsRegenerationInTurn
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7981331876721664119, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}

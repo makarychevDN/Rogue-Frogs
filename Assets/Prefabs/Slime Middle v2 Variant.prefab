@@ -35,7 +35,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ApplyDamage
       value: 
-      objectReference: {fileID: 7400000, guid: 92e1966a49bd6004fa6d0ff13cebd335, type: 2}
+      objectReference: {fileID: 7400000, guid: a031c18eb81127a4db0b01e6589876bc, type: 2}
     - target: {fileID: 5524818808114809118, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: OnDied.m_PersistentCalls.m_Calls.Array.size

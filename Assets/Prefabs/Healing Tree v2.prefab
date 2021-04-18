@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aed3c3d943d6a64a9b676d87b8b0ebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MapObject: {fileID: 0}
+  m_MapObject: {fileID: 4662791148115230192}
   m_Damage: -3
   m_Range: 1
   m_DefaultDelay: 0
@@ -75,6 +75,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CurrentHP
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: OnApplyDamage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: OnApplyDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3054135266461274693, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}

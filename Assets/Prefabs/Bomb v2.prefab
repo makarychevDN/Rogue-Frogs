@@ -1,27 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &272634646753836910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421574814639260882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Damage: 5
-  m_Range: 0
-  m_ActionCost: 0
-  m_MabObject: {fileID: 5332539355093269691}
-  m_DamageUI: {fileID: 5332539355651090377}
-  m_AnimationTime: 0
-  m_PlayerInput: {fileID: 0}
-  OnAttack:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!82 &2568003801680113909
 AudioSource:
   m_ObjectHideFlags: 0
@@ -147,6 +125,28 @@ MonoBehaviour:
   m_Damage: 5
   m_Range: 1
   m_DefaultDelay: 0.15
+--- !u!114 &272634646753836910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421574814639260882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 5
+  m_Range: 0
+  m_ActionCost: 0
+  m_MabObject: {fileID: 5332539355093269691}
+  m_DamageUI: {fileID: 5332539355651090377}
+  m_AnimationTime: 0
+  m_PlayerInput: {fileID: 0}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8338837726216699923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,6 +168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDied.m_PersistentCalls.m_Calls.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: OnApplyDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
@@ -219,6 +224,46 @@ PrefabInstance:
       propertyPath: OnDied.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: OnApplyDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: OnApplyDamage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: OnApplyDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2568003801680113909}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: OnApplyDamage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: OnApplyDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: m_MaxHP
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: m_CurrentHP
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 580135006043732780, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: m_AnimationTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3054135266461274693, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Controller
@@ -233,6 +278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PointsRegenerationInTurn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496162514070850782, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: m_Initiative
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 4159493106408508508, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
@@ -310,6 +360,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4159493106554256552, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e7f506ca6fd189a42b8c1e44b2f690e9,
+        type: 3}
     - target: {fileID: 4159493106554256554, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Name
