@@ -976,7 +976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2924851348948991039
 Transform:
   m_ObjectHideFlags: 0
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdbf0386a86701458ffb7556379bcad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerSpawnCoordinates: {x: 4, y: 1}
+  m_PlayerSpawnCoordinates: {x: 3, y: 2}
   m_CameraPosition: {x: 3, y: 3, z: -10}
   m_Map: {fileID: 2924851349307712099}
   m_Queue: {fileID: 2924851349657849716}

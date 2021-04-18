@@ -112,6 +112,7 @@ public class Movable : MonoBehaviour
                 if (m_MapObject.ActionPointsContainerModule != null && m_MapObject.ActionPointsContainerModule.CurrentPoints >= stepCost)
                 {
                     StartMovementSetup(input, animType, animTime, stepCost, isStartCellBecameEmpty, isNextCellBecameFull);
+                    Invoke("StopMovement", animTime);
                 }
             }
             
@@ -123,7 +124,6 @@ public class Movable : MonoBehaviour
                 {
                     if (m_MapObject.ActionPointsContainerModule.CurrentPoints >= m_DefaultPushCost)
                     {
-                        //StartMovementSetup(input, animType, animTime, m_DefaultPushCost, isStartCellBecameEmpty, isNextCellBecameFull);
                         Push(input, tempMovable);
                     }
                 }

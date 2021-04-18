@@ -8,6 +8,7 @@ public class ShowUI : MonoBehaviour
     [SerializeField] private List<GameObject> m_UiObjects;
     [SerializeField] private bool m_AlwaysShow;
     private bool m_MapObjectIsActiveNow;
+    [SerializeField] private bool m_MouseOnObjectNow;
 
     public bool MapObjectIsActiveNow
     {
@@ -23,23 +24,22 @@ public class ShowUI : MonoBehaviour
     void OnMouseEnter()
     {
         SetActiveUiObjects(true);
+        m_MouseOnObjectNow = true;
     }
     
     void OnMouseExit()
     {
         SetActiveUiObjects(false);
+        m_MouseOnObjectNow = false;
     }
 
     public void SetActiveUiObjects(bool value)
     {
-        if (!m_AlwaysShow)
+        if (!m_AlwaysShow && !m_MapObjectIsActiveNow && !m_MouseOnObjectNow)
         {
-            if (!m_MapObjectIsActiveNow)
+            foreach (var temp in m_UiObjects)
             {
-                foreach (var temp in m_UiObjects)
-                {
-                    temp.SetActive(value);
-                }
+                temp.SetActive(value);
             }
         }
     }

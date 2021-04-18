@@ -36,7 +36,6 @@ public class SpawnManager : MonoBehaviour
 
         if (m_Count == m_CyclesBeforeSpawn)
         {
-            print("time to spawn");
             m_Count = 0;
             List<Vector2Int> freeCellPositions = new List<Vector2Int>();
             

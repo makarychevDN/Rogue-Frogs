@@ -43,6 +43,27 @@ public class ActiveObjectsQueue : MonoBehaviour
         {
             StartNextAction();
         }
+
+        if(Input.GetKey(KeyCode.Mouse0))
+        {
+            foreach (var item in m_Characters)
+            {
+                if (item.ShowUI != null)
+                {
+                    item.ShowUI.SetActiveUiObjects(true);
+                }
+            }
+        }
+        else
+        {
+            foreach (var item in m_Characters)
+            {
+                if (item.ShowUI != null)
+                {
+                    item.ShowUI.SetActiveUiObjects(false);
+                }
+            }
+        }
     }
 
     #region QueueVisualisation
@@ -125,11 +146,18 @@ public class ActiveObjectsQueue : MonoBehaviour
         
         if(m_CurrentCharacter.SkipTurnAnimation != null)
             m_CurrentCharacter.SkipTurnAnimation.SetActive(false);
+        
         if(m_QueueCount < m_Cells.Count)
             m_Cells[m_QueueCount].ActiveCell.SetActive(false);
+        
         if (m_CurrentCharacter.ShowUI != null)
         {
             m_CurrentCharacter.ShowUI.MapObjectIsActiveNow = false;
+            m_CurrentCharacter.ShowUI.SetActiveUiObjects(false);
+        }
+
+        if (m_CurrentCharacter.GetComponent<DoNothingAI>() != null)
+        {
             m_CurrentCharacter.ShowUI.SetActiveUiObjects(false);
         }
         

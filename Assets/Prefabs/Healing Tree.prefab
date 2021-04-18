@@ -201,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 4159493106554256554, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Name
-      value: Healing Tree v2
+      value: Healing Tree
       objectReference: {fileID: 0}
     - target: {fileID: 4159493106913953238, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
@@ -234,7 +234,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7757102120528914358, guid: a5521d6a1b0ea9a40b5f295504408bf5, type: 3}
-    - {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5, type: 3}
     - {fileID: 7692104732494564149, guid: a5521d6a1b0ea9a40b5f295504408bf5, type: 3}
     - {fileID: 5153808861905180153, guid: a5521d6a1b0ea9a40b5f295504408bf5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a5521d6a1b0ea9a40b5f295504408bf5, type: 3}
