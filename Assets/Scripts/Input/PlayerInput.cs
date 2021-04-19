@@ -8,7 +8,9 @@ public class PlayerInput : BaseInput
     [SerializeField] private Movable m_PlayerMovement;
     [SerializeField] private AttackableInDirection m_PlayerAttackModule;
     private bool m_InputIsPossible;
-
+    private bool m_IsShowAllUINow;
+    private List<ShowUI> m_ShowUIList = new List<ShowUI>();
+    
     public bool InputIsPossible { get => m_InputIsPossible; set => m_InputIsPossible = value; }
     
     private void Update()
@@ -25,6 +27,11 @@ public class PlayerInput : BaseInput
             {
                 GetComponent<SkipTurnModule>().SkipTurn();
                 m_InputIsPossible = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                
             }
         }
     }
