@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 8369317109547613932, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: m_Initiative
-      value: 99999
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9014069178081949670, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 9014069178189991576, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: m_Name
-      value: Rat Knife v2 Variant
+      value: Rat Knife
       objectReference: {fileID: 0}
     - target: {fileID: 9014069178189991578, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
