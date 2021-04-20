@@ -8,25 +8,27 @@ public class ActiveObjectsQueue : MonoBehaviour
     [SerializeField] private QueueCell m_QueuePanelPrefab;
     [SerializeField] private float m_IndentMultiplier;
     [SerializeField] private Transform m_QueueVisualisationParent;
-    private List<MapObject> m_Characters;
+    [SerializeField] private List<MapObject> m_Queue;
     [SerializeField] private List<MonoBehaviour> m_ActiveNowObjects;
     private List<QueueCell> m_Cells;
-    private MapObject m_CurrentCharacter;
+    [SerializeField] private MapObject m_CurrentCharacter;
     private int m_QueueCount;
     private float m_SkipTurnDelay = 0.5f;
     [SerializeField] private SpawnManager m_SpawnManager;
     private float m_CheckActiveNowObjectsTime = 0.6f;
     private float m_CheckActiveNowObjectsTimer; 
+    
     private void Awake()
     {
         m_ActiveNowObjects = new List<MonoBehaviour>();
         FindAllActiveMapObjects();
         SortActiveObjects();
-        m_CurrentCharacter = m_Characters[0];
+        m_CurrentCharacter = m_Queue[0];
         InitPanels();
-        //StartNextAction();
     }
 
+    #region ActiveNowObjects
+    
     public void AddToActiveObjectsList(MonoBehaviour something)
     {
         m_ActiveNowObjects.Add(something);
@@ -36,6 +38,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     {
         m_ActiveNowObjects.Remove(something);
     }
+    #endregion
     
     private void Update()
     {
@@ -46,7 +49,7 @@ public class ActiveObjectsQueue : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Mouse0))
         {
-            foreach (var item in m_Characters)
+            foreach (var item in m_Queue)
             {
                 if (item.ShowUI != null)
                 {
@@ -56,7 +59,7 @@ public class ActiveObjectsQueue : MonoBehaviour
         }
         else
         {
-            foreach (var item in m_Characters)
+            foreach (var item in m_Queue)
             {
                 if (item.ShowUI != null)
                 {
@@ -70,28 +73,28 @@ public class ActiveObjectsQueue : MonoBehaviour
     public void FindAllActiveMapObjects()
     {
         var temp = FindObjectsOfType<ActionPointsContainer>();
-        m_Characters = new List<MapObject>();
+        m_Queue = new List<MapObject>();
         
         foreach (var item in temp)
         {
-            m_Characters.Add(item.GetComponent<MapObject>());
+            m_Queue.Add(item.GetComponent<MapObject>());
         }
     }
 
     public void SortActiveObjects()
     {
         InitiativeComparer ic = new InitiativeComparer();
-        m_Characters.Sort(ic);
+        m_Queue.Sort(ic);
     }
 
     public void InitPanels()
     {
         m_Cells = new List<QueueCell>();
-        for (int i = 0; i < m_Characters.Count; i++)
+        for (int i = 0; i < m_Queue.Count; i++)
         {
             var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
-            spawnedPanel.transform.localPosition = Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Characters.Count-1) * 0.5f * m_IndentMultiplier;
-            spawnedPanel.SetSprite(m_Characters[i].Sprite);
+            spawnedPanel.transform.localPosition = Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Queue.Count-1) * 0.5f * m_IndentMultiplier;
+            spawnedPanel.SetSprite(m_Queue[i].Sprite);
             m_Cells.Add(spawnedPanel);
             spawnedPanel.transform.parent = m_QueueVisualisationParent;
         }
@@ -103,7 +106,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     {
         for (int i = 0; i < m_Cells.Count; i++)
         {
-            m_Cells[i].transform.localPosition = Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Characters.Count-1) * 0.5f * m_IndentMultiplier;
+            m_Cells[i].transform.localPosition = Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Queue.Count-1) * 0.5f * m_IndentMultiplier;
         }
     }
     
@@ -111,7 +114,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     {
         var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
 
-        int count = m_Characters.IndexOf(mapObject);
+        int count = m_Queue.IndexOf(mapObject);
         
         spawnedPanel.SetSprite(mapObject.Sprite);
         spawnedPanel.transform.parent = m_QueueVisualisationParent;
@@ -127,10 +130,10 @@ public class ActiveObjectsQueue : MonoBehaviour
     
     public void RemoveCharacterFromStack(MapObject mapObject)
     {
-        if (m_Characters.Contains(mapObject))
+        if (m_Queue.Contains(mapObject))
         {
-            int index = m_Characters.IndexOf(mapObject);
-            m_Characters.RemoveAt(index);
+            int index = m_Queue.IndexOf(mapObject);
+            m_Queue.RemoveAt(index);
             m_Cells[index].gameObject.SetActive(false);
             m_Cells.RemoveAt(index);
             RearrangeCells();
@@ -165,7 +168,7 @@ public class ActiveObjectsQueue : MonoBehaviour
 
         m_QueueCount++;
 
-        if (m_QueueCount >= m_Characters.Count)
+        if (m_QueueCount >= m_Queue.Count)
         {
             m_QueueCount = 0;
             if(m_SpawnManager != null)
@@ -174,7 +177,7 @@ public class ActiveObjectsQueue : MonoBehaviour
         
         m_Cells[m_QueueCount].ActiveCell.SetActive(true);
 
-        m_CurrentCharacter = m_Characters[m_QueueCount];
+        m_CurrentCharacter = m_Queue[m_QueueCount];
         
         if (m_CurrentCharacter.ShowUI != null)
         {
@@ -196,7 +199,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     {
         if (mapObject.GetComponent<ActionPointsContainer>())
         {
-            m_Characters.Add(mapObject);
+            m_Queue.Add(mapObject);
             SortActiveObjects();
             InitPanel(mapObject);
             RearrangeCells(); 
@@ -213,6 +216,59 @@ public class ActiveObjectsQueue : MonoBehaviour
     }
 }
 
+class CycledLinkedList
+{
+    private QuequeNode m_HeadNode;
+    
+    public QuequeNode HeadNode
+    {
+        get => m_HeadNode;
+        set => m_HeadNode = value;
+    }
+
+    public CycledLinkedList()
+    {
+        m_HeadNode = null;
+    }
+
+    public CycledLinkedList(MapObject mapObject)
+    {
+        m_HeadNode = new QuequeNode(mapObject);
+        m_HeadNode.Next = m_HeadNode;
+    }
+
+    public void Add(MapObject mapObject)
+    {
+        if (m_HeadNode == null)
+        {
+            
+        }
+    }
+}
+
+class QuequeNode
+{
+    private MapObject m_MapObject;
+    private QuequeNode m_Next;
+
+
+    public MapObject MapObject
+    {
+        get => m_MapObject;
+        set => m_MapObject = value;
+    }
+
+    public QuequeNode Next
+    {
+        get => m_Next;
+        set => m_Next = value;
+    }
+
+    public QuequeNode(MapObject mapObject)
+    {
+        m_MapObject = mapObject;
+    }
+}
 
 class InitiativeComparer : IComparer<MapObject>
 {
