@@ -8,7 +8,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     [SerializeField] private QueueCell m_QueuePanelPrefab;
     [SerializeField] private float m_IndentMultiplier;
     [SerializeField] private Transform m_QueueVisualisationParent;
-    [SerializeField] private List<MapObject> m_Queue;
+    [SerializeField] private CycledLinkedList m_Queue;
     [SerializeField] private List<MonoBehaviour> m_ActiveNowObjects;
     private List<QueueCell> m_Cells;
     [SerializeField] private MapObject m_CurrentCharacter;
@@ -84,7 +84,6 @@ public class ActiveObjectsQueue : MonoBehaviour
     public void SortActiveObjects()
     {
         InitiativeComparer ic = new InitiativeComparer();
-        m_Queue.Sort(ic);
     }
 
     public void InitPanels()
@@ -216,7 +215,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     }
 }
 
-class CycledLinkedList
+class CycledLinkedList : IEnumerable
 {
     private QueueNode m_HeadNode;
     
@@ -236,6 +235,27 @@ class CycledLinkedList
         m_HeadNode = new QueueNode(mapObject);
         m_HeadNode.Next = m_HeadNode;
     }
+    
+    public void Remove(MapObject mapObject)
+    {
+        if (m_HeadNode == null)
+        {
+            return;
+        }
+
+        else
+        {
+            QueueNode temp = m_HeadNode;
+            
+            while (temp.Next.MapObject != mapObject)
+            {
+                temp = temp.Next;
+            }
+
+            temp.Next = temp.Next.Next;
+        }
+    }
+    
 
     public void Add(MapObject mapObject)
     {
@@ -271,6 +291,11 @@ class CycledLinkedList
             m_HeadNode.Next = new QueueNode(mapObject);
             m_HeadNode.Next.Next = temp;
         }
+    }
+
+    public IEnumerator GetEnumerator()
+    {
+        throw new NotImplementedException();
     }
 }
 
