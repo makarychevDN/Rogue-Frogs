@@ -218,9 +218,9 @@ public class ActiveObjectsQueue : MonoBehaviour
 
 class CycledLinkedList
 {
-    private QuequeNode m_HeadNode;
+    private QueueNode m_HeadNode;
     
-    public QuequeNode HeadNode
+    public QueueNode HeadNode
     {
         get => m_HeadNode;
         set => m_HeadNode = value;
@@ -233,7 +233,7 @@ class CycledLinkedList
 
     public CycledLinkedList(MapObject mapObject)
     {
-        m_HeadNode = new QuequeNode(mapObject);
+        m_HeadNode = new QueueNode(mapObject);
         m_HeadNode.Next = m_HeadNode;
     }
 
@@ -241,15 +241,43 @@ class CycledLinkedList
     {
         if (m_HeadNode == null)
         {
+            m_HeadNode = new QueueNode(mapObject);
+        }
+
+        else
+        {
+            QueueNode temp = m_HeadNode;
             
+            while (temp.Next != m_HeadNode)
+            {
+                temp = temp.Next;
+            }
+
+            temp.Next = new QueueNode(mapObject);
+            temp.Next.Next = m_HeadNode;
+        }
+    }
+    
+    public void AddAfterPlayer(MapObject mapObject) //player always first
+    {
+        if (m_HeadNode == null)
+        {
+            m_HeadNode = new QueueNode(mapObject);
+        }
+
+        else
+        {
+            var temp = m_HeadNode.Next;
+            m_HeadNode.Next = new QueueNode(mapObject);
+            m_HeadNode.Next.Next = temp;
         }
     }
 }
 
-class QuequeNode
+class QueueNode
 {
     private MapObject m_MapObject;
-    private QuequeNode m_Next;
+    private QueueNode m_Next;
 
 
     public MapObject MapObject
@@ -258,13 +286,13 @@ class QuequeNode
         set => m_MapObject = value;
     }
 
-    public QuequeNode Next
+    public QueueNode Next
     {
         get => m_Next;
         set => m_Next = value;
     }
 
-    public QuequeNode(MapObject mapObject)
+    public QueueNode(MapObject mapObject)
     {
         m_MapObject = mapObject;
     }
