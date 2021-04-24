@@ -6,13 +6,12 @@ using UnityEngine;
 public class CycledLinkedList : IEnumerable
 {
     private QueueNode m_HeadNode;
-    
+
     public QueueNode HeadNode
     {
         get => m_HeadNode;
         set => m_HeadNode = value;
     }
-
     public CycledLinkedList()
     {
         m_HeadNode = null;
@@ -20,94 +19,121 @@ public class CycledLinkedList : IEnumerable
 
     public CycledLinkedList(MapObject mapObject)
     {
-        m_HeadNode = new QueueNode(mapObject);
-        m_HeadNode.Next = m_HeadNode;
+        InsertNodeInEmptyList(mapObject);
     }
-    
-    public void Remove(MapObject mapObject)
-    {
-        if (m_HeadNode == null)
-        {
-            return;
-        }
-
-        else
-        {
-            QueueNode temp = m_HeadNode;
-            
-            while (temp.Next.MapObject != mapObject)
-            {
-                temp = temp.Next;
-            }
-
-            temp.Next = temp.Next.Next;
-        }
-    }
-    
 
     public void Add(MapObject mapObject)
     {
         if (m_HeadNode == null)
         {
-            m_HeadNode = new QueueNode(mapObject);
-            m_HeadNode.Next = m_HeadNode;
+            InsertNodeInEmptyList(mapObject);
         }
 
         else
         {
-            QueueNode temp = m_HeadNode;
-            
-            while (temp.Next != m_HeadNode)
-            {
-                temp = temp.Next;
-            }
-
-            temp.Next = new QueueNode(mapObject);
-            temp.Next.Next = m_HeadNode;
+            AddToTheEndOfList(mapObject);
         }
-    }
+    } 
 
-    public void AddFirst(MapObject mapObject) //player always first
+    public void AddFirst(MapObject mapObject)
     {
         if (m_HeadNode == null)
         {
-            m_HeadNode = new QueueNode(mapObject);
-            m_HeadNode.Next = m_HeadNode;
+            InsertNodeInEmptyList(mapObject);
         }
 
         else
         {
-            QueueNode temp = m_HeadNode;
-            m_HeadNode = new QueueNode(mapObject);
-            m_HeadNode.Next = temp;
-
-            temp = m_HeadNode;
-            
-            while (temp.Next != m_HeadNode)
-            {
-                temp = temp.Next;
-            }
-
-            temp.Next = new QueueNode(mapObject);
-            temp.Next.Next = m_HeadNode;
+            AddToTheEndOfList(mapObject);
+            m_HeadNode = m_HeadNode.Previous;
         }
-    }
+    }  
 
-    public void AddSecond(MapObject mapObject) //player always first
+    public void AddSecond(MapObject mapObject)
     {
         if (m_HeadNode == null)
         {
-            m_HeadNode = new QueueNode(mapObject);
-            m_HeadNode.Next = m_HeadNode;
+            InsertNodeInEmptyList(mapObject);
         }
 
         else
         {
-            var temp = m_HeadNode.Next;
-            m_HeadNode.Next = new QueueNode(mapObject);
-            m_HeadNode.Next.Next = temp;
+            InsertNode(new QueueNode(mapObject), m_HeadNode, m_HeadNode.Next);
         }
     }
+
+    public void AddAfterTargetObject(MapObject newMapObject, MapObject TargetObject)
+    {
+        QueueNode temp = m_HeadNode;
+            
+        while (temp.MapObject != TargetObject)
+        {
+            temp = temp.Next;
+        }
+
+        InsertNode(new QueueNode(newMapObject), temp, temp.Next);
+    }
+    
+    public void AddBeforeTargetObject(MapObject newMapObject, MapObject TargetObject)
+    {
+        QueueNode temp = m_HeadNode;
+            
+        while (temp.MapObject != TargetObject)
+        {
+            temp = temp.Next;
+        }
+
+        InsertNode(new QueueNode(newMapObject), temp.Previous, temp);
+    }
+    
+    private void AddToTheEndOfList(MapObject mapObject)
+    {
+        QueueNode temp = m_HeadNode;
+            
+        while (temp.Next != m_HeadNode)
+        {
+            temp = temp.Next;
+        }
+        
+        InsertNode(new QueueNode(mapObject), temp, m_HeadNode);
+        
+    } 
+
+    private void InsertNode(QueueNode newNode, QueueNode previous, QueueNode next)
+    {
+        newNode.Next = next;
+        newNode.Previous = previous;
+        previous.Next = newNode;
+        next.Previous = newNode;
+    }
+
+    private void InsertNodeInEmptyList(MapObject mapObject)
+    {
+        m_HeadNode = new QueueNode(mapObject);
+        m_HeadNode.Next = m_HeadNode;
+        m_HeadNode.Previous = m_HeadNode;
+    }
+    
+    public void Remove(MapObject mapObject)
+    {
+        if (m_HeadNode == null)
+            return;
+
+        QueueNode temp = m_HeadNode;
+        
+        while (temp.MapObject != mapObject)
+        {
+            temp = temp.Next;
+        }
+
+        temp.Previous.Next = temp.Next;
+        temp.Next.Previous = temp.Previous;
+        
+        if (m_HeadNode.MapObject == mapObject)
+        {
+            m_HeadNode = temp.Next;
+        }
+    } 
 
     IEnumerator IEnumerable.GetEnumerator()
     {
@@ -177,6 +203,7 @@ public class QueueNode
 {
     private MapObject m_MapObject;
     private QueueNode m_Next;
+    private QueueNode m_Previous;
 
 
     public MapObject MapObject
@@ -189,6 +216,12 @@ public class QueueNode
     {
         get => m_Next;
         set => m_Next = value;
+    }
+    
+    public QueueNode Previous
+    {
+        get => m_Previous;
+        set => m_Previous = value;
     }
 
     public QueueNode(MapObject mapObject)
