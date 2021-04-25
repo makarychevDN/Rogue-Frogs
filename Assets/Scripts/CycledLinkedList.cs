@@ -22,6 +22,22 @@ public class CycledLinkedList : IEnumerable
         InsertNodeInEmptyList(mapObject);
     }
 
+    public CycledLinkedList(MapObject[] mapObjects)
+    {
+        foreach (var item in mapObjects)
+        {
+            Add(item);
+        }
+    }
+
+    public CycledLinkedList(List<MapObject> mapObjects)
+    {
+        foreach (var item in mapObjects)
+        {
+            Add(item);
+        }
+    }
+
     public void Add(MapObject mapObject)
     {
         if (m_HeadNode == null)
