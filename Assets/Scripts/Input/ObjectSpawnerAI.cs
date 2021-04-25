@@ -50,7 +50,6 @@ public class ObjectSpawnerAI : BaseInput
         temp.Pos = m_CurrentSpawnPos;
         m_ThisMapObject.ActiveObjectsQueue.AddObjectInQueue(temp);
         m_ThisMapObject.AnimationStateMashine.ActivateStayAnim();
-        m_ThisMapObject.ActiveObjectsQueue.SkipTheTurn();
     }
     
     public void SpawnAndPush()
@@ -62,7 +61,6 @@ public class ObjectSpawnerAI : BaseInput
         temp.GetComponent<Movable>().Move(temp.Pos,m_CurrentSpawnPos,AnimType.cos,1f,0,false,true);
         m_ThisMapObject.ActiveObjectsQueue.AddObjectInQueue(temp);
         m_ThisMapObject.AnimationStateMashine.ActivateStayAnim();
-        m_ThisMapObject.ActiveObjectsQueue.SkipTheTurn();
     }
 
     public Vector2Int FindEmptyPlacesAroundTarget()
