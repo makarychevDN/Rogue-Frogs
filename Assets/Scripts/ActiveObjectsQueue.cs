@@ -166,6 +166,10 @@ public class ActiveObjectsQueue : MonoBehaviour
         m_CurrentQueueNode = m_CurrentQueueNode.Next;
         m_CurrentCharacter = m_CurrentQueueNode.MapObject;
 
+        if (m_CurrentQueueNode.MapObject.GetComponent<PlayerInput>() != null)
+        {
+            m_SpawnManager.IncrementCyclesCount();
+        }
 
         if (m_CurrentCharacter.ShowUI != null)
         {

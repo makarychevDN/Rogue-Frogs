@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
         FindObjectOfType<Map>().SetMapObjectByVector(spawnPos,temp);
         temp.transform.position = new Vector3(spawnPos.x, spawnPos.y);
         temp.Pos = spawnPos;
-        FindObjectOfType<ActiveObjectsQueue>().AddObjectInQueue(temp);
+        FindObjectOfType<ActiveObjectsQueue>().AddObjectInQueueBeforeTarget(m_ThisMapObject, temp);
     }
     
     public virtual void Spawn(Transform spawnPostransform)
@@ -24,7 +24,6 @@ public class Spawner : MonoBehaviour
         FindObjectOfType<Map>().SetMapObjectByVector(m_SpawnPos,temp);
         temp.transform.position = new Vector3(m_SpawnPos.x, m_SpawnPos.y);
         temp.Pos = m_SpawnPos;
-        FindObjectOfType<ActiveObjectsQueue>().AddObjectInQueue(temp);
+        FindObjectOfType<ActiveObjectsQueue>().AddObjectInQueueBeforeTarget(m_ThisMapObject, temp);
     }
-    
 }

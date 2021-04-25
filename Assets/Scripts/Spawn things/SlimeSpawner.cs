@@ -22,12 +22,8 @@ public class SlimeSpawner : Spawner
 
     public override void Spawn(Transform spawnPostransform)
     {
-        m_SpawnPos = new Vector2Int((int)spawnPostransform.position.x, (int)spawnPostransform.position.y);
-        var temp = Instantiate(m_SpawnObjectPrefab);
-        FindObjectOfType<Map>().SetMapObjectByVector(m_SpawnPos, temp);
-        temp.transform.position = new Vector3(m_SpawnPos.x, m_SpawnPos.y);
-        temp.Pos = m_SpawnPos;
-        FindObjectOfType<ActiveObjectsQueue>().AddObjectInQueueBeforeTarget(m_ThisMapObject, temp);
+
+        base.Spawn(spawnPostransform);
 
         List<Vector2Int> emptyCellsPositions = new List<Vector2Int>();
         
@@ -43,7 +39,7 @@ public class SlimeSpawner : Spawner
         {
             //Spawn(emptyCellsPositions[Random.Range(0, emptyCellsPositions.Count - 1)] + m_SpawnPos);
             m_SpawnPos = new Vector2Int((int) spawnPostransform.position.x, (int) spawnPostransform.position.y);
-            temp = Instantiate(m_SpawnObjectPrefab);
+            var temp = Instantiate(m_SpawnObjectPrefab);
             temp.transform.position = new Vector3(m_SpawnPos.x, m_SpawnPos.y);
             temp.Pos = m_SpawnPos;
             temp.GetComponent<Movable>().Move(emptyCellsPositions[Random.Range(0, emptyCellsPositions.Count - 1)],

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SpawnObjectPrefab: {fileID: 6682067327709362511, guid: 6146c0de01588ec43accad4ae9ecb469,
     type: 3}
+  m_ThisMapObject: {fileID: 1005855434174650533}
 --- !u!1001 &5321788353800858384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ PrefabInstance:
     - target: {fileID: 9014069178189991576, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: m_Name
-      value: Box Rat v2
+      value: Box Rat
       objectReference: {fileID: 0}
     - target: {fileID: 9014069178189991578, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
@@ -308,6 +309,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8137419692163700287}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1005855434174650533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9014069178189991578, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+    type: 3}
+  m_PrefabInstance: {fileID: 8137419692163700287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005855434174650535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c300635caba384f896aa5639f16174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1005855434418987480 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9014069178081949671, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
