@@ -5,22 +5,15 @@ using UnityEngine;
 
 public class ActiveObjectsQueue : MonoBehaviour
 {
-    [SerializeField] private QueueCell m_QueuePanelPrefab;
-    [SerializeField] private float m_IndentMultiplier;
-    [SerializeField] private Transform m_QueueVisualisationParent;
-    private CycledLinkedList m_Queue;
-    [SerializeField] private List<MonoBehaviour> m_ActiveNowObjects;
-    private List<QueueCell> m_Cells;
-    [SerializeField] private MapObject m_CurrentCharacter;
-    private QueueNode m_CurrentQueueNode;
-    private int m_QueueCount;
-    private float m_SkipTurnDelay = 0.5f;
     [SerializeField] private SpawnManager m_SpawnManager;
-
+    [SerializeField] private MapObject m_CurrentCharacter;
     [SerializeField] private List<MapObject> m_QueueInspector;
 
-    private float m_CheckActiveNowObjectsTime = 0.6f;
-    private float m_CheckActiveNowObjectsTimer; 
+    private CycledLinkedList m_Queue;
+    private List<MonoBehaviour> m_ActiveNowObjects;
+    private QueueNode m_CurrentQueueNode;
+    private float m_SkipTurnDelay = 0.5f;
+
     
     private void Awake()
     {
@@ -36,17 +29,24 @@ public class ActiveObjectsQueue : MonoBehaviour
         var temp = FindObjectsOfType<ActionPointsContainer>();
         m_Queue = new CycledLinkedList();
 
+        m_Queue.AddFirst(FindObjectOfType<PlayerInput>().GetComponent<MapObject>());
+        m_QueueInspector.Add(FindObjectOfType<PlayerInput>().GetComponent<MapObject>());
+
         foreach (var item in temp)
         {
-            if(item.GetComponent<PlayerInput>()!= null)
+            if(item.GetComponent<PlayerInput>() == null)
             {
-                m_Queue.AddFirst(item.GetComponent<MapObject>());
-                m_QueueInspector.Insert(0, item.GetComponent<MapObject>());
-            }
-            else
-            {
-                m_Queue.Add(item.GetComponent<MapObject>());
-                m_QueueInspector.Add(item.GetComponent<MapObject>());
+                if(item.GetComponent<AttackableSurfaceAI>() != null)
+                {
+                    m_Queue.AddSecond(item.GetComponent<MapObject>());
+                    m_QueueInspector.Insert(1, item.GetComponent<MapObject>());
+                }
+                else
+                {
+                    m_Queue.Add(item.GetComponent<MapObject>());
+                    m_QueueInspector.Add(item.GetComponent<MapObject>());
+                }
+ 
             }
 
         }
@@ -147,9 +147,6 @@ public class ActiveObjectsQueue : MonoBehaviour
     {
         m_Queue.Remove(mapObject);
         m_QueueInspector.Remove(mapObject);
-        //m_Cells[index].gameObject.SetActive(false);
-        //m_Cells.RemoveAt(index);
-        //RearrangeCells();
 
         if (mapObject == m_CurrentCharacter)
             SkipTheTurn();
@@ -162,32 +159,15 @@ public class ActiveObjectsQueue : MonoBehaviour
         if(m_CurrentCharacter.SkipTurnAnimation != null)
             m_CurrentCharacter.SkipTurnAnimation.SetActive(false);
         
-        //if(m_QueueCount < m_Cells.Count)
-        //m_Cells[m_QueueCount].ActiveCell.SetActive(false);
         
         if (m_CurrentCharacter.ShowUI != null)
         {
             m_CurrentCharacter.ShowUI.MapObjectIsActiveNow = false;
             m_CurrentCharacter.ShowUI.SetActiveUiObjects(false);
         }
-
-        /*if (m_CurrentCharacter.GetComponent<DoNothingAI>() != null)
-        {
-            m_CurrentCharacter.ShowUI.SetActiveUiObjects(false);
-        }*/
         
         DisablePlayerInput();
 
-        m_QueueCount++;
-
-        /*if (m_QueueCount >= m_Queue.Count)
-        {
-            m_QueueCount = 0;
-            if(m_SpawnManager != null)
-                m_SpawnManager.IncrementCyclesCount();
-        }*/
-
-        //m_Cells[m_QueueCount].ActiveCell.SetActive(true);
 
         m_CurrentQueueNode = m_CurrentQueueNode.Next;
         m_CurrentCharacter = m_CurrentQueueNode.MapObject;
@@ -198,8 +178,6 @@ public class ActiveObjectsQueue : MonoBehaviour
             m_CurrentCharacter.ShowUI.SetActiveUiObjects(true);
             m_CurrentCharacter.ShowUI.MapObjectIsActiveNow = true;
         }
-
-        //StartNextAction();
     }
 
     public void SkipTurnWithAnimation()
@@ -215,9 +193,14 @@ public class ActiveObjectsQueue : MonoBehaviour
         {
             m_Queue.Add(mapObject);
             m_QueueInspector.Add(mapObject);
-            //SortActiveObjects();
-            //InitPanel(mapObject);
-            //RearrangeCells(); 
+        }
+    }
+    public void AddObjectInQueueAfterPlayer(MapObject mapObject)
+    {
+        if (mapObject.GetComponent<ActionPointsContainer>())
+        {
+            m_Queue.AddSecond(mapObject);
+            m_QueueInspector.Insert(1 ,mapObject);
         }
     }
 
@@ -228,21 +211,5 @@ public class ActiveObjectsQueue : MonoBehaviour
         {
             temp.InputIsPossible = false;
         }
-    }
-}
-
-class InitiativeComparer : IComparer<MapObject>
-{
-    public int Compare(MapObject x, MapObject y)
-    {
-        var tempX = x.GetComponent<InitiativeContainer>().Initiative;
-        var tempY = y.GetComponent<InitiativeContainer>().Initiative;
-        
-        if (tempX > tempY)
-            return -1;
-        else if(tempX < tempY)
-            return 1;
-
-        return 0;
     }
 }
