@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] protected MapObject m_SpawnObjectPrefab;
+    [SerializeField] protected MapObject m_ThisMapObject;
     protected Vector2Int m_SpawnPos;
     
     public void Spawn(Vector2Int spawnPos)

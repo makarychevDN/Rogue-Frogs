@@ -82,7 +82,7 @@ public class CycledLinkedList : IEnumerable
         }
     }
 
-    public void AddAfterTargetObject(MapObject newMapObject, MapObject TargetObject)
+    public void AddAfterTargetObject(MapObject TargetObject, MapObject newMapObject)
     {
         QueueNode temp = m_HeadNode;
             
@@ -94,7 +94,7 @@ public class CycledLinkedList : IEnumerable
         InsertNode(new QueueNode(newMapObject), temp, temp.Next);
     }
     
-    public void AddBeforeTargetObject(MapObject newMapObject, MapObject TargetObject)
+    public void AddBeforeTargetObject(MapObject TargetObject, MapObject newMapObject)
     {
         QueueNode temp = m_HeadNode;
             
@@ -134,6 +134,7 @@ public class CycledLinkedList : IEnumerable
     }
     #endregion
 
+    #region RemoveMethods
     public void Remove(MapObject mapObject)
     {
         if (m_HeadNode == null)
@@ -154,6 +155,7 @@ public class CycledLinkedList : IEnumerable
             m_HeadNode = temp.Next;
         }
     }
+    #endregion
 
     #region InterfaceImplementationStaff
     IEnumerator IEnumerable.GetEnumerator()

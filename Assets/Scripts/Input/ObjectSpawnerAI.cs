@@ -48,7 +48,7 @@ public class ObjectSpawnerAI : BaseInput
         m_ThisMapObject.Map.SetMapObjectByVector(m_CurrentSpawnPos,temp);
         temp.transform.position = new Vector3(m_CurrentSpawnPos.x, m_CurrentSpawnPos.y);
         temp.Pos = m_CurrentSpawnPos;
-        m_ThisMapObject.ActiveObjectsQueue.AddObjectInQueue(temp);
+        m_ThisMapObject.ActiveObjectsQueue.AddObjectInQueueAfterPlayer(temp);
         m_ThisMapObject.AnimationStateMashine.ActivateStayAnim();
     }
     
@@ -58,8 +58,8 @@ public class ObjectSpawnerAI : BaseInput
         var temp = Instantiate(m_SpawnObjectPrefab);
         temp.transform.position = transform.position;
         temp.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));
-        temp.GetComponent<Movable>().Move(temp.Pos,m_CurrentSpawnPos,AnimType.cos,1f,0,false,true);
-        m_ThisMapObject.ActiveObjectsQueue.AddObjectInQueue(temp);
+        temp.GetComponent<Movable>().Move(temp.Pos, m_CurrentSpawnPos, AnimType.cos, 1f, 0, false, true);
+        m_ThisMapObject.ActiveObjectsQueue.AddObjectInQueueAfterPlayer(temp);
         m_ThisMapObject.AnimationStateMashine.ActivateStayAnim();
     }
 

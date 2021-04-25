@@ -7,7 +7,6 @@ public class ActiveObjectsQueue : MonoBehaviour
 {
     [SerializeField] private SpawnManager m_SpawnManager;
     [SerializeField] private MapObject m_CurrentCharacter;
-    [SerializeField] private List<MapObject> m_QueueInspector;
 
     private CycledLinkedList m_Queue;
     private List<MonoBehaviour> m_ActiveNowObjects;
@@ -17,7 +16,6 @@ public class ActiveObjectsQueue : MonoBehaviour
     
     private void Awake()
     {
-        m_QueueInspector = new List<MapObject>();
         m_ActiveNowObjects = new List<MonoBehaviour>();
         FindAllActiveMapObjects();
         m_CurrentQueueNode = m_Queue.HeadNode;
@@ -30,7 +28,6 @@ public class ActiveObjectsQueue : MonoBehaviour
         m_Queue = new CycledLinkedList();
 
         m_Queue.AddFirst(FindObjectOfType<PlayerInput>().GetComponent<MapObject>());
-        m_QueueInspector.Add(FindObjectOfType<PlayerInput>().GetComponent<MapObject>());
 
         foreach (var item in temp)
         {
@@ -38,13 +35,11 @@ public class ActiveObjectsQueue : MonoBehaviour
             {
                 if(item.GetComponent<AttackableSurfaceAI>() != null)
                 {
-                    m_Queue.AddSecond(item.GetComponent<MapObject>());
-                    m_QueueInspector.Insert(1, item.GetComponent<MapObject>());
+                    m_Queue.AddAfterTargetObject( m_Queue.HeadNode.MapObject, item.GetComponent<MapObject>());
                 }
                 else
                 {
                     m_Queue.Add(item.GetComponent<MapObject>());
-                    m_QueueInspector.Add(item.GetComponent<MapObject>());
                 }
  
             }
@@ -146,7 +141,6 @@ public class ActiveObjectsQueue : MonoBehaviour
     public void RemoveCharacterFromStack(MapObject mapObject)
     {
         m_Queue.Remove(mapObject);
-        m_QueueInspector.Remove(mapObject);
 
         if (mapObject == m_CurrentCharacter)
             SkipTheTurn();
@@ -192,7 +186,6 @@ public class ActiveObjectsQueue : MonoBehaviour
         if (mapObject.GetComponent<ActionPointsContainer>())
         {
             m_Queue.Add(mapObject);
-            m_QueueInspector.Add(mapObject);
         }
     }
     public void AddObjectInQueueAfterPlayer(MapObject mapObject)
@@ -200,7 +193,22 @@ public class ActiveObjectsQueue : MonoBehaviour
         if (mapObject.GetComponent<ActionPointsContainer>())
         {
             m_Queue.AddSecond(mapObject);
-            m_QueueInspector.Insert(1 ,mapObject);
+        }
+    }
+
+    public void AddObjectInQueueAfterTarget(MapObject target, MapObject mapObject)
+    {
+        if (mapObject.GetComponent<ActionPointsContainer>())
+        {
+            m_Queue.AddAfterTargetObject(target, mapObject);
+        }
+    }
+
+    public void AddObjectInQueueBeforeTarget(MapObject target, MapObject mapObject)
+    {
+        if (mapObject.GetComponent<ActionPointsContainer>())
+        {
+            m_Queue.AddBeforeTargetObject(target, mapObject);
         }
     }
 
