@@ -50,21 +50,15 @@ public class Map : MonoBehaviour
     public PathFinder Pathfinder { get => pathfinder; set => pathfinder = value; }
 
     #endregion
-
-
 }
 
 
 public class PathFinder : MonoBehaviour
 {
-    [SerializeField] private Map map;
-    [SerializeField] private PathFinderNode[,] nodesGrid;
-    [SerializeField] private GameObject NodeVisualisation;
-    [SerializeField] private LineRenderer lineRenderer;
-
+    private Map map;
+    private PathFinderNode[,] nodesGrid;
     List<PathFinderNode> parentNodes;
     List<PathFinderNode> childNodes;
-
     private List<Vector2Int> dirVectors;
 
     public PathFinderNode[,] NodesGrid { get => nodesGrid; set => nodesGrid = value; }
@@ -75,6 +69,58 @@ public class PathFinder : MonoBehaviour
         InitializeDirVectors();
         InitialaizeNodesGrid(map.SizeX, map.SizeY);
         FindAllNodesNeighbors(map.SizeX, map.SizeY);
+    }
+    public void ResetNodes()
+    {
+        foreach (var item in nodesGrid)
+        {
+            item.UsedToPathFinding = false;
+        }
+    }
+    public List<Vector2Int> FindWay(MapObject user, MapObject target)
+    {
+        ResetNodes();
+        return FindWayByWaveAlgorithm(user, target);
+    }
+    private List<Vector2Int> FindWayByWaveAlgorithm(MapObject user, MapObject target)
+    {
+        childNodes = new List<PathFinderNode>();
+        childNodes.Add(nodesGrid[user.Pos.x, user.Pos.y]);
+        nodesGrid[user.Pos.x, user.Pos.y].UsedToPathFinding = true;
+
+        while (childNodes.Count != 0)
+        {
+            parentNodes = childNodes;
+            childNodes = new List<PathFinderNode>();
+
+            foreach (var tempParent in parentNodes)
+            {
+                foreach (var tempChild in tempParent.Neighbors)
+                {
+                    if (tempChild.Pos == new Vector2Int(target.Pos.x, target.Pos.y))
+                    {
+                        tempChild.Previous = tempParent;
+                        List<Vector2Int> path = new List<Vector2Int>();
+                        var tempBackTrackNode = tempChild;
+
+                        while (tempBackTrackNode.Pos != new Vector2Int(user.Pos.x, user.Pos.y))
+                        {
+                            path.Insert(0, tempBackTrackNode.Pos);
+                            tempBackTrackNode = tempBackTrackNode.Previous;
+                        }
+
+                        return path;
+                    }
+                    else if (!tempChild.UsedToPathFinding && !tempChild.Busy)
+                    {
+                        tempChild.Previous = tempParent;
+                        childNodes.Add(tempChild);
+                        tempChild.UsedToPathFinding = true;
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     #region InitPathfinder
@@ -130,66 +176,10 @@ public class PathFinder : MonoBehaviour
 
     #endregion
 
-    public void ResetNodes()
-    {
-        foreach (var item in nodesGrid)
-        {
-            item.UsedToPathFinding = false;
-        }
-    }
-
-    public List<Vector2Int> FindWay(MapObject user, MapObject target)
-    {
-        ResetNodes();
-        return FindWayByWave(user, target);
-    }
-
-    private List<Vector2Int> FindWayByWave(MapObject user, MapObject target)
-    {
-        childNodes = new List<PathFinderNode>();
-        childNodes.Add(nodesGrid[user.Pos.x, user.Pos.y]);
-        nodesGrid[user.Pos.x, user.Pos.y].UsedToPathFinding = true;
-
-        while (childNodes.Count != 0)
-        {
-            parentNodes = childNodes;
-            childNodes = new List<PathFinderNode>();
-
-            foreach (var tempParent in parentNodes)
-            {
-                foreach (var tempChild in tempParent.Neighbors)
-                {
-                    if (tempChild.Pos == new Vector2Int(target.Pos.x, target.Pos.y))
-                    {
-                        tempChild.Previous = tempParent;
-                        List<Vector2Int> path = new List<Vector2Int>();
-                        var tempBackTrackNode = tempChild;
-
-                        while (tempBackTrackNode.Pos != new Vector2Int(user.Pos.x, user.Pos.y))
-                        {
-                            path.Insert(0, tempBackTrackNode.Pos);
-                            tempBackTrackNode = tempBackTrackNode.Previous;
-                        }
-
-                        return path;
-                    }
-                    else if (!tempChild.UsedToPathFinding && !tempChild.Busy)
-                    {
-                        tempChild.Previous = tempParent;
-                        childNodes.Add(tempChild);
-                        tempChild.UsedToPathFinding = true;
-                    }
-                }
-            }          
-        }
-        return null;
-    }
 }
 
 public class PathFinderNode
 {
-    private int Xpos;
-    private int Ypos;
     private Vector2Int pos;
     private List<PathFinderNode> neighbors;
     private bool usedToPathFinding;
@@ -199,12 +189,11 @@ public class PathFinderNode
 
     public PathFinderNode(int x, int y)
     {
-        Xpos = x;
-        Ypos = y;
         pos = new Vector2Int(x, y);
         neighbors = new List<PathFinderNode>();
     }
 
+    #region properties
     public List<PathFinderNode> Neighbors
     {
         get => neighbors; set => neighbors = value;
@@ -213,10 +202,10 @@ public class PathFinderNode
     public Vector2Int Pos { get => pos; set => pos = value; }
     public PathFinderNode Previous { get => previous; set => previous = value; }
     public bool Busy { get => busy; set => busy = value; }
-
     public void AddNeighbor(PathFinderNode neighbor)
     {
         neighbors.Add(neighbor);
     }
+    #endregion
 }
 
