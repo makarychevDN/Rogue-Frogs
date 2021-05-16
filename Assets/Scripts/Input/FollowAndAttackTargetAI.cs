@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class FollowAndAttackTargetAI : BaseInput
@@ -31,6 +32,17 @@ public class FollowAndAttackTargetAI : BaseInput
     private void DoSomethingWithDelay()
     {
         Vector2Int closestPointToPlayer = FindClosestPointToPlayer();
+
+        var path = m_ThisMapObject.Map.Pathfinder.FindWay(m_ThisMapObject, m_Target);
+        print(path != null);
+        StringBuilder sb = new StringBuilder();
+
+        foreach (var item in path)
+        {
+            sb.Append(item).Append(" ");
+        }
+
+        print(sb.ToString());
 
         if (m_ThisMapObject.Map.GetMapObjectByVector(m_ThisMapObject.Pos + closestPointToPlayer) == m_Target)
         {

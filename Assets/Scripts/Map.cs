@@ -7,12 +7,8 @@ public class Map : MonoBehaviour
 {    
     [SerializeField] private MapObject m_TopRightWall;
     private MapObject[,,] m_Cells;
-    private PathFinder pahtfinder;
+    private PathFinder pathfinder;
     private int sizeX, sizeY;
-
-    public MapObject[,,] Cells { get => m_Cells; set => m_Cells = value; }
-    public int SizeY { get => sizeY; set => sizeY = value; }
-    public int SizeX { get => sizeX; set => sizeX = value; }
 
     void Start()
     {
@@ -29,9 +25,10 @@ public class Map : MonoBehaviour
                 m_Cells[item.Pos.x, item.Pos.y, 0] = item;
         }
 
-        pahtfinder = new PathFinder(this);
+        pathfinder = new PathFinder(this);
     }
 
+    #region PropertiesAndGetSetters
     public MapObject GetMapObjectByVector(Vector2Int coordinates)
     {
         return m_Cells[coordinates.x, coordinates.y, 0];
@@ -44,8 +41,17 @@ public class Map : MonoBehaviour
     
     public void SetMapObjectByVector(Vector2Int coordinates, MapObject mapObject)
     {
+        pathfinder.NodesGrid[coordinates.x, coordinates.y].Busy = mapObject != null;
         m_Cells[coordinates.x, coordinates.y, 0] = mapObject;
     }
+    public MapObject[,,] Cells { get => m_Cells; set => m_Cells = value; }
+    public int SizeY { get => sizeY; set => sizeY = value; }
+    public int SizeX { get => sizeX; set => sizeX = value; }
+    public PathFinder Pathfinder { get => pathfinder; set => pathfinder = value; }
+
+    #endregion
+
+
 }
 
 
@@ -56,15 +62,12 @@ public class PathFinder : MonoBehaviour
     [SerializeField] private GameObject NodeVisualisation;
     [SerializeField] private LineRenderer lineRenderer;
 
-    [SerializeField] private int TargetX;
-    [SerializeField] private int TargetY;
-    [SerializeField] private int XstartPoint;
-    [SerializeField] private int YStartPoint;
-
     List<PathFinderNode> parentNodes;
     List<PathFinderNode> childNodes;
 
     private List<Vector2Int> dirVectors;
+
+    public PathFinderNode[,] NodesGrid { get => nodesGrid; set => nodesGrid = value; }
 
     public PathFinder(Map map)
     {
@@ -74,8 +77,8 @@ public class PathFinder : MonoBehaviour
         FindAllNodesNeighbors(map.SizeX, map.SizeY);
     }
 
-
-    public void InitializeDirVectors()
+    #region InitPathfinder
+    private void InitializeDirVectors()
     {
         dirVectors = new List<Vector2Int>();
         dirVectors.Add(Vector2Int.up);
@@ -84,7 +87,7 @@ public class PathFinder : MonoBehaviour
         dirVectors.Add(Vector2Int.left);
     }
 
-    public void InitialaizeNodesGrid(int sizeX, int sizeY)
+    private void InitialaizeNodesGrid(int sizeX, int sizeY)
     {
         nodesGrid = new PathFinderNode[sizeX, sizeY];
 
@@ -102,7 +105,7 @@ public class PathFinder : MonoBehaviour
         }
     }
 
-    public void FindAllNodesNeighbors(int sizeX, int sizeY)
+    private void FindAllNodesNeighbors(int sizeX, int sizeY)
     {
         for (int i = 0; i < sizeX; i++)
         {
@@ -125,46 +128,61 @@ public class PathFinder : MonoBehaviour
         }
     }
 
-    public void StartWave()
+    #endregion
+
+    public void ResetNodes()
     {
-        if (nodesGrid[XstartPoint, YStartPoint] != null)
+        foreach (var item in nodesGrid)
         {
+            item.UsedToPathFinding = false;
+        }
+    }
+
+    public List<Vector2Int> FindWay(MapObject user, MapObject target)
+    {
+        ResetNodes();
+        return FindWayByWave(user, target);
+    }
+
+    private List<Vector2Int> FindWayByWave(MapObject user, MapObject target)
+    {
+        childNodes = new List<PathFinderNode>();
+        childNodes.Add(nodesGrid[user.Pos.x, user.Pos.y]);
+        nodesGrid[user.Pos.x, user.Pos.y].UsedToPathFinding = true;
+
+        while (childNodes.Count != 0)
+        {
+            parentNodes = childNodes;
             childNodes = new List<PathFinderNode>();
-            childNodes.Add(nodesGrid[XstartPoint, YStartPoint]);
-            nodesGrid[XstartPoint, YStartPoint].UsedToPathFinding = true;
 
-            while (childNodes.Count != 0)
+            foreach (var tempParent in parentNodes)
             {
-                parentNodes = childNodes;
-                childNodes = new List<PathFinderNode>();
-
-                foreach (var tempParent in parentNodes)
+                foreach (var tempChild in tempParent.Neighbors)
                 {
-                    foreach (var tempChild in tempParent.Neighbors)
+                    if (tempChild.Pos == new Vector2Int(target.Pos.x, target.Pos.y))
                     {
-                        if (!tempChild.UsedToPathFinding)
+                        tempChild.Previous = tempParent;
+                        List<Vector2Int> path = new List<Vector2Int>();
+                        var tempBackTrackNode = tempChild;
+
+                        while (tempBackTrackNode.Pos != new Vector2Int(user.Pos.x, user.Pos.y))
                         {
-                            tempChild.Previous = tempParent;
-                            childNodes.Add(tempChild);
-                            tempChild.UsedToPathFinding = true;
-
-                            if (tempChild.Pos == new Vector2Int(TargetX, TargetY))
-                            {
-                                var tempBackTrackNode = tempChild;
-
-                                while (tempBackTrackNode.Pos != new Vector2Int(XstartPoint, YStartPoint))
-                                {
-                                    tempBackTrackNode = tempBackTrackNode.Previous;
-                                }
-
-                                return;
-                            }
+                            path.Insert(0, tempBackTrackNode.Pos);
+                            tempBackTrackNode = tempBackTrackNode.Previous;
                         }
+
+                        return path;
+                    }
+                    else if (!tempChild.UsedToPathFinding && !tempChild.Busy)
+                    {
+                        tempChild.Previous = tempParent;
+                        childNodes.Add(tempChild);
+                        tempChild.UsedToPathFinding = true;
                     }
                 }
-            }
-
+            }          
         }
+        return null;
     }
 }
 
