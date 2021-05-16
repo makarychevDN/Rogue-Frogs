@@ -115,7 +115,7 @@ public class PathFinder : MonoBehaviour
                 {
                     foreach (var temp in dirVectors)
                     {
-                        if (i + temp.x > 0 && i + temp.x < sizeX && j + temp.y > 0 && j + temp.y < sizeY)
+                        if (i + temp.x >= 0 && i + temp.x < sizeX && j + temp.y >= 0 && j + temp.y < sizeY)
                         {
                             if (nodesGrid[i + temp.x, j + temp.y] != null)
                             {
