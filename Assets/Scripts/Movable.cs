@@ -96,6 +96,11 @@ public class Movable : MonoBehaviour
         Move(input, m_DefaultAnimType, m_DefaultAnimTime, m_DefaultStepCost);
     }
 
+    public void Move(Vector2Int startPos, Vector2Int endPos)
+    {
+        Move(startPos, endPos, m_DefaultAnimType, m_DefaultAnimTime, m_DefaultStepCost, true, true);
+    }
+
     public void Move(Vector2Int input, AnimType animType, float animTime, int stepCost)
     {
         Move(input, animType, animTime, stepCost, true, true);
