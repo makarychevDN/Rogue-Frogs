@@ -22,6 +22,11 @@ PrefabInstance:
       propertyPath: m_ApplyDamage
       value: 
       objectReference: {fileID: 7400000, guid: 5dfe2e2ef268e27408f1cce49b8ed011, type: 2}
+    - target: {fileID: 5427253816605890931, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+        type: 3}
+      propertyPath: m_IgnoreTraps
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5524818808114809118, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: m_ScoreCost
@@ -110,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 9014069178189991576, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: m_Name
-      value: Slime Small v2
+      value: Slime Small
       objectReference: {fileID: 0}
     - target: {fileID: 9014069178189991578, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
