@@ -11,7 +11,9 @@ public class FollowAndAttackTargetAI : BaseInput
     [SerializeField] private MapObject m_Target;
     [SerializeField] private AttackableInDirection m_Attackable;
 
+    private List<Vector2Int> m_ClosestWay;
     private List<Vector2Int> m_VerAndHorVectors;
+    private bool hitAlready;
 
     private void Awake()
     {
@@ -31,9 +33,17 @@ public class FollowAndAttackTargetAI : BaseInput
 
     private void DoSomethingWithDelay()
     {
-        Vector2Int closestPointToPlayer = FindClosestPointToPlayer();
+        hitAlready = false;
+        TryToHitTarget();
 
-        var path = m_ThisMapObject.Map.Pathfinder.FindWay(m_ThisMapObject, m_Target);
+        if (!hitAlready)
+        {
+            TryToComeCloserToTarget();
+        }
+
+        m_ThisMapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+
+        /*var path = m_ThisMapObject.Map.Pathfinder.FindWay(m_ThisMapObject, m_Target);
         print(path != null);
         StringBuilder sb = new StringBuilder();
 
@@ -42,52 +52,35 @@ public class FollowAndAttackTargetAI : BaseInput
             sb.Append(item).Append(" ");
         }
 
-        print(sb.ToString());
+        print(sb.ToString());*/
+    }
 
-        if (m_ThisMapObject.Map.GetMapObjectByVector(m_ThisMapObject.Pos + closestPointToPlayer) == m_Target)
+    private void TryToHitTarget()
+    {
+        foreach (var item in m_VerAndHorVectors)
         {
-            if (m_ThisMapObject.ActionPointsContainerModule.CurrentPoints >= m_Attackable.ActionCost)
+            if (m_Attackable.CheckAttackTargetIsPossible(item, m_Target))
             {
-                m_Attackable.Attack(closestPointToPlayer);
+                m_Attackable.Attack(item);
+                hitAlready = true;
             }
-            else
-            {
-                print(transform.name + "Not enough action points to hit player");
-                GetComponent<SkipTurnModule>().SkipTurn();
-            }
+        }
+    }
+
+    private void TryToComeCloserToTarget()
+    {
+        m_ClosestWay = m_ThisMapObject.Map.Pathfinder.FindWay(m_ThisMapObject, m_Target);
+
+        if (m_ClosestWay != null && 
+            m_ThisMapObject.MovableModule.DefaultStepCost <= m_ThisMapObject.ActionPointsContainerModule.CurrentPoints &&
+            m_ClosestWay.Count > 1)
+
+        {
+            m_ThisMapObject.MovableModule.Move(m_ThisMapObject.Pos, m_ClosestWay[0]);
         }
         else
         {
-            if (closestPointToPlayer != Vector2Int.zero && m_ThisMapObject.ActionPointsContainerModule.CurrentPoints >= m_ThisMapObject.MovableModule.DefaultStepCost)
-            {
-                m_ThisMapObject.MovableModule.Move(closestPointToPlayer);
-            }
-            else
-            {
-                GetComponent<SkipTurnModule>().SkipTurn();
-            }
+            m_ThisMapObject.SkipTurnModule1.SkipTurn();
         }
-        m_ThisMapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
-    }
-
-    public Vector2Int FindClosestPointToPlayer()
-    {
-        Vector2Int closestPoint = Vector2Int.zero;
-        MapObject temp;
-
-        foreach (var item in m_VerAndHorVectors)
-        {
-            temp = m_ThisMapObject.Map.GetMapObjectByVector(m_ThisMapObject.Pos + item);
-
-            if (temp == null || temp == m_Target)
-            {
-                if ((m_Target.Pos - (m_ThisMapObject.Pos + item)).magnitude < (m_Target.Pos - (m_ThisMapObject.Pos + closestPoint)).magnitude)
-                {
-                    closestPoint = item;
-                }
-            }
-        }
-
-        return closestPoint;
     }
 }

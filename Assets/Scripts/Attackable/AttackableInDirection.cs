@@ -50,7 +50,7 @@ public class AttackableInDirection : MonoBehaviour
         return false;
     }
 
-    public bool CheckAttackTargetIsPossible(Vector2Int input, Destructible target)
+    public bool CheckAttackTargetIsPossible(Vector2Int input, MapObject target)
     {
         if (m_MabObject.ActionPointsContainerModule.CurrentPoints  >= m_ActionCost)
         {
