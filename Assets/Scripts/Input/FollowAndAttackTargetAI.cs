@@ -35,24 +35,11 @@ public class FollowAndAttackTargetAI : BaseInput
     {
         hitAlready = false;
         TryToHitTarget();
-
         if (!hitAlready)
         {
             TryToComeCloserToTarget();
         }
-
         m_ThisMapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
-
-        /*var path = m_ThisMapObject.Map.Pathfinder.FindWay(m_ThisMapObject, m_Target);
-        print(path != null);
-        StringBuilder sb = new StringBuilder();
-
-        foreach (var item in path)
-        {
-            sb.Append(item).Append(" ");
-        }
-
-        print(sb.ToString());*/
     }
 
     private void TryToHitTarget()
