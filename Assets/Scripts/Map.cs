@@ -77,12 +77,12 @@ public class PathFinder : MonoBehaviour
             item.UsedToPathFinding = false;
         }
     }
-    public List<Vector2Int> FindWay(MapObject user, MapObject target)
+    public List<Vector2Int> FindWay(MapObject user, MapObject target, bool ignoreTraps)
     {
         ResetNodes();
-        return FindWayByWaveAlgorithm(user, target);
+        return FindWayByWaveAlgorithm(user, target, ignoreTraps);
     }
-    private List<Vector2Int> FindWayByWaveAlgorithm(MapObject user, MapObject target)
+    private List<Vector2Int> FindWayByWaveAlgorithm(MapObject user, MapObject target, bool ignoreTraps)
     {
         childNodes = new List<PathFinderNode>();
         childNodes.Add(nodesGrid[user.Pos.x, user.Pos.y]);
@@ -111,7 +111,7 @@ public class PathFinder : MonoBehaviour
 
                         return path;
                     }
-                    else if (!tempChild.UsedToPathFinding && !tempChild.Busy)
+                    else if (!tempChild.UsedToPathFinding && !tempChild.Busy && (map.GetSurfaceByVector(tempChild.Pos) == null || ignoreTraps))
                     {
                         tempChild.Previous = tempParent;
                         childNodes.Add(tempChild);

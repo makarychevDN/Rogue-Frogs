@@ -10,6 +10,7 @@ public class FollowAndAttackTargetAI : BaseInput
     [SerializeField] private MapObject m_ThisMapObject;
     [SerializeField] private MapObject m_Target;
     [SerializeField] private AttackableInDirection m_Attackable;
+    [SerializeField] private bool m_IgnoreTraps;
 
     private List<Vector2Int> m_ClosestWay;
     private List<Vector2Int> m_VerAndHorVectors;
@@ -56,7 +57,7 @@ public class FollowAndAttackTargetAI : BaseInput
 
     private void TryToComeCloserToTarget()
     {
-        m_ClosestWay = m_ThisMapObject.Map.Pathfinder.FindWay(m_ThisMapObject, m_Target);
+        m_ClosestWay = m_ThisMapObject.Map.Pathfinder.FindWay(m_ThisMapObject, m_Target, m_IgnoreTraps);
 
         if (m_ClosestWay != null && 
             m_ThisMapObject.MovableModule.DefaultStepCost <= m_ThisMapObject.ActionPointsContainerModule.CurrentPoints &&
