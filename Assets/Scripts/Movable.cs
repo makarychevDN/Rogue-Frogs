@@ -61,7 +61,8 @@ public class Movable : MonoBehaviour
     
     private float m_AnimationTimer;
     private float m_Speed;
-    private float m_DistanceDelta = 0.01f;
+    private float m_CurrentAnimationTime;
+    private float m_DistanceDelta = 0.02f;
 
     void Update()
     {
@@ -73,6 +74,7 @@ public class Movable : MonoBehaviour
             }
             else
             {
+                m_AnimationTimer = Mathf.Clamp(m_AnimationTimer, 0, m_CurrentAnimationTime);
                 transform.position = Vector2.Lerp(m_CurrentPos, m_NextPos, CosLerpFunc(m_AnimationTimer, m_Speed));
             }
 
@@ -142,6 +144,7 @@ public class Movable : MonoBehaviour
             m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
         m_MapObject.ActionPointsContainerModule.CurrentPoints -= stepCost;
         m_CurrentAnimType = animType;
+        m_CurrentAnimationTime = animTime;
         m_CurrentPos = m_MapObject.Pos;
         m_NextPos = m_CurrentPos + input;
         m_MoveNow = true;
@@ -190,6 +193,7 @@ public class Movable : MonoBehaviour
             m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
         m_MapObject.ActionPointsContainerModule.CurrentPoints -= stepCost;
         m_CurrentAnimType = animType;
+        m_CurrentAnimationTime = animTime;
         m_CurrentPos = m_MapObject.Pos;
         m_NextPos = endPos;
         m_MoveNow = true;
