@@ -12,6 +12,7 @@ public class ActiveObjectsQueue : MonoBehaviour
     private List<MonoBehaviour> m_ActiveNowObjects;
     private QueueNode m_CurrentQueueNode;
     private float m_SkipTurnDelay = 0.5f;
+    private bool m_ShowAllUiNow;
 
     
     private void Awake()
@@ -67,7 +68,12 @@ public class ActiveObjectsQueue : MonoBehaviour
             StartNextAction();
         }
 
-        if(Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            m_ShowAllUiNow = !m_ShowAllUiNow;
+        }
+
+        if (m_ShowAllUiNow)
         {
             foreach (var item in m_Queue)
             {
