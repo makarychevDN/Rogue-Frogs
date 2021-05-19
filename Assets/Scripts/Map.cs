@@ -57,7 +57,7 @@ public class PathFinder : MonoBehaviour
 {
     private Map map;
     private PathFinderNode[,] nodesGrid;
-    List<PathFinderNode> parentNodes;
+    List<PathFinderNode> currentNodes;
     List<PathFinderNode> childNodes;
     private List<Vector2Int> dirVectors;
 
@@ -75,14 +75,15 @@ public class PathFinder : MonoBehaviour
         foreach (var item in nodesGrid)
         {
             item.UsedToPathFinding = false;
+            item.Weight = 0;
         }
     }
     public List<Vector2Int> FindWay(MapObject user, MapObject target, bool ignoreTraps)
     {
         ResetNodes();
-        return FindWayByWaveAlgorithm(user, target, ignoreTraps);
+        return AStar(user, target, ignoreTraps);
     }
-    private List<Vector2Int> FindWayByWaveAlgorithm(MapObject user, MapObject target, bool ignoreTraps)
+    private List<Vector2Int> WaveAlgorithm(MapObject user, MapObject target, bool ignoreTraps)
     {
         childNodes = new List<PathFinderNode>();
         childNodes.Add(nodesGrid[user.Pos.x, user.Pos.y]);
@@ -90,10 +91,10 @@ public class PathFinder : MonoBehaviour
 
         while (childNodes.Count != 0)
         {
-            parentNodes = childNodes;
+            currentNodes = childNodes;
             childNodes = new List<PathFinderNode>();
 
-            foreach (var tempParent in parentNodes)
+            foreach (var tempParent in currentNodes)
             {
                 foreach (var tempChild in tempParent.Neighbors)
                 {
@@ -120,6 +121,55 @@ public class PathFinder : MonoBehaviour
                 }
             }
         }
+        return null;
+    }
+
+    private List<Vector2Int> AStar(MapObject user, MapObject target, bool ignoreTraps)
+    {
+        print("Astar started!");
+        currentNodes = new List<PathFinderNode>();
+        currentNodes.Add(nodesGrid[user.Pos.x, user.Pos.y]);
+        nodesGrid[user.Pos.x, user.Pos.y].UsedToPathFinding = true;
+        PathFinderNode smallestWeightNode;
+
+        while (currentNodes.Count != 0)
+        {
+            smallestWeightNode = currentNodes[0];
+
+            foreach (var item in currentNodes)
+            {
+                if(item.Weight < smallestWeightNode.Weight)
+                    smallestWeightNode = item;
+            }
+
+            foreach (var item in smallestWeightNode.Neighbors)
+            {
+                if (item.Pos == new Vector2Int(target.Pos.x, target.Pos.y))
+                {
+                    item.Previous = smallestWeightNode;
+                    List<Vector2Int> path = new List<Vector2Int>();
+                    var tempBackTrackNode = item;
+
+                    while (tempBackTrackNode.Pos != new Vector2Int(user.Pos.x, user.Pos.y))
+                    {
+                        path.Insert(0, tempBackTrackNode.Pos);
+                        tempBackTrackNode = tempBackTrackNode.Previous;
+                    }
+
+                    return path;
+                }
+                else if (!item.UsedToPathFinding && !item.Busy && (map.GetSurfaceByVector(item.Pos) == null || ignoreTraps))
+                {
+                    currentNodes.Add(item);
+                    item.Weight = Vector2Int.Distance(item.Pos, user.Pos) + Vector2Int.Distance(item.Pos, target.Pos);
+                    item.Previous = smallestWeightNode;
+                }
+            }
+
+            currentNodes.Remove(smallestWeightNode);
+            smallestWeightNode.UsedToPathFinding = true;
+        }
+
         return null;
     }
 
@@ -184,8 +234,8 @@ public class PathFinderNode
     private List<PathFinderNode> neighbors;
     private bool usedToPathFinding;
     private bool busy;
-
     private PathFinderNode previous;
+    private float weight;
 
     public PathFinderNode(int x, int y)
     {
@@ -202,6 +252,8 @@ public class PathFinderNode
     public Vector2Int Pos { get => pos; set => pos = value; }
     public PathFinderNode Previous { get => previous; set => previous = value; }
     public bool Busy { get => busy; set => busy = value; }
+    public float Weight { get => weight; set => weight = value; }
+
     public void AddNeighbor(PathFinderNode neighbor)
     {
         neighbors.Add(neighbor);
