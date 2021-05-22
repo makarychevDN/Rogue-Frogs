@@ -11,7 +11,6 @@ public class ActiveObjectsQueue : MonoBehaviour
     private CycledLinkedList m_Queue;
     private List<MonoBehaviour> m_ActiveNowObjects;
     private QueueNode m_CurrentQueueNode;
-    private float m_SkipTurnDelay = 0.5f;
     private bool m_ShowAllUiNow;
 
     
@@ -156,9 +155,6 @@ public class ActiveObjectsQueue : MonoBehaviour
     {
         m_CurrentCharacter.GetComponent<ActionPointsContainer>().ResetPoints();
         
-        if(m_CurrentCharacter.SkipTurnAnimation != null)
-            m_CurrentCharacter.SkipTurnAnimation.SetActive(false);
-        
         
         if (m_CurrentCharacter.ShowUI != null)
         {
@@ -182,13 +178,6 @@ public class ActiveObjectsQueue : MonoBehaviour
             m_CurrentCharacter.ShowUI.SetActiveUiObjects(true);
             m_CurrentCharacter.ShowUI.MapObjectIsActiveNow = true;
         }
-    }
-
-    public void SkipTurnWithAnimation()
-    {
-        DisablePlayerInput();
-        m_CurrentCharacter.SkipTurnAnimation.SetActive(true);
-        Invoke("SkipTheTurn", m_SkipTurnDelay);
     }
 
     public void AddObjectInQueue(MapObject mapObject)
