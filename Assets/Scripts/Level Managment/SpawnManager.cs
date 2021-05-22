@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
             {
                 for (int j = 0; j < m_Map.Cells.GetLength(1); j++)
                 {
-                    if (m_Map.GetMapObjectByVector(new Vector2Int(i, j)) == null)
+                    if (m_Map.GetMapObjectByVector(new Vector2Int(i, j)) == null && m_Map.GetSurfaceByVector(new Vector2Int(i, j)) == null)
                     {
                         freeCellPositions.Add(new Vector2Int(i, j));
                     }
