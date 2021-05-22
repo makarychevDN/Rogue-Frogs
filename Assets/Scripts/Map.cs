@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class Map : MonoBehaviour
@@ -126,7 +127,6 @@ public class PathFinder : MonoBehaviour
 
     private List<Vector2Int> AStar(MapObject user, MapObject target, bool ignoreTraps)
     {
-        print("Astar started!");
         currentNodes = new List<PathFinderNode>();
         currentNodes.Add(nodesGrid[user.Pos.x, user.Pos.y]);
         nodesGrid[user.Pos.x, user.Pos.y].UsedToPathFinding = true;
@@ -163,6 +163,7 @@ public class PathFinder : MonoBehaviour
                     currentNodes.Add(item);
                     item.Weight = Vector2Int.Distance(item.Pos, user.Pos) + Vector2Int.Distance(item.Pos, target.Pos);
                     item.Previous = smallestWeightNode;
+                    item.UsedToPathFinding = true;
                 }
             }
 
