@@ -91,6 +91,21 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3391d1ded185c944d824c6e89c312f49, type: 2}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: maxPoints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: currentPoints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: pointsRegeneration
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3496162514070850782, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Initiative

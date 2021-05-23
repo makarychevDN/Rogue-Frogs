@@ -74,6 +74,21 @@ PrefabInstance:
       propertyPath: m_MaxPoints
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: maxPoints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: currentPoints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: pointsRegeneration
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3496162514070850782, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Initiative
@@ -178,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 4159493106554256554, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Name
-      value: Surface Spikes Trap v2
+      value: Surface Spikes Trap
       objectReference: {fileID: 0}
     - target: {fileID: 4159493106913953236, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}

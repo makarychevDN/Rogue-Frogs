@@ -155,6 +155,21 @@ PrefabInstance:
       propertyPath: m_PointsRegenerationInTurn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: maxPoints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: currentPoints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: pointsRegeneration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3496162514070850782, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Initiative

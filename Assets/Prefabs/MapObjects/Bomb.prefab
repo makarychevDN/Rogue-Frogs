@@ -289,6 +289,16 @@ PrefabInstance:
       propertyPath: m_PointsRegenerationInTurn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: currentPoints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364906430477112401, guid: a5521d6a1b0ea9a40b5f295504408bf5,
+        type: 3}
+      propertyPath: pointsRegeneration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3496162514070850782, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Initiative
@@ -384,7 +394,7 @@ PrefabInstance:
     - target: {fileID: 4159493106554256554, guid: a5521d6a1b0ea9a40b5f295504408bf5,
         type: 3}
       propertyPath: m_Name
-      value: Bomb v2
+      value: Bomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5521d6a1b0ea9a40b5f295504408bf5, type: 3}

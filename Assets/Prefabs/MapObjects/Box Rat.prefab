@@ -188,6 +188,16 @@ PrefabInstance:
       propertyPath: m_PointsRegenerationInTurn
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7643620444696864355, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+        type: 3}
+      propertyPath: maxPoints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643620444696864355, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+        type: 3}
+      propertyPath: currentPoints
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7981331876721664119, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: m_Controller

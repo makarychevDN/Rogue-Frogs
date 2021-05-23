@@ -5,45 +5,48 @@ using UnityEngine.Events;
 
 public class ActionPointsContainer : MonoBehaviour
 {
-    [SerializeField] private int m_MaxPoints;
-    [SerializeField] private int m_CurrentPoints;
-    [SerializeField] private int m_PointsRegenerationInTurn;
+    [Header("Characteristics")]
+    [SerializeField] private int maxPoints;
+    [SerializeField] private int currentPoints;
+    [SerializeField] private int pointsRegeneration;
 
     [Header("Setup")]
-    [SerializeField] private ActionPointsUI m_PointsVisualisation;
+    [SerializeField] private ActionPointsUI UIVisualisation;
 
     [Header("Events")] 
-    [SerializeField] private UnityEvent OnDidSomething;
-    [SerializeField] private UnityEvent OnActionPointsRegeneration;
-    
-    public int MaxPoints { get => m_MaxPoints; set => m_MaxPoints = value; }
+    [SerializeField] private UnityEvent OnSpentActionPoints;
+    [SerializeField] private UnityEvent OnPointsRegeneration;
+   
     public int CurrentPoints 
     { 
-        get => m_CurrentPoints; 
+        get => currentPoints; 
         set 
         { 
-            m_CurrentPoints = value;
-            m_PointsVisualisation.ReFillIcons(m_CurrentPoints);
-            OnDidSomething?.Invoke();
+            if(currentPoints >= value)
+                OnSpentActionPoints?.Invoke();
+
+            currentPoints = value;
+            UIVisualisation.ReFillIcons(currentPoints);
         } 
     }
     
     private void Reset()
     {
-        m_PointsVisualisation = GetComponentInChildren<ActionPointsUI>();
+        if(GetComponentInChildren<ActionPointsUI>() != null)
+            UIVisualisation = GetComponentInChildren<ActionPointsUI>();
     }
 
-    public void ResetPoints()
+    public void RestorePoints()
     {
-        m_CurrentPoints += m_PointsRegenerationInTurn;
-        m_CurrentPoints = Mathf.Clamp(m_CurrentPoints, 0, m_MaxPoints);
-        m_PointsVisualisation.ReFillIcons(m_CurrentPoints);
-        OnActionPointsRegeneration?.Invoke();
+        currentPoints += pointsRegeneration;
+        currentPoints = Mathf.Clamp(currentPoints, 0, maxPoints);
+        UIVisualisation.ReFillIcons(currentPoints);
+        OnPointsRegeneration?.Invoke();
     }
 
-    public void ResetAllPoints()
+    public void RestoreAllPoints()
     {
-        m_CurrentPoints = MaxPoints;
-        m_PointsVisualisation.ReFillIcons(m_CurrentPoints);
+        currentPoints = maxPoints;
+        UIVisualisation.ReFillIcons(currentPoints);
     }
 }

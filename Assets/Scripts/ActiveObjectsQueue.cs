@@ -153,7 +153,7 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     public void SkipTheTurn()
     {
-        m_CurrentCharacter.GetComponent<ActionPointsContainer>().ResetPoints();
+        m_CurrentCharacter.GetComponent<ActionPointsContainer>().RestorePoints();
         
         
         if (m_CurrentCharacter.ShowUI != null)

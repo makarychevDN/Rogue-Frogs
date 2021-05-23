@@ -718,14 +718,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0570aaac9d2d25246ba5bf1b289e8000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxPoints: 0
-  m_CurrentPoints: 0
-  m_PointsRegenerationInTurn: 0
-  m_PointsVisualisation: {fileID: 4159493106913953236}
-  OnDidSomething:
+  maxPoints: 2
+  currentPoints: 2
+  pointsRegeneration: 2
+  UIVisualisation: {fileID: 4159493106913953236}
+  OnSpentActionPoints:
     m_PersistentCalls:
       m_Calls: []
-  OnActionPointsRegeneration:
+  OnPointsRegeneration:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &580135006043732780
@@ -811,6 +811,7 @@ MonoBehaviour:
   m_UiObjects:
   - {fileID: 4159493105646095726}
   m_AlwaysShow: 0
+  m_MouseOnObjectNow: 0
 --- !u!58 &3941225358882038696
 CircleCollider2D:
   m_ObjectHideFlags: 0
