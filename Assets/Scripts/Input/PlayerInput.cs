@@ -61,7 +61,7 @@ public class PlayerInput : BaseInput
         m_PlayerAttackModule = GetComponent<AttackableInDirection>();
     }
 
-    public override void DoSomething()
+    public override void Act()
     {
         InputIsPossible = true;
     }

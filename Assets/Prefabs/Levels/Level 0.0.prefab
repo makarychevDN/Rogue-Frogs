@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -157,7 +156,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -264,7 +262,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -371,7 +368,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -478,7 +474,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -585,7 +580,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -691,7 +685,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -798,7 +791,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -904,7 +896,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -1058,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9afd0d3d222276418552e4e39accc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TopRightWall: {fileID: 8023027868524083360}
+  topRightWall: {fileID: 8023027868524083360}
 --- !u!1 &2924851349499365310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,12 +1175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc3b188844f39743830bd4af752c94e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_QueuePanelPrefab: {fileID: 4328408660088390669, guid: 8593149880e7cc8408e51efba51ccc2a,
-    type: 3}
-  m_IndentMultiplier: 0.85
-  m_QueueVisualisationParent: {fileID: 2924851348948991039}
-  m_ActiveNowObjects: []
   m_SpawnManager: {fileID: 7964699692723150110}
+  m_CurrentCharacter: {fileID: 0}
 --- !u!1 &2924851349914751359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1227,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -1428,7 +1414,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -1535,7 +1520,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -1641,7 +1625,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -1747,7 +1730,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -1912,7 +1894,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -2019,7 +2000,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -2125,7 +2105,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -2232,7 +2211,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -2339,7 +2317,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -2446,7 +2423,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -2553,7 +2529,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -2715,7 +2690,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -2784,7 +2758,7 @@ GameObject:
   - component: {fileID: 8023027868524083360}
   - component: {fileID: 5932851276579392135}
   m_Layer: 0
-  m_Name: Wall (18)
+  m_Name: Top Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2822,7 +2796,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}
@@ -2929,7 +2902,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 0}
   m_SkipTurnAnimation: {fileID: 0}
   m_SkipTurnModule: {fileID: 0}
-  m_InitiativeContainer: {fileID: 0}
   m_AnimationsStateMashine: {fileID: 0}
   m_MapObjSpriteRotator: {fileID: 0}
   m_ShowUI: {fileID: 0}

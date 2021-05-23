@@ -13,7 +13,6 @@ public class MapObject : MonoBehaviour
     [SerializeField] private Destructible m_Destructible;
     [SerializeField] private GameObject m_SkipTurnAnimation; // todo удалить
     [SerializeField] private SkipTurnModule m_SkipTurnModule;
-    [SerializeField] private InitiativeContainer m_InitiativeContainer;
     [SerializeField] private AnimationsStateMashine m_AnimationsStateMashine;
     [SerializeField] private MapObjSpriteRotator m_MapObjSpriteRotator;
     [SerializeField] private ShowUI m_ShowUI;
@@ -66,12 +65,6 @@ public class MapObject : MonoBehaviour
     {
         get => m_SkipTurnModule;
         set => m_SkipTurnModule = value;
-    }
-
-    public InitiativeContainer InitiativeContainer
-    {
-        get => m_InitiativeContainer;
-        set => m_InitiativeContainer = value;
     }
 
     public MapObjSpriteRotator SpriteRotator

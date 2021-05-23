@@ -42,6 +42,11 @@ PrefabInstance:
       propertyPath: m_IgnoreTraps
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5427253816605890931, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
+        type: 3}
+      propertyPath: ignoreTraps
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5524818808114809118, guid: 4d22fb439e2ae7c41bd9b5b23aceb250,
         type: 3}
       propertyPath: OnDied.m_PersistentCalls.m_Calls.Array.size

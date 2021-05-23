@@ -140,7 +140,7 @@ public class ActiveObjectsQueue : MonoBehaviour
 
     public void StartNextAction()
     {
-        m_CurrentCharacter.GetComponent<BaseInput>().DoSomething();
+        m_CurrentCharacter.GetComponent<BaseInput>().Act();
     }
     
     public void RemoveCharacterFromStack(MapObject mapObject)

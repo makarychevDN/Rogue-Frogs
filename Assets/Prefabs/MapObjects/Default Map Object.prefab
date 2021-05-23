@@ -611,7 +611,6 @@ GameObject:
   - component: {fileID: 3364906430477112401}
   - component: {fileID: 580135006043732780}
   - component: {fileID: 7692104732494564149}
-  - component: {fileID: 3496162514070850782}
   - component: {fileID: 5153808861905180153}
   - component: {fileID: 405666737696072823}
   - component: {fileID: 3941225358882038696}
@@ -660,7 +659,6 @@ MonoBehaviour:
   m_Destructible: {fileID: 580135006043732780}
   m_SkipTurnAnimation: {fileID: 6253253949558179749}
   m_SkipTurnModule: {fileID: 7692104732494564149}
-  m_InitiativeContainer: {fileID: 3496162514070850782}
   m_AnimationsStateMashine: {fileID: 573186985650939648}
   m_MapObjSpriteRotator: {fileID: 5153808861905180153}
   m_ShowUI: {fileID: 405666737696072823}
@@ -769,19 +767,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MapObject: {fileID: 4159493106554256552}
   m_SkipTurnAnimationGameObject: {fileID: 6253253949558179749}
---- !u!114 &3496162514070850782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4159493106554256554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9efe9617dbb2d44db6e64ebc7534ad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Initiative: 0
 --- !u!114 &5153808861905180153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,7 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4059914d1388ee4d81a51c62328247a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Sprites:
+  sprites:
   - {fileID: 4159493106408508509}
 --- !u!114 &405666737696072823
 MonoBehaviour:
@@ -2131,12 +2116,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5961421033fa223468857a0a15bc384e, type: 3}
---- !u!4 &6531077373489959573 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2673483998905461677, guid: 5961421033fa223468857a0a15bc384e,
-    type: 3}
-  m_PrefabInstance: {fileID: 9203409084094003512}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9643023117235655 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9195032724257115391, guid: 5961421033fa223468857a0a15bc384e,
@@ -2149,3 +2128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06bb18e7c5c2c84ba05012b94379736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6531077373489959573 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2673483998905461677, guid: 5961421033fa223468857a0a15bc384e,
+    type: 3}
+  m_PrefabInstance: {fileID: 9203409084094003512}
+  m_PrefabAsset: {fileID: 0}

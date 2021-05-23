@@ -6,24 +6,24 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {    
-    [SerializeField] private MapObject m_TopRightWall;
-    private MapObject[,,] m_Cells;
+    [SerializeField] private MapObject topRightWall;
+    private MapObject[,,] cells;
     private PathFinder pathfinder;
     private int sizeX, sizeY;
 
     void Start()
     {
-        sizeX = m_TopRightWall.Pos.x + 1;
-        sizeY = m_TopRightWall.Pos.y + 1;
-        m_Cells = new MapObject[sizeX, sizeY, 2];
-        var tempMapObjects = FindObjectsOfType<MapObject>();
+        sizeX = topRightWall.Pos.x + 1;
+        sizeY = topRightWall.Pos.y + 1;
+        cells = new MapObject[sizeX, sizeY, 2];
 
+        var tempMapObjects = FindObjectsOfType<MapObject>();
         foreach (var item in tempMapObjects)
         {
             if(item is MapObjectSurface)
-                m_Cells[item.Pos.x, item.Pos.y, 1] = item;
+                cells[item.Pos.x, item.Pos.y, 1] = item;
             else
-                m_Cells[item.Pos.x, item.Pos.y, 0] = item;
+                cells[item.Pos.x, item.Pos.y, 0] = item;
         }
 
         pathfinder = new PathFinder(this);
@@ -32,20 +32,20 @@ public class Map : MonoBehaviour
     #region PropertiesAndGetSetters
     public MapObject GetMapObjectByVector(Vector2Int coordinates)
     {
-        return m_Cells[coordinates.x, coordinates.y, 0];
+        return cells[coordinates.x, coordinates.y, 0];
     }
     
     public MapObjectSurface GetSurfaceByVector(Vector2Int coordinates)
     {
-        return (MapObjectSurface)m_Cells[coordinates.x, coordinates.y, 1];
+        return (MapObjectSurface)cells[coordinates.x, coordinates.y, 1];
     }
     
     public void SetMapObjectByVector(Vector2Int coordinates, MapObject mapObject)
     {
         pathfinder.NodesGrid[coordinates.x, coordinates.y].Busy = mapObject != null;
-        m_Cells[coordinates.x, coordinates.y, 0] = mapObject;
+        cells[coordinates.x, coordinates.y, 0] = mapObject;
     }
-    public MapObject[,,] Cells { get => m_Cells; set => m_Cells = value; }
+    public MapObject[,,] Cells { get => cells; set => cells = value; }
     public int SizeY { get => sizeY; set => sizeY = value; }
     public int SizeX { get => sizeX; set => sizeX = value; }
     public PathFinder Pathfinder { get => pathfinder; set => pathfinder = value; }
@@ -84,6 +84,8 @@ public class PathFinder : MonoBehaviour
         ResetNodes();
         return AStar(user, target, ignoreTraps);
     }
+
+    #region pathfinding algorithms
     private List<Vector2Int> WaveAlgorithm(MapObject user, MapObject target, bool ignoreTraps)
     {
         childNodes = new List<PathFinderNode>();
@@ -173,6 +175,7 @@ public class PathFinder : MonoBehaviour
 
         return null;
     }
+    #endregion
 
     #region InitPathfinder
     private void InitializeDirVectors()
@@ -244,21 +247,19 @@ public class PathFinderNode
         neighbors = new List<PathFinderNode>();
     }
 
-    #region properties
-    public List<PathFinderNode> Neighbors
+    public void AddNeighbor(PathFinderNode neighbor)
     {
-        get => neighbors; set => neighbors = value;
+        neighbors.Add(neighbor);
     }
+
+    #region properties
+    public List<PathFinderNode> Neighbors { get => neighbors; set => neighbors = value; }
     public bool UsedToPathFinding { get => usedToPathFinding; set => usedToPathFinding = value; }
     public Vector2Int Pos { get => pos; set => pos = value; }
     public PathFinderNode Previous { get => previous; set => previous = value; }
     public bool Busy { get => busy; set => busy = value; }
     public float Weight { get => weight; set => weight = value; }
 
-    public void AddNeighbor(PathFinderNode neighbor)
-    {
-        neighbors.Add(neighbor);
-    }
     #endregion
 }
 

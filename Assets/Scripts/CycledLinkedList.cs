@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class CycledLinkedList : IEnumerable
 {
-    private QueueNode m_HeadNode;
+    private QueueNode headNode;
 
     public QueueNode HeadNode
     {
-        get => m_HeadNode;
-        set => m_HeadNode = value;
+        get => headNode;
+        set => headNode = value;
     }
 
     #region Constructors
     public CycledLinkedList()
     {
-        m_HeadNode = null;
+        headNode = null;
     }
 
     public CycledLinkedList(MapObject mapObject)
@@ -44,7 +44,7 @@ public class CycledLinkedList : IEnumerable
     #region AddMethods
     public void Add(MapObject mapObject)
     {
-        if (m_HeadNode == null)
+        if (headNode == null)
         {
             InsertNodeInEmptyList(mapObject);
         }
@@ -57,7 +57,7 @@ public class CycledLinkedList : IEnumerable
 
     public void AddFirst(MapObject mapObject)
     {
-        if (m_HeadNode == null)
+        if (headNode == null)
         {
             InsertNodeInEmptyList(mapObject);
         }
@@ -65,26 +65,26 @@ public class CycledLinkedList : IEnumerable
         else
         {
             AddToTheEndOfList(mapObject);
-            m_HeadNode = m_HeadNode.Previous;
+            headNode = headNode.Previous;
         }
     }  
 
     public void AddSecond(MapObject mapObject)
     {
-        if (m_HeadNode == null)
+        if (headNode == null)
         {
             InsertNodeInEmptyList(mapObject);
         }
 
         else
         {
-            InsertNode(new QueueNode(mapObject), m_HeadNode, m_HeadNode.Next);
+            InsertNode(new QueueNode(mapObject), headNode, headNode.Next);
         }
     }
 
     public void AddAfterTargetObject(MapObject TargetObject, MapObject newMapObject)
     {
-        QueueNode temp = m_HeadNode;
+        QueueNode temp = headNode;
             
         while (temp.MapObject != TargetObject)
         {
@@ -96,7 +96,7 @@ public class CycledLinkedList : IEnumerable
     
     public void AddBeforeTargetObject(MapObject TargetObject, MapObject newMapObject)
     {
-        QueueNode temp = m_HeadNode;
+        QueueNode temp = headNode;
             
         while (temp.MapObject != TargetObject)
         {
@@ -108,14 +108,14 @@ public class CycledLinkedList : IEnumerable
     
     private void AddToTheEndOfList(MapObject mapObject)
     {
-        QueueNode temp = m_HeadNode;
+        QueueNode temp = headNode;
             
-        while (temp.Next != m_HeadNode)
+        while (temp.Next != headNode)
         {
             temp = temp.Next;
         }
         
-        InsertNode(new QueueNode(mapObject), temp, m_HeadNode);        
+        InsertNode(new QueueNode(mapObject), temp, headNode);        
     } 
 
     private void InsertNode(QueueNode newNode, QueueNode previous, QueueNode next)
@@ -128,19 +128,19 @@ public class CycledLinkedList : IEnumerable
 
     private void InsertNodeInEmptyList(MapObject mapObject)
     {
-        m_HeadNode = new QueueNode(mapObject);
-        m_HeadNode.Next = m_HeadNode;
-        m_HeadNode.Previous = m_HeadNode;
+        headNode = new QueueNode(mapObject);
+        headNode.Next = headNode;
+        headNode.Previous = headNode;
     }
     #endregion
 
     #region RemoveMethods
     public void Remove(MapObject mapObject)
     {
-        if (m_HeadNode == null)
+        if (headNode == null)
             return;
 
-        QueueNode temp = m_HeadNode;
+        QueueNode temp = headNode;
         
         while (temp.MapObject != mapObject)
         {
@@ -150,9 +150,9 @@ public class CycledLinkedList : IEnumerable
         temp.Previous.Next = temp.Next;
         temp.Next.Previous = temp.Previous;
         
-        if (m_HeadNode.MapObject == mapObject)
+        if (headNode.MapObject == mapObject)
         {
-            m_HeadNode = temp.Next;
+            headNode = temp.Next;
         }
     }
     #endregion
@@ -165,40 +165,40 @@ public class CycledLinkedList : IEnumerable
     
     public CycledQueueEnum GetEnumerator()
     {
-        return new CycledQueueEnum(m_HeadNode);
+        return new CycledQueueEnum(headNode);
     }
     #endregion
 }
 
 public class CycledQueueEnum : IEnumerator
 {
-    public QueueNode _head;
-    public QueueNode _Current;
+    public QueueNode head;
+    public QueueNode current;
     public CycledQueueEnum(QueueNode node)
     {
-        _head = node;
+        head = node;
     }
 
     public bool MoveNext()
     {
-        if (_head == null)
+        if (head == null)
         {
             return false;
         }
         
-        if (_Current == null)
+        if (current == null)
         {
-            _Current = _head;
+            current = head;
             return true;
         }
         
-        _Current = _Current.Next;
-        return (_Current != _head);
+        current = current.Next;
+        return (current != head);
     }
 
     public void Reset()
     {
-        Current = _head;
+        Current = head;
     }
 
     object IEnumerator.Current
@@ -213,43 +213,43 @@ public class CycledQueueEnum : IEnumerator
     {
         get
         {
-            return _Current;
+            return current;
         }
 
         set
         {
-            _Current = value;
+            current = value;
         }
     }
 }
 
 public class QueueNode
 {
-    private MapObject m_MapObject;
-    private QueueNode m_Next;
-    private QueueNode m_Previous;
+    private MapObject mapObject;
+    private QueueNode next;
+    private QueueNode previous;
 
 
     public MapObject MapObject
     {
-        get => m_MapObject;
-        set => m_MapObject = value;
+        get => mapObject;
+        set => mapObject = value;
     }
 
     public QueueNode Next
     {
-        get => m_Next;
-        set => m_Next = value;
+        get => next;
+        set => next = value;
     }
     
     public QueueNode Previous
     {
-        get => m_Previous;
-        set => m_Previous = value;
+        get => previous;
+        set => previous = value;
     }
 
     public QueueNode(MapObject mapObject)
     {
-        m_MapObject = mapObject;
+        this.mapObject = mapObject;
     }
 }

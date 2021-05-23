@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MapObjSpriteRotator : MonoBehaviour
 {
-    [SerializeField] private List<Transform> m_Sprites;
+    [SerializeField] private List<Transform> sprites;
     
     public void RotateSprite(Vector2Int input)
     {
-        foreach (var temp in m_Sprites)
+        foreach (var temp in sprites)
         {
             if(input == Vector2Int.right)
                 temp.rotation = Quaternion.Euler(0,0,0);

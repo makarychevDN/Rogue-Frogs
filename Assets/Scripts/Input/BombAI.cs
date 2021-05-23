@@ -7,7 +7,7 @@ public class BombAI : BaseInput
 {
     [SerializeField] private MapObject m_MapObject;
 
-    public override void DoSomething()
+    public override void Act()
     {
         if (m_MapObject.ActionPointsContainerModule.CurrentPoints == 2)
         {

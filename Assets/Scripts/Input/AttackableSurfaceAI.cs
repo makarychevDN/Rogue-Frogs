@@ -13,7 +13,7 @@ public class AttackableSurfaceAI : BaseInput
     
     private int m_Count;
     
-    public override void DoSomething()
+    public override void Act()
     {
         if (m_Count == m_TurnsBeforeHit-1)
         {

@@ -12,43 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9b84fd0373d924cacaf3398311af8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ActionDelay: 0.2
-  m_ThisMapObject: {fileID: 9014069178189991578}
-  m_Target: {fileID: 0}
-  m_Attackable: {fileID: 6025039437618041192}
---- !u!114 &6025039437618041192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2639925914815117043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Damage: 1
-  m_Range: 1
-  m_ActionCost: 1
-  m_MabObject: {fileID: 9014069178189991578}
-  m_DamageUI: {fileID: 9014069177699243496}
-  m_AnimationTime: 0.35
-  m_PlayerInput: {fileID: 0}
-  OnAttack:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 585345044035546626}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  actionDelay: 0.2
+  mapObject: {fileID: 9014069178189991578}
+  target: {fileID: 0}
+  attackable: {fileID: 6025039437618041192}
+  ignoreTraps: 0
 --- !u!82 &585345044035546626
 AudioSource:
   m_ObjectHideFlags: 0
@@ -145,6 +113,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6025039437618041192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2639925914815117043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f6c6b11c9126d4f86449b14e1e9d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 1
+  m_Range: 1
+  m_ActionCost: 1
+  m_MabObject: {fileID: 9014069178189991578}
+  m_DamageUI: {fileID: 9014069177699243496}
+  m_AnimationTime: 0.35
+  m_PlayerInput: {fileID: 0}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 585345044035546626}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &4945256792215384626
 PrefabInstance:
   m_ObjectHideFlags: 0

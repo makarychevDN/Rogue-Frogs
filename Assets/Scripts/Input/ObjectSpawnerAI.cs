@@ -24,7 +24,7 @@ public class ObjectSpawnerAI : BaseInput
         m_VectorsToCheckPlace.Add(Vector2Int.right);
     }
 
-    public override void DoSomething()
+    public override void Act()
     {
         m_ThisMapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
         m_CurrentSpawnPos = FindEmptyPlacesAroundTarget();

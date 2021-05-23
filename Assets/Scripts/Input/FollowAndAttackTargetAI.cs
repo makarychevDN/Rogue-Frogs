@@ -6,33 +6,33 @@ using UnityEngine;
 public class FollowAndAttackTargetAI : BaseInput
 {
     [Header("Setup")]
-    [Range(0,1)] [SerializeField] private float m_ActionDelay;
-    [SerializeField] private MapObject m_ThisMapObject;
-    [SerializeField] private MapObject m_Target;
-    [SerializeField] private AttackableInDirection m_Attackable;
-    [SerializeField] private bool m_IgnoreTraps;
+    [Range(0,1)] [SerializeField] private float actionDelay;
+    [SerializeField] private MapObject mapObject;
+    [SerializeField] private MapObject target;
+    [SerializeField] private AttackableInDirection attackable;
+    [SerializeField] private bool ignoreTraps;
 
-    private List<Vector2Int> m_ClosestWay;
-    private List<Vector2Int> m_VerAndHorVectors;
+    private List<Vector2Int> closestWay;
+    private List<Vector2Int> verAndHorVectors;
     private bool hitAlready;
 
     private void Awake()
     {
-        m_Target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
-        m_VerAndHorVectors = new List<Vector2Int>();
-        m_VerAndHorVectors.Add(Vector2Int.up);
-        m_VerAndHorVectors.Add(Vector2Int.left);
-        m_VerAndHorVectors.Add(Vector2Int.down);
-        m_VerAndHorVectors.Add(Vector2Int.right);
+        target = FindObjectOfType<PlayerInput>().GetComponent<MapObject>();
+        verAndHorVectors = new List<Vector2Int>();
+        verAndHorVectors.Add(Vector2Int.up);
+        verAndHorVectors.Add(Vector2Int.left);
+        verAndHorVectors.Add(Vector2Int.down);
+        verAndHorVectors.Add(Vector2Int.right);
     }
 
-    public override void DoSomething()
+    public override void Act()
     {
-        m_ThisMapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
-        Invoke("DoSomethingWithDelay", m_ActionDelay);
+        mapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
+        Invoke("ActWithDelay", actionDelay);
     }
 
-    private void DoSomethingWithDelay()
+    private void ActWithDelay()
     {
         hitAlready = false;
         TryToHitTarget();
@@ -40,16 +40,16 @@ public class FollowAndAttackTargetAI : BaseInput
         {
             TryToComeCloserToTarget();
         }
-        m_ThisMapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+        mapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
     }
 
     private void TryToHitTarget()
     {
-        foreach (var item in m_VerAndHorVectors)
+        foreach (var item in verAndHorVectors)
         {
-            if (m_Attackable.CheckAttackTargetIsPossible(item, m_Target))
+            if (attackable.CheckAttackTargetIsPossible(item, target))
             {
-                m_Attackable.Attack(item);
+                attackable.Attack(item);
                 hitAlready = true;
             }
         }
@@ -57,18 +57,18 @@ public class FollowAndAttackTargetAI : BaseInput
 
     private void TryToComeCloserToTarget()
     {
-        m_ClosestWay = m_ThisMapObject.Map.Pathfinder.FindWay(m_ThisMapObject, m_Target, m_IgnoreTraps);
+        closestWay = mapObject.Map.Pathfinder.FindWay(mapObject, target, ignoreTraps);
 
-        if (m_ClosestWay != null && 
-            m_ThisMapObject.MovableModule.DefaultStepCost <= m_ThisMapObject.ActionPointsContainerModule.CurrentPoints &&
-            m_ClosestWay.Count > 1)
+        if (closestWay != null && 
+            mapObject.MovableModule.DefaultStepCost <= mapObject.ActionPointsContainerModule.CurrentPoints &&
+            closestWay.Count > 1)
 
         {
-            m_ThisMapObject.MovableModule.Move(m_ThisMapObject.Pos, m_ClosestWay[0]);
+            mapObject.MovableModule.Move(mapObject.Pos, closestWay[0]);
         }
         else
         {
-            m_ThisMapObject.SkipTurnModule1.SkipTurn();
+            mapObject.SkipTurnModule1.SkipTurn();
         }
     }
 }
