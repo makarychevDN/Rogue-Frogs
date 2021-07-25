@@ -10,13 +10,10 @@ public class ActionPointsContainer : MonoBehaviour
     [SerializeField] private int currentPoints;
     [SerializeField] private int pointsRegeneration;
 
-    [Header("Setup")]
-    [SerializeField] private ActionPointsUI UIVisualisation;
-
     [Header("Events")] 
     [SerializeField] private UnityEvent OnSpentActionPoints;
     [SerializeField] private UnityEvent OnPointsRegeneration;
-    public UnityEvent OnPointsValueChanged;
+    [SerializeField] private UnityEvent OnPointsValueChanged;
 
     public int CurrentPoints 
     { 
