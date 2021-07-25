@@ -16,7 +16,8 @@ public class ActionPointsContainer : MonoBehaviour
     [Header("Events")] 
     [SerializeField] private UnityEvent OnSpentActionPoints;
     [SerializeField] private UnityEvent OnPointsRegeneration;
-   
+    public UnityEvent OnPointsValueChanged;
+
     public int CurrentPoints 
     { 
         get => currentPoints; 
@@ -26,27 +27,27 @@ public class ActionPointsContainer : MonoBehaviour
                 OnSpentActionPoints?.Invoke();
 
             currentPoints = value;
-            UIVisualisation.ReFillIcons(currentPoints);
+            OnPointsValueChanged.Invoke();
         } 
     }
     
-    private void Reset()
+    private void Start()
     {
-        if(GetComponentInChildren<ActionPointsUI>() != null)
-            UIVisualisation = GetComponentInChildren<ActionPointsUI>();
+        if (GetComponentInChildren<ActionPointsUI>() != null)
+            OnPointsValueChanged.AddListener(GetComponentInChildren<ActionPointsUI>().ReFillIcons);
     }
 
     public void RestorePoints()
     {
         currentPoints += pointsRegeneration;
         currentPoints = Mathf.Clamp(currentPoints, 0, maxPoints);
-        UIVisualisation.ReFillIcons(currentPoints);
+        OnPointsValueChanged.Invoke();
         OnPointsRegeneration?.Invoke();
     }
 
     public void RestoreAllPoints()
     {
         currentPoints = maxPoints;
-        UIVisualisation.ReFillIcons(currentPoints);
+        OnPointsValueChanged.Invoke();
     }
 }

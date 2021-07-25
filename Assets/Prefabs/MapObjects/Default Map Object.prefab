@@ -726,6 +726,9 @@ MonoBehaviour:
   OnPointsRegeneration:
     m_PersistentCalls:
       m_Calls: []
+  OnPointsValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &580135006043732780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,6 +886,7 @@ MonoBehaviour:
   m_ActionPointIcons:
   - {fileID: 9643023117235655}
   - {fileID: 7392498098556551863}
+  actionPointsContainer: {fileID: 3364906430477112401}
 --- !u!1 &4159493107035705767
 GameObject:
   m_ObjectHideFlags: 0

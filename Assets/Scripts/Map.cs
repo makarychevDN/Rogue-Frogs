@@ -54,7 +54,7 @@ public class Map : MonoBehaviour
 }
 
 
-public class PathFinder : MonoBehaviour
+public class PathFinder
 {
     private Map map;
     private PathFinderNode[,] nodesGrid;
