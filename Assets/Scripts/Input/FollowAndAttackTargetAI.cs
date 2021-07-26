@@ -28,7 +28,7 @@ public class FollowAndAttackTargetAI : BaseInput
 
     public override void Act()
     {
-        mapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
+        CurrentlyActiveObjects.Add(this);
         Invoke("ActWithDelay", actionDelay);
     }
 
@@ -40,7 +40,7 @@ public class FollowAndAttackTargetAI : BaseInput
         {
             TryToComeCloserToTarget();
         }
-        mapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+        CurrentlyActiveObjects.Remove(this);
     }
 
     private void TryToHitTarget()

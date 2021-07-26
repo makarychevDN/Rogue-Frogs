@@ -46,7 +46,7 @@ public class Destructible : MonoBehaviour
 
             if (m_CurrentHP == 0)
             {
-                m_MapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
+                CurrentlyActiveObjects.Add(this);
                 FindObjectOfType<Map>().SetMapObjectByVector(GetComponent<MapObject>().Pos, null);
                 FindObjectOfType<Score>().AddScore(m_ScoreCost);
                 OnDied?.Invoke();
@@ -59,7 +59,7 @@ public class Destructible : MonoBehaviour
     private void RemoveObject()
     {
         var temp = GetComponent<MapObject>();
-        m_MapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+        CurrentlyActiveObjects.Remove(this);
         m_MapObject.ActiveObjectsQueue.RemoveCharacterFromStack(temp);
         Destroy(gameObject);
     }

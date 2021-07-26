@@ -9,14 +9,12 @@ public class ActiveObjectsQueue : MonoBehaviour
     [SerializeField] private MapObject m_CurrentCharacter;
 
     private CycledLinkedList m_Queue;
-    private List<MonoBehaviour> m_ActiveNowObjects;
     private QueueNode m_CurrentQueueNode;
     private bool m_ShowAllUiNow;
 
     
     private void Awake()
     {
-        m_ActiveNowObjects = new List<MonoBehaviour>();
         FindAllActiveMapObjects();
         m_CurrentQueueNode = m_Queue.HeadNode;
         m_CurrentCharacter = m_Queue.HeadNode.MapObject;
@@ -46,23 +44,10 @@ public class ActiveObjectsQueue : MonoBehaviour
 
         }
     }
-
-    #region ActiveNowObjects
-
-    public void AddToActiveObjectsList(MonoBehaviour something)
-    {
-        m_ActiveNowObjects.Add(something);
-    }
-
-    public void RemoveFromActiveObjectsList(MonoBehaviour something)
-    {
-        m_ActiveNowObjects.Remove(something);
-    }
-    #endregion
     
     private void Update()
     {
-        if (m_ActiveNowObjects.Count == 0)
+        if (!CurrentlyActiveObjects.SomethingIsActNow)
         {
             StartNextAction();
         }
@@ -93,50 +78,6 @@ public class ActiveObjectsQueue : MonoBehaviour
             }
         }
     }
-
-    #region QueueVisualisation
-
-    /*
-    public void SortActiveObjects()
-    {
-        InitiativeComparer ic = new InitiativeComparer();
-    }
-
-    public void InitPanels()
-    {
-        m_Cells = new List<QueueCell>();
-        for (int i = 0; i < m_Queue.Count; i++)
-        {
-            var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
-            spawnedPanel.transform.localPosition = Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Queue.Count-1) * 0.5f * m_IndentMultiplier;
-            spawnedPanel.SetSprite(m_Queue[i].Sprite);
-            m_Cells.Add(spawnedPanel);
-            spawnedPanel.transform.parent = m_QueueVisualisationParent;
-        }
-        
-        m_Cells[0].ActiveCell.SetActive(true);
-    }
-    
-    public void RearrangeCells()
-    {
-        for (int i = 0; i < m_Cells.Count; i++)
-        {
-            m_Cells[i].transform.localPosition = Vector3.right * i * m_IndentMultiplier - Vector3.right * (m_Queue.Count-1) * 0.5f * m_IndentMultiplier;
-        }
-    }
-    
-    public void InitPanel(MapObject mapObject)
-    {
-        var spawnedPanel = Instantiate(m_QueuePanelPrefab, transform);
-
-        int count = m_Queue.IndexOf(mapObject);
-        
-        spawnedPanel.SetSprite(mapObject.Sprite);
-        spawnedPanel.transform.parent = m_QueueVisualisationParent;
-        m_Cells.Insert(count, spawnedPanel);
-    }*/
-    
-    #endregion
 
     public void StartNextAction()
     {

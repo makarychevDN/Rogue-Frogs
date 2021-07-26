@@ -139,8 +139,8 @@ public class Movable : MonoBehaviour
 
     private void StartMovementSetup(Vector2Int input, AnimType animType, float animTime, int stepCost, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
     {
-        m_MapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
-        if(m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos) != null)
+        CurrentlyActiveObjects.Add(this);
+        if (m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos) != null)
             m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
         m_MapObject.ActionPointsContainerModule.CurrentPoints -= stepCost;
         m_CurrentAnimType = animType;
@@ -188,8 +188,8 @@ public class Movable : MonoBehaviour
     
     private void StartMovementSetup(Vector2Int startPos, Vector2Int endPos, AnimType animType, float animTime, int stepCost, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
     {
-        m_MapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
-        if(m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos) != null)
+        CurrentlyActiveObjects.Add(this);
+        if (m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos) != null)
             m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
         m_MapObject.ActionPointsContainerModule.CurrentPoints -= stepCost;
         m_CurrentAnimType = animType;
@@ -241,7 +241,7 @@ public class Movable : MonoBehaviour
 
     public void StopMovement()
     {
-        m_MapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+        CurrentlyActiveObjects.Remove(this);
         transform.position = new Vector3(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y), 0);
         m_MoveNow = false;
         

@@ -28,13 +28,13 @@ public class AttackableAroundPointAOE : MonoBehaviour
                 
             }
         }
-        
-        m_MapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+
+        CurrentlyActiveObjects.Remove(this);
     }
 
     public void AttackWithDelay(float delay)
     {
-        m_MapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
+        CurrentlyActiveObjects.Add(this);
         Invoke("Attack", delay);
     }
     

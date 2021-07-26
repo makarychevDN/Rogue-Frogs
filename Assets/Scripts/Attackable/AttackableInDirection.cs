@@ -70,7 +70,7 @@ public class AttackableInDirection : MonoBehaviour
 
     public void Attack(Vector2Int input)
     {
-        m_MabObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
+        CurrentlyActiveObjects.Add(this);
         if (m_MabObject.ActionPointsContainerModule.CurrentPoints >= m_ActionCost)
         {
             MapObject tempMapObject;
@@ -113,10 +113,10 @@ public class AttackableInDirection : MonoBehaviour
         m_CurrentDestructible.CurrentHP -= m_Damage;
         m_CurrentDestructible.StoptHitAnimation();
         m_MabObject.AnimationStateMashine.ActivateStayAnim();
-        
-        
-        m_MabObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
-        
+
+
+        CurrentlyActiveObjects.Remove(this);
+
         if (m_MabObject.ActionPointsContainerModule.CurrentPoints == 0)
         {
             m_MabObject.ActiveObjectsQueue.SkipTheTurn();

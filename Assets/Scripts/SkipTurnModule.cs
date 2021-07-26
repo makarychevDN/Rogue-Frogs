@@ -14,7 +14,7 @@ public class SkipTurnModule : MonoBehaviour
 
     public void SkipTurn()
     {
-        m_MapObject.ActiveObjectsQueue.AddToActiveObjectsList(this);
+        CurrentlyActiveObjects.Add(this);
         m_SkipTurnAnimationGameObject.SetActive(true);
         Invoke("StopClockAnimation", m_SkipTurnAnimationTime);
         Invoke("SendMessageToQueue", m_SkipTurnDelay);
@@ -22,7 +22,7 @@ public class SkipTurnModule : MonoBehaviour
 
     private void SendMessageToQueue()
     {
-        m_MapObject.ActiveObjectsQueue.RemoveFromActiveObjectsList(this);
+        CurrentlyActiveObjects.Remove(this);
         m_MapObject.ActiveObjectsQueue.SkipTheTurn();
     }
     private void StopClockAnimation()
