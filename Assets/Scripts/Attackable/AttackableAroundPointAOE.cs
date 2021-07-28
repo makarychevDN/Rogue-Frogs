@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackableAroundPointAOE : MonoBehaviour
+public class AttackableAroundPointAOE : ActivatableBehavior
 {
     [Header("References Setup")]
     [SerializeField] private MapObject m_MapObject;
@@ -29,12 +29,12 @@ public class AttackableAroundPointAOE : MonoBehaviour
             }
         }
 
-        CurrentlyActiveObjects.Remove(this);
+        ActiveNow = false;
     }
 
     public void AttackWithDelay(float delay)
     {
-        CurrentlyActiveObjects.Add(this);
+        ActiveNow = true;
         Invoke("Attack", delay);
     }
     

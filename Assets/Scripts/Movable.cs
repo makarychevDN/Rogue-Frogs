@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Movable : MonoBehaviour
+public class Movable : ActivatableBehavior
 {
     [Header("References Setup")] 
     [SerializeField] private MapObject m_MapObject;
@@ -139,7 +139,7 @@ public class Movable : MonoBehaviour
 
     private void StartMovementSetup(Vector2Int input, AnimType animType, float animTime, int stepCost, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
     {
-        CurrentlyActiveObjects.Add(this);
+        ActiveNow = true;
         if (m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos) != null)
             m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
         m_MapObject.ActionPointsContainerModule.CurrentPoints -= stepCost;
@@ -188,7 +188,7 @@ public class Movable : MonoBehaviour
     
     private void StartMovementSetup(Vector2Int startPos, Vector2Int endPos, AnimType animType, float animTime, int stepCost, bool isStartCellBecameEmpty, bool isNextCellBecameFull)
     {
-        CurrentlyActiveObjects.Add(this);
+        ActiveNow = true;
         if (m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos) != null)
             m_MapObject.Map.GetSurfaceByVector(m_MapObject.Pos).ActivateOnStepOutEvent();
         m_MapObject.ActionPointsContainerModule.CurrentPoints -= stepCost;
@@ -241,7 +241,7 @@ public class Movable : MonoBehaviour
 
     public void StopMovement()
     {
-        CurrentlyActiveObjects.Remove(this);
+        ActiveNow = false;
         transform.position = new Vector3(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y), 0);
         m_MoveNow = false;
         

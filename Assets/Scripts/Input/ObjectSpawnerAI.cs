@@ -26,7 +26,7 @@ public class ObjectSpawnerAI : BaseInput
 
     public override void Act()
     {
-        CurrentlyActiveObjects.Add(this);
+        ActiveNow = true;
         m_CurrentSpawnPos = FindEmptyPlacesAroundTarget();
         if (m_CurrentSpawnPos != Vector2Int.zero && m_ThisMapObject.ActionPointsContainerModule.CurrentPoints >= 3)
         {
@@ -36,14 +36,14 @@ public class ObjectSpawnerAI : BaseInput
         }
         else
         {
-            CurrentlyActiveObjects.Remove(this);
+            ActiveNow = false;
             GetComponent<SkipTurnModule>().SkipTurn();
         }
     }
 
     public void Spawn()
     {
-        CurrentlyActiveObjects.Remove(this);
+        ActiveNow = false;
         var temp = Instantiate(m_SpawnObjectPrefab);
         m_ThisMapObject.Map.SetMapObjectByVector(m_CurrentSpawnPos,temp);
         temp.transform.position = new Vector3(m_CurrentSpawnPos.x, m_CurrentSpawnPos.y);
@@ -54,7 +54,7 @@ public class ObjectSpawnerAI : BaseInput
     
     public void SpawnAndPush()
     {
-        CurrentlyActiveObjects.Remove(this);
+        ActiveNow = false;
         var temp = Instantiate(m_SpawnObjectPrefab);
         temp.transform.position = transform.position;
         temp.Pos = new Vector2Int(Convert.ToInt32(transform.position.x), Convert.ToInt32(transform.position.y));

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Destructible : MonoBehaviour
+public class Destructible : ActivatableBehavior
 {
     [Header("References Setup")]
     [SerializeField] private MapObject m_MapObject;
@@ -46,7 +46,7 @@ public class Destructible : MonoBehaviour
 
             if (m_CurrentHP == 0)
             {
-                CurrentlyActiveObjects.Add(this);
+                ActiveNow = true;
                 FindObjectOfType<Map>().SetMapObjectByVector(GetComponent<MapObject>().Pos, null);
                 FindObjectOfType<Score>().AddScore(m_ScoreCost);
                 OnDied?.Invoke();
@@ -59,7 +59,7 @@ public class Destructible : MonoBehaviour
     private void RemoveObject()
     {
         var temp = GetComponent<MapObject>();
-        CurrentlyActiveObjects.Remove(this);
+        ActiveNow = false;
         m_MapObject.ActiveObjectsQueue.RemoveCharacterFromStack(temp);
         Destroy(gameObject);
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkipTurnModule : MonoBehaviour
+public class SkipTurnModule : ActivatableBehavior
 {
     [Header("References Setup")] 
     [SerializeField] private MapObject m_MapObject;
@@ -14,7 +14,7 @@ public class SkipTurnModule : MonoBehaviour
 
     public void SkipTurn()
     {
-        CurrentlyActiveObjects.Add(this);
+        ActiveNow = true;
         m_SkipTurnAnimationGameObject.SetActive(true);
         Invoke("StopClockAnimation", m_SkipTurnAnimationTime);
         Invoke("SendMessageToQueue", m_SkipTurnDelay);
@@ -22,7 +22,7 @@ public class SkipTurnModule : MonoBehaviour
 
     private void SendMessageToQueue()
     {
-        CurrentlyActiveObjects.Remove(this);
+        ActiveNow = false;
         m_MapObject.ActiveObjectsQueue.SkipTheTurn();
     }
     private void StopClockAnimation()

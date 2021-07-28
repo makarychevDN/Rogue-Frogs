@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AttackableInDirection : MonoBehaviour
+public class AttackableInDirection : ActivatableBehavior
 {
     [Header("Characteristics")]
     [SerializeField] private int m_Damage;
@@ -70,7 +70,7 @@ public class AttackableInDirection : MonoBehaviour
 
     public void Attack(Vector2Int input)
     {
-        CurrentlyActiveObjects.Add(this);
+        ActiveNow = true;
         if (m_MabObject.ActionPointsContainerModule.CurrentPoints >= m_ActionCost)
         {
             MapObject tempMapObject;
@@ -114,8 +114,7 @@ public class AttackableInDirection : MonoBehaviour
         m_CurrentDestructible.StoptHitAnimation();
         m_MabObject.AnimationStateMashine.ActivateStayAnim();
 
-
-        CurrentlyActiveObjects.Remove(this);
+        ActiveNow = false;
 
         if (m_MabObject.ActionPointsContainerModule.CurrentPoints == 0)
         {
